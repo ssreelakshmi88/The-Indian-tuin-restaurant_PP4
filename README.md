@@ -7,7 +7,10 @@ The project was developed based on the principles of UX design and the agile dev
 
 #### User stories
 - **First Time Visitor Goals**
+-
+
   i.	As a first time visitor, I want to understand how to navigate and find information.
+  
   
  ii.	I want to have easy access to the menu including prices.
  
@@ -18,14 +21,18 @@ The project was developed based on the principles of UX design and the agile dev
  v.	Finally, I want to make reservations and contact the restaurant, if necessary.
  
 - **Returning Visitor Goals**
+-
 
-   i.	As a returning visitor, I want share my experience through dedicated blog within the site. Furthermore, I should be able to comment on customer testimonials
+   i.	As a returning visitor, I want share my experience through dedicated blog within the site. Furthermore, I should be able to comment on customer testimonials.
+   
    
    ii.	I want to convey my concerns and/or suggestions to the management.
    
    iii.	As a returning visitor, I want to subscribe to restaurant’s newsletter for updates and interesting events.
    
 - **Frequent Visitor Goals**
+
+
   i.	As a frequent visitor, I want to check if there any new blog posts.
  
    ii.	As a frequent user, I can also send messages to the admin asking for new menu.
