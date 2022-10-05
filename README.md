@@ -122,7 +122,7 @@ viii.	Within the settings.py file you need to import the libraries:
         if os.path.isfile('env.py'):
         import env
 
-i.	The next step is to connect the project to whitenoise, which is where the static files will be stored. You can find a full explanation of how to install whitenoise here
+i.	Then onnect the project to whitenoise, which is where the static files will be stored. You can find a full explanation of how to install whitenoise here
 ii.	Then on Heroku add to the Config Vars, DISABLE_COLLECTSTATIC = 1, as a temporary measure to enable deployment without any static files, this will be removed when it is time to deploy the full project.
 iii.	Next we need to tell Django where to store the media and static files. Towards the bottom of settings.py file we can add:
 
@@ -134,7 +134,7 @@ iii.	Next we need to tell Django where to store the media and static files. Towa
           MEDIA_URL = '/media/'
           
 
-i.	Then we need to tell Django where the templates will be stored. At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll down to TEMPLATES and add the templates directory variable to 'DIRS': [].
+i.	At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll down to TEMPLATES and add the templates directory variable to 'DIRS': [].
 
 ii.	Now we have to add our Heroku Host Name into allowed hosts in settings.py file:
 
