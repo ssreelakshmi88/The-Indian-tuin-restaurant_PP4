@@ -1,108 +1,168 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Indian Tuin restaurant
 
-Welcome USER_NAME,
+The webpage of “Indian Tuin” restaurant was developed to introduce customers to the rich and exquisite Indian cuisines. 
+The project was developed based on the principles of UX design and the agile development methodology. The webpage has been created using HTML, CSS, Javascript, Python and Django framework.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+## UX (User Experience)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+#### User stories
+- **First Time Visitor Goals**
+  i.	As a first time visitor, I want to understand how to navigate and find information.
+  
+ ii.	I want to have easy access to the menu including prices.
+ 
+ iii.	To access customer testimonials in dedicated section. In addition, I want to have access to social media page of the restaurant.
+ 
+ iv.	Important information such as directions and opening timing of the restaurant should be easy to access at a click of a button.
+ 
+ v.	Finally, I want to make reservations and contact the restaurant, if necessary.
+ 
+- **Returning Visitor Goals**
 
-## Gitpod Reminders
+   i.	As a returning visitor, I want share my experience through dedicated blog within the site. Furthermore, I should be able to comment on customer testimonials
+   
+   ii.	I want to convey my concerns and/or suggestions to the management.
+   
+   iii.	As a returning visitor, I want to subscribe to restaurant’s newsletter for updates and interesting events.
+   
+- **Frequent Visitor Goals**
+  i.	As a frequent visitor, I want to check if there any new blog posts.
+ 
+   ii.	As a frequent user, I can also send messages to the admin asking for new menu.
+   
+   iii.	As a frequent user, I can like the posts so that the author can know that I enjoyed the content.
+   
+   iv.	As a frequent user, I can like the posts so that the author can know that I enjoyed the content.
+   
+   v.	As a frequent user, I can like the posts so that the author can know that I enjoyed the content.
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+## Design
 
-A blue button should appear to click: _Make Public_,
+#### Colour Scheme
 
-Another blue button should appear to click: _Open Browser_.
+   The main colors used for the web page designing are red, white and black.
+ 
+ 
+####  Typography
+   The Montserrat font is the main font used for the whole website with Sans Serif as the fallback font. Montserrat makes the webpage attractive and clean.
+   
+#### Images
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+   The images were taken from pexels.com
+   
+   
+## Wireframes
 
-A blue button should appear to click: _Make Public_,
+ This can be used as a layout of the various pages. The wireframe images can be found at [wireframes](./wireframes.md).
+ 
+## Features
+  Responsive on all device sizes.
+  
+  
+## Technologies Used
 
-Another blue button should appear to click: _Open Browser_.
+###    Languages Used
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+   - Python, HTML, CSS, JavaScript
 
-To log into the Heroku toolbelt CLI:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+###    Database
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+   - PostgreSQL
+ 
+ 
+ ###    Libraries frameworks and other technologies
+ 
+1.	**Bootstrap 4.4.1**: This is used for responsiveness and styling of the website.
+2.	**Google fonts**: Google fonts were used to import the 'Titillium Web' font into the style.css file which is used on all pages throughout the project.
+3.	**JQuery:** jQuery came with Bootstrap to make the navbar responsive but was also used for the smooth scroll function in JavaScript.
+4.	**Git:** Git was used for version control by utilizing the Gitpod terminal to commit to Git and Push to GitHub.
+5.	**GitHub:** GitHub is used to store the projects code after being pushed from Git.
+6.	**Balsamiq**: Balsamiq is used to create wireframes
 
-------
 
-## Release History
+## Testing
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+The W3C Markup Validator, W3C CSS Validator Services, Jshint and PEP8, Pylint validator were used to validate every page of the project to ensure there were no syntax errors in the project.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+## Deployment
+Deploying the project using Heroku:
+i.	Login to Heroku and Create a New App
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+ii.	Give the App a name, it must be unique, and select a region closest to you
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+iii.	Click on 'Create App', this will take you to a page where you can deploy your project.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+iv.	Click on the 'Resources' tab and search for 'Heroku Postgres' as this is the add-on you will use for the deployed database.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+v.	Click on the 'Settings' tab at the top of the page. The following step must be completed before deployment.
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+vi.	Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py as a root level file. The env.py files is where the projects secret environment variables are stored. This file is then added to a .gitignore file so it isn't stored publicly within the projects repository.
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+vii.	Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on GitPod.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+viii.	Within the settings.py file you need to import the libraries:
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+        import os
+        import dj_database_url
+        from django.contrib.messages import constants as messages
+        if os.path.isfile('env.py'):
+        import env
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+i.	The next step is to connect the project to whitenoise, which is where the static files will be stored. You can find a full explanation of how to install whitenoise here
+ii.	Then on Heroku add to the Config Vars, DISABLE_COLLECTSTATIC = 1, as a temporary measure to enable deployment without any static files, this will be removed when it is time to deploy the full project.
+iii.	Next we need to tell Django where to store the media and static files. Towards the bottom of settings.py file we can add:
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
-------
 
-## FAQ about the uptime script
+          STATIC_URL = '/static/'
+          STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+          STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+          MEDIA_URL = '/media/'
+          
 
-**Why have you added this script?**
+i.	Then we need to tell Django where the templates will be stored. At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll down to TEMPLATES and add the templates directory variable to 'DIRS': [].
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+ii.	Now we have to add our Heroku Host Name into allowed hosts in settings.py file:
 
-**How will this affect me?**
+       ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+i.	Finally, to complete the first deployment set up of the skeleton app, create a Procfile so that Heroku knows how to run the project. Within this file add the following: web: gunicorn APP-NAME.wsgi Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a standard that allows Python services to integrate with web servers.
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+ii.	Now, go to the 'Deploy' Tab on Heroku. Find the 'Deployment Method' section and choose GitHub. Connect to your GitHub account and find the repo you want to deploy.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+iii.	Scroll down to the Automatic and Manual Deploys sections. Click 'Deploy Branch' in the Manual Deploy section and waited as Heroku installed all dependencies and deployed the code.
 
-**So….?**
+iv.	Once the project is finished deploying, click 'Open App' to see the newly deployed project.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+v.	Before deploying the final draft of your project you must:
 
-**Can I opt out?**
+vi. Remove staticcollect=1 from congifvars within Heroku
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+vii. Ensure DEBUG is set to false in settings.py file.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
 
-**Anything more?**
+## Forking the GitHub Repository
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+1.	Log in to GitHub and locate the GitHub Repository
+2.	At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+3.	You should now have a copy of the original repository in your GitHub account.
 
----
+### Making a Local Clone
+1.	Log in to GitHub and locate the GitHub Repository
+2.	Under the repository name, click "Clone or download".
+3.	To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+4.	Open Git Bash
+5.	Change the current working directory to the location where you want the cloned directory to be made.
+6.	Type git clone, and then paste the URL you copied in Step 3.
+https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
 
-Happy coding!
+7.	Press Enter. Your local clone will be created.
+
+
+
