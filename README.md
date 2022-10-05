@@ -6,22 +6,23 @@ The project was developed based on the principles of UX design and the agile dev
 ## UX (User Experience)
 
 #### User stories
+
 - **First Time Visitor Goals**
--
+
 
   i.	As a first time visitor, I want to understand how to navigate and find information.
   
   
- ii.	I want to have easy access to the menu including prices.
+  ii.	I want to have easy access to the menu including prices.
  
- iii.	To access customer testimonials in dedicated section. In addition, I want to have access to social media page of the restaurant.
+  iii.	To access customer testimonials in dedicated section. In addition, I want to have access to social media page of the restaurant.
  
- iv.	Important information such as directions and opening timing of the restaurant should be easy to access at a click of a button.
+  iv.	Important information such as directions and opening timing of the restaurant should be easy to access at a click of a button.
  
- v.	Finally, I want to make reservations and contact the restaurant, if necessary.
+  v.	Finally, I want to make reservations and contact the restaurant, if necessary.
  
 - **Returning Visitor Goals**
--
+
 
    i.	As a returning visitor, I want share my experience through dedicated blog within the site. Furthermore, I should be able to comment on customer testimonials.
    
@@ -33,7 +34,7 @@ The project was developed based on the principles of UX design and the agile dev
 - **Frequent Visitor Goals**
 
 
-  i.	As a frequent visitor, I want to check if there any new blog posts.
+   i.	As a frequent visitor, I want to check if there any new blog posts.
  
    ii.	As a frequent user, I can also send messages to the admin asking for new menu.
    
@@ -52,6 +53,7 @@ The project was developed based on the principles of UX design and the agile dev
  
  
 ####  Typography
+
    The Montserrat font is the main font used for the whole website with Sans Serif as the fallback font. Montserrat makes the webpage attractive and clean.
    
 #### Images
