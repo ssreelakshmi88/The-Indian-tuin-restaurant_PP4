@@ -1,1 +1,11 @@
-
+![Blog](https://user-images.githubusercontent.com/97182442/194054024-9f5860a2-3970-4b90-8ea9-65b6989a70bd.png)
+![Contact Page (Alternate 719n)](https://user-images.githubusercontent.com/97182442/194054038-bce65900-5adb-42bf-953b-cac07d6c95ab.png)
+![Reservations](https://user-images.githubusercontent.com/97182442/194054337-4997c053-1202-43aa-8767-ba982c4aa948.png)
+![Log![Home Page](https://user-images.githubusercontent.com/97182442/194054322-bb097713-9922-41c3-8435-1f24274882e9.png)
+![Login page](https://user-images.githubusercontent.com/97182442/194054420-5a2de4ac-dfcb-4317-a6bd-eb5de7f5fa93.png)
+![Smart phone_blog with comments](https://user-images.githubusercontent.com/97182442/194054453-c9c27bab-4949-448f-88fb-80309973d908.png)
+![Smart phone_blog](https://user-images.githubusercontent.com/97182442/194054466-aa86646f-0eb7-4cbb-bb5f-bbe3bbd4eb87.png)
+![Smart phone_contact page](https://user-images.githubusercontent.com/97182442/194054476-778aa365-9372-4636-a423-ca79d87f1d15.png)
+![Smart phone_Home page](https://user-images.githubusercontent.com/97182442/194054487-f010338e-9bde-4ccc-a9c3-c9a3e2d69865.png)
+![Smart phone_Menu page](https://user-images.githubusercontent.com/97182442/194054499-cea2907a-0bb5-4b46-86be-53b016f0e5d1.png)
+![Smart phone_Reservations](https://user-images.githubusercontent.com/97182442/194054514-0a917f57-1794-4276-a911-48de11ad7cf6.png)
