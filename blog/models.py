@@ -13,6 +13,20 @@ class Post(models.Model):
     )
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)
+    meal_type = models.PositiveSmallIntegerField(choices=(
+        (1, 'starter'),
+        (2, 'main'),
+        (3, 'dessert'),
+    ), null=True)
+    food_type = models.PositiveSmallIntegerField(choices=(
+        (1, 'rice'),
+        (2, 'bread and rotis'),
+        (3, 'meat'),
+        (4, 'fish'),
+        (5, 'drinks'),
+        (6, 'sweet'),
+        (6, 'seafood'),
+        ), null=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
