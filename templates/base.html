@@ -1,5 +1,6 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-100">
 
 <head>
     <meta charset="UTF-8">
@@ -48,14 +49,27 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#contact">Contact Us</a>
                         </li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Register</a>
+                        </li>
                         <li class="nav-item mt-3 mt-lg-0">
                             <a class="main-btn" href="#login">Login/Register</a>
                         </li>
+                        {% endif %}
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    {% block content%}
+    <!-- Content Goes here -->
+    {% endblock %}
+
     <!-- Navbar section exit -->
     <!-- Banner section -->
     <section id="home" class="banner_wrapper">
