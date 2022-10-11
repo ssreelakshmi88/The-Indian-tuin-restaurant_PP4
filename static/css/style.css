@@ -21,8 +21,8 @@
     --text-black: #111111;
 
     /* Font Family */
-    --primary-font: 'Ubuntu', sans-serif;
-    --secondary-font: 'Open Sans', sans-serif;
+    --primary-font: 'Monteserrat', sans-serif;
+    --secondary-font: 'Sans', sans-serif;
 }
 
 body {
@@ -69,7 +69,7 @@ section {
 }
 
 .main-btn:hover {
-    color: var(--text-white);
+    color: white;
     background-position: left bottom;
 }
 
@@ -77,9 +77,8 @@ h1 {
     font-size: 30px;
     line-height: 1.2;
     font-weight: 400;
-    color: var(--text-black);
+    color: black;
     margin-bottom: 20px;
-    font-family: var(--primary-font);
 }
 
 h1 span {
@@ -90,26 +89,26 @@ h2 {
     font-weight: 700;
     font-size: 35px;
     margin-bottom: 15px;
-    color: var(--text-black);
-    font-family: var(--primary-font);
+    color: black;
+
 }
 
 h3 {
     font-weight: 700;
     font-size: 28px;
     margin-bottom: 15px;
-    color: var(--text-black);
-    font-family: var(--primary-font);
+    color: black;
+
 }
 
 h5 {
     font-weight: 700;
     font-size: 20px;
-    color: var(--primary-text);
+
 }
 
 p {
-    color: var(--text-black);
+    color: black;
     font-size: 18px;
     line-height: 1.7;
     letter-spacing: 1px;
@@ -172,7 +171,7 @@ p {
 
 /*About */
 .about_wrapper {
-    background-color: var(--bg-gray);
+    background-color: rgba(227, 88, 88, 0.893);
     padding-bottom: 130px;
 }
 
@@ -184,7 +183,7 @@ p {
 
 /*footer */
 .footer_wrapper {
-    background-color: var(--bg-white);
+    background-color: white;
     padding: 20px 0;
 }
 
@@ -203,7 +202,7 @@ p {
     font-size: 14px;
     display: inline-block;
     border: 2px solid var(--bg-black);
-    color: var(--text-black);
+    color: black;
     text-align: center;
     border-radius: 100%;
     -webkit-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -230,12 +229,22 @@ p {
 
 /*Blog Page */
 
+.page-title {
+    font-size: 3.5em;
+    text-align: center;
+    color: rgba(139, 19, 19, 0.893);
+}
+
+.blog-description {
+    text-align: center;
+    color: rgba(6, 20, 88, 0.893)
+}
 
 .no-gutters-lg {
     margin: 10%;
     position: relative;
     right: 10%;
-    width: 100%;
+    width: 90%;
 }
 
 .section-title {

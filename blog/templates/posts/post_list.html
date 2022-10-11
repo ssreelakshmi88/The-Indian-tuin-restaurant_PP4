@@ -6,7 +6,7 @@
             <div class="row no-gutters-lg">
                 <div class="col-12">
                     <h1 class="page-title">Our Recipes</h1>
-                    <p class="blog-description">Blog-Finest taste of Indian cuisine at your home.</p>
+                    <p class="blog-description">Blog - Finest taste of Indian cuisine at your home.</p>
                 </div>
                 <div class="row">
                     {% for post in post_list %}
@@ -46,7 +46,7 @@
                 </div>
             </div>
             <aside>
-                <div class="col-md-4 sidebar ftco-animate pt-5">
+                <div class="col-md-4 sidebar">
                     <div class="sidebar-box pt-md-4">
                         <form action="{% url 'post_list' %}" method="POST" class="search-form" id="recipes-search">
                             {% csrf_token %}
@@ -60,7 +60,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="sidebar-box ftco-animate">
+                    <div class="sidebar-box">
                         <h3 class="sidebar-heading">Types</h3>
                         <ul class="categories">
                             {% for value, text in food.food_type.field.choices %}
@@ -73,7 +73,7 @@
                         </ul>
                     </div>
 
-                    <div class="sidebar-box ftco-animate">
+                    <div class="sidebar-box">
                         <h3 class="sidebar-heading">Tag Cloud</h3>
                         <ul class="tagcloud">
                             {% for value, text in dishes.meal_type.field.choices %}
@@ -87,7 +87,7 @@
                             {% for value, text in food.food_type.field.choices %}
                             {% if not forloop.first %}
                             <li>
-                                <a href="{% url 'post_list_foof_tag' value %}" class="tag-cloud-link">{{ text }}</a>
+                                <a href="{% url 'post_list_food_tag' value %}" class="tag-cloud-link">{{ text }}</a>
                             </li>
 
                             {% endif%}

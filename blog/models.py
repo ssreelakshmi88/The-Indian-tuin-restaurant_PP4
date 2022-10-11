@@ -25,7 +25,8 @@ class Post(models.Model):
         (4, 'fish'),
         (5, 'drinks'),
         (6, 'sweet'),
-        (6, 'seafood'),
+        (7, 'seafood'),
+         (8, 'vegetarian'),
         ), null=True)
     updated_on = models.DateTimeField(auto_now=True)
     content = models.TextField()
