@@ -6,7 +6,7 @@
             <div class="row no-gutters-lg">
                 <div class="col-12">
                     <h1 class="page-title">Our Recipes</h1>
-                    <p class="blog-description">Blog - Finest taste of Indian cuisine at your home.</p>
+                    <p class="blog-description"><i><b>Blog - Finest taste of Indian cuisine at your home.</i></p>
                 </div>
                 <div class="row">
 
@@ -23,8 +23,9 @@
                             </a>
                             <div class="card-body px-0 pb-1">
                                 <ul class="post-meta mb-2">
-                                    {{ post.get_meal_type_display }},
-                                    {{ post.get_food_type_display }}
+                                    <li> {{ post.get_meal_type_display| capfirst }} </li>,
+
+                                    <li> {{ post.get_food_type_display| capfirst }}</li>
 
                                 </ul>
                                 <div class="meta-wrap">
@@ -37,7 +38,8 @@
                                 </div>
                                 <h2 class="h1">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
-                                <div class="content"> <a class="read-more-btn" href="{% url 'post_detail' %}">Read
+                                <div class="content"> <a class="read-more-btn"
+                                        href="{% url 'post_detail' post.slug %}">Read
                                         More</a>
                                 </div>
                             </div>
@@ -119,7 +121,6 @@
                 </ul>
             </div>
             {% endif %}
-        </div>
         </div>
     </section>
 </main>

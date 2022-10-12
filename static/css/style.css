@@ -306,8 +306,6 @@ p {
 .card-img {
     height: 200px;
     width: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
 }
 
 .card-image {
@@ -379,14 +377,15 @@ a.post-title-sm:hover {
 
 .post-meta {
     padding-left: 0;
-    display: inline-block;
+    display: -webkit-box;
 }
 
 .post-meta li {
     list-style-type: none;
     display: inline-block;
-    color: #dfe0df;
+    color: #e4260bda;
     font-weight: 500;
+    background-color: #fad2d6;
 }
 
 .post-meta li a {
@@ -420,7 +419,7 @@ a.post-title-sm:hover {
 
 .meta-wrap span i {
     margin-right: 2%;
-    color: #ffb570;
+    color: #e4260bda;
 }
 
 .meta-wrap span i:hover {

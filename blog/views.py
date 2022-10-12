@@ -18,10 +18,10 @@ def post_list(request):
 
 def post_detail(request):
     post_detail = Post.objects.all()
-    post = Post.objects.get(id=pk)
+    post = Post.objects.get(slug=slug)
     context = {
         'post': post,
         'page_obj': page_obj,
     }
     return render(
-        request, 'post_detail.html', context)
+        request, 'posts/post_detail.html', context)
