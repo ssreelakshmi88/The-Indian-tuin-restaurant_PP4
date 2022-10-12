@@ -141,7 +141,7 @@ p {
     font-size: 18px;
     font-weight: 500;
     letter-spacing: 1px;
-    color: var(--text-black);
+    color: black;
     display: inline-block;
 }
 
@@ -257,7 +257,7 @@ p {
 }
 
 .blog-add-button:hover {
-    background-color: #f18e84;
+    background-color: #d52410;
     border-color: #fff;
 }
 
@@ -346,6 +346,7 @@ p {
 
 .read-more-btn {
     font-size: 18px;
+
 }
 
 .blog-post-buttons {
@@ -406,7 +407,6 @@ a.post-title-sm:hover {
 
 .meta-wrap {
     display: inline-block;
-    float: right;
     width: 55%;
 }
 
@@ -446,20 +446,24 @@ a.post-title-sm:hover {
 }
 
 .content a {
-    color: red;
-    display: inline;
-    border: 2px solid #ffffff;
-    padding: 0.5em 1em;
-    text-decoration: none;
-    background-position: 0% 110%;
-    background-repeat: no-repeat;
-    background-size: 100% 3px;
-    transition: 0.3s;
+    display: inline-block;
+    border-radius: 50px;
+    padding: 10px 27px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-text);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, var(--primary-color) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-out;
 }
 
+
 .content a:hover {
-    background-color: #ffffff;
-    color: #000000;
+    color: white;
 }
 
 .sidebar {
@@ -652,7 +656,7 @@ a.post-title-sm:hover {
 
     .header_wrapper .menu-navbar-nav {
         text-align: center;
-        background-color: var(--bg-white);
+        background-color: white;
         padding-bottom: 15px;
     }
 
