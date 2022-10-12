@@ -9,8 +9,9 @@
                     <p class="blog-description">Blog - Finest taste of Indian cuisine at your home.</p>
                 </div>
                 <div class="row">
+
                     {% for post in post_list %}
-                    <div class="col-12 mb-4">
+                    <div class="col-mb-4">
                         <div class="card article-card">
                             <a href="{% url 'post_list' %}">
                                 <div class="card-image">
@@ -36,7 +37,7 @@
                                 </div>
                                 <h2 class="h1">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
-                                <div class="content"> <a class="read-more-btn" href="">Read
+                                <div class="content"> <a class="read-more-btn" href="{% url 'post_detail' %}">Read
                                         More</a>
                                 </div>
                             </div>
@@ -45,59 +46,59 @@
                     {% endfor %}
                 </div>
             </div>
-            <aside>
-                <div class="col-md-4 sidebar">
-                    <div class="sidebar-box pt-md-4">
-                        <form action="{% url 'post_list' %}" method="POST" class="search-form" id="recipes-search">
-                            {% csrf_token %}
+            <div class="col-md-4 sidebar">
+                <div class="sidebar-box pt-md-4">
+                    <form action="{% url 'post_list' %}" method="POST" class="search-form" id="recipes-search">
+                        {% csrf_token %}
 
-                            <div class="input-group mb-3">
-                                <input type="search" name="recipe_name" id="recipe-input" class="form-control"
-                                    placeholder="Enter Recipe Here..." aria-label="Recipe Name"
-                                    aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
-                                        class="fa-solid fa-magnifying-glass"></i></button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="sidebar-box">
-                        <h3 class="sidebar-heading">Types</h3>
-                        <ul class="categories">
-                            {% for value, text in food.food_type.field.choices %}
-                            {% if not forloop.first %}
-                            <li>
-                                <a href="{% url 'post_list_food_tag' value %}">{{ text }} </a>
-                            </li>
-                            {% endif%}
-                            {% endfor %}
-                        </ul>
-                    </div>
-
-                    <div class="sidebar-box">
-                        <h3 class="sidebar-heading">Tag Cloud</h3>
-                        <ul class="tagcloud">
-                            {% for value, text in dishes.meal_type.field.choices %}
-                            {% if not forloop.first %}
-                            <li>
-                                <a href="{% url 'post_list_meal_tag' value %}" class="tag-cloud-link">{{ text }}</a>
-                            </li>
-
-                            {% endif%}
-                            {% endfor %}
-                            {% for value, text in food.food_type.field.choices %}
-                            {% if not forloop.first %}
-                            <li>
-                                <a href="{% url 'post_list_food_tag' value %}" class="tag-cloud-link">{{ text }}</a>
-                            </li>
-
-                            {% endif%}
-                            {% endfor %}
-                        </ul>
-                    </div>
-
+                        <div class="input-group mb-3">
+                            <input type="search" name="recipe_name" id="recipe-input" class="form-control"
+                                placeholder="Enter Recipe Here..." aria-label="Recipe Name"
+                                aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
+                                    class="fa-solid fa-magnifying-glass"></i></button>
+                        </div>
+                    </form>
                 </div>
+
+                <div class="sidebar-box">
+                    <h3 class="sidebar-heading">Types</h3>
+                    <ul class="categories">
+                        {% for value, text in food.food_type.field.choices %}
+                        {% if not forloop.first %}
+                        <li>
+                            <a href="{% url 'post_list_food_tag' value %}">{{ text }} </a>
+                        </li>
+                        {% endif%}
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="sidebar-box">
+                    <h3 class="sidebar-heading">Tag Cloud</h3>
+                    <ul class="tagcloud">
+                        {% for value, text in dishes.meal_type.field.choices %}
+                        {% if not forloop.first %}
+                        <li>
+                            <a href="{% url 'post_list_meal_tag' value %}" class="tag-cloud-link">{{ text }}</a>
+                        </li>
+
+                        {% endif%}
+                        {% endfor %}
+                        {% for value, text in food.food_type.field.choices %}
+                        {% if not forloop.first %}
+                        <li>
+                            <a href="{% url 'post_list_food_tag' value %}" class="tag-cloud-link">{{ text }}</a>
+                        </li>
+
+                        {% endif%}
+                        {% endfor %}
+                    </ul>
+                </div>
+
+            </div>
         </div>
-        </aside>
+
         <div class="pagination page-links">
             <span class="step-links">
                 {% if page_obj.has_previous %}
