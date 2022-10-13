@@ -244,7 +244,7 @@ p {
     margin: 10%;
     position: relative;
     right: 10%;
-    width: 90%;
+    width: 120%;
 }
 
 .section-title {
@@ -423,7 +423,7 @@ a.post-title-sm:hover {
 }
 
 .meta-wrap span i:hover {
-    color: #f18e84;
+    color: #e4260bda;
 }
 
 .meta-wrap button {
@@ -433,11 +433,11 @@ a.post-title-sm:hover {
 
 .meta-wrap button i {
     margin-right: 2%;
-    color: #ffb570;
+    color: #e4260bda;
 }
 
 .meta-wrap button i:hover {
-    color: #f18e84;
+    color: #e4260bda;
 }
 
 .content * {
@@ -617,6 +617,9 @@ a.post-title-sm:hover {
     border: 1px solid #000;
     background-color: #f18e84;
 }
+
+
+
 
 /*Media Queries */
 @media (max-width: 1199px) {

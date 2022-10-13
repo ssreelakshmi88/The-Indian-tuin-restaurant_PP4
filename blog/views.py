@@ -16,12 +16,11 @@ def post_list(request):
         request, 'posts/post_list.html', context)
 
 
-def post_detail(request):
+def post_detail(request, slug):
     post_detail = Post.objects.all()
     post = Post.objects.get(slug=slug)
     context = {
         'post': post,
-        'page_obj': page_obj,
     }
     return render(
         request, 'posts/post_detail.html', context)
