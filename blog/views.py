@@ -25,10 +25,23 @@ def post_detail(request, slug):
     if post.likes.filter(id=request.user.id).exists():
         liked = True
 
+    comment_form = CommentForm(data=request.POST)
+    
+    if comment_form.is_valid():
+        comment_form.instance.email = request.user.email
+        comment_form.instance.name = request.user.username
+        comment = comment_form.save(commit=False)
+        comment.post = post
+        comment.save()
+    else:
+        comment_form = CommentForm()
     context = {
         'post': post,
         'liked': liked,
-        "comment_form": CommentForm()
+        "comment_form": CommentForm(),
+        'commented': True,
+        'comments': comments,
+        'comment_form': comment_form
     }
     return render(
         request, 'posts/post_detail.html', context)
