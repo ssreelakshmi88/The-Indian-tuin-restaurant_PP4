@@ -1,15 +1,20 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="main-wrap">
-    <div class="cover_1">
-        <div class="img_bg">
-            <img src="{% static 'images/indian tuin_logo.png' %}">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-12" data-aos="fade-up">
-                        <h2 class="heading">Menu</h2>
-                    </div>
-                </div>
-            </div>
+<h1 class="menu-title">Our Menu</h1>
+</div>
+</div>
+<div class="row menu-row">
+    {% for menu in menu %}
+    <div class="col-sm-10 col-md-5 col-lg-3 menu-card">
+        <div class="image-card">
+            <img src="{{ menu.featured_image.url }}" class="menu-image" alt="menu">
+
+        </div>
+        <div class="desc-block">
+            <h3 class="desc-item">{{ menu.name }} - £{{ menu.price }}</h3>
+            <p class="info-item info-p">{{ menu.description }}</p>
         </div>
     </div>
+    {% endfor %}
+</div>
+{% endblock %}

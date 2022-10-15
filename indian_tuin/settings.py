@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'blog',
     'restaurant',
+    'menu',
 ]
 
 SITE_ID = 1
