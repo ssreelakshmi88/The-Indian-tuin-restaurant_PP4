@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, reverse
 from .models import Post, Comment
 from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
@@ -45,3 +45,14 @@ def post_detail(request, slug):
     }
     return render(
         request, 'posts/post_detail.html', context)
+
+
+def post_like(request, slug, *args, **kwargs):
+    post = Post.objects.get(slug=slug)
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+    else:
+        post.likes.add(request.user)
+
+    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
