@@ -3,6 +3,8 @@ from .models import Post, Comment
 from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
 from .forms import CommentForm
+from django.db.models import Count
+from django.contrib import messages
 
 
 def post_list(request):
@@ -33,6 +35,9 @@ def post_detail(request, slug):
         comment = comment_form.save(commit=False)
         comment.post = post
         comment.save()
+        messages.success(
+                    request, 'Comment awaiting approval.'
+                    )
     else:
         comment_form = CommentForm()
     context = {
@@ -48,7 +53,7 @@ def post_detail(request, slug):
 
 
 def post_like(request, slug, *args, **kwargs):
-    post = Post.objects.get(slug=slug)
+    post = Post.objects.get(id=slug)
     if post.likes.filter(id=request.user.id).exists():
         post.likes.remove(request.user)
     else:

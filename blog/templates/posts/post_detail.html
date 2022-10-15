@@ -30,7 +30,7 @@
                                         </li>
                                     </ul>
                                     <div class="meta-wrap" id="post-meta">
-                                        <form action="{% url 'post_like' post.slug %}" method="post">
+                                        <form action="{% url 'post_like' post.slug %}" method="POST">
                                             {% csrf_token %}
                                             <p class="meta">
                                                 <span><i
@@ -38,7 +38,7 @@
                                                 <span><i class="fa-solid fa-user-pen"></i>{{ post.author}}</span>
 
                                                 <button type="submit" name="post_id" value="{{ post.id }}"><i
-                                                        class="fa-solid fa-thumbs-up"></i></button>{{ post.number_of_likes}}
+                                                        class="fa-solid fa-heart"></i></button>{{ post.number_of_likes}}
                                                 <p class="main-description">{{  post.content|safe  }}</p>
                                             </p>
                                         </form>
@@ -70,13 +70,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 card mb-4  mt-3 ">
-                                    <div class="card-body">
 
-                                        {% if commented %}
-                                        <div class="alert alert-success" role="alert">
-                                            Your comment is awaiting approval
-                                        </div>
-                                        {% else %}
+                                    <div class="card-body">
 
                                         {% if user.is_authenticated %}
 
@@ -88,10 +83,11 @@
                                             <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                                         </form>
                                         {% endif %}
-                                        {% endif %}
+
                                     </div>
                                 </div>
                             </div>
+
 
 </main>
 {% endblock %}
