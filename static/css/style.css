@@ -682,6 +682,15 @@ a.post-title-sm:hover {
     justify-content: center;
 }
 
+span.current {
+    font-size: 1.2em;
+}
+
+.page {
+    color: #dc3545c4;
+    font-size: x-large;
+}
+
 /*Media Queries */
 @media (max-width: 1199px) {
 
