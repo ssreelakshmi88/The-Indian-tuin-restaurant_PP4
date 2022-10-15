@@ -4,7 +4,7 @@
 </div>
 </div>
 <div class="row menu-row">
-    {% for menu in menu %}
+    {% for menu in page_obj %}
     <div class="col-sm-10 col-md-5 col-lg-3 menu-card">
         <div class="image-card">
             <img src="{{ menu.featured_image.url }}" class="menu-image" alt="menu">
@@ -17,4 +17,23 @@
     </div>
     {% endfor %}
 </div>
+
+<div class="pagination p-links">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+        <a href="?page={{ page_obj.previous_page_number }}"><i class="fa-solid fa-circle-chevron-left"></i></a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+
+        <a href="?page={{ page_obj.paginator.num_pages }}"><i class="fa-solid fa-circle-chevron-right"></a>
+        {% endif %}
+    </span>
+</div>
+
+
 {% endblock %}

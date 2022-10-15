@@ -677,6 +677,10 @@ a.post-title-sm:hover {
     font-size: 0.8em;
 }
 
+.p-links {
+    margin: 5%;
+    justify-content: center;
+}
 
 /*Media Queries */
 @media (max-width: 1199px) {
