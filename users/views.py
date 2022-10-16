@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate 
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth \
+    import logout, login, authenticate, update_session_auth_hash
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import UserProfile
@@ -43,14 +45,15 @@ def user_register(request):
             user.username = user.username.lower()
             if User.objects.filter(username=user.username):
                 messages.error(
-                    request, 'Username has already been taken, '
-                    'please choose a different username.'
-                )
-                return redirect('register')
+                    request, 'Username exists, '
+                    'please try a different username.')
+                return HttpResponseRedirect('register')
+
             else:
                 user.save()
 
             messages.success(request, f'new user {user.username} was created.')
             return redirect('login')
-            context = {'page': page, 'form': form, }
-            return render(request, 'users/login.html', context)
+
+            context = {'page': page, 'form': form}
+            return render(request, 'users/register.html', context)
