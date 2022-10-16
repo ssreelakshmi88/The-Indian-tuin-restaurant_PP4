@@ -691,6 +691,45 @@ span.current {
     font-size: x-large;
 }
 
+/*LOGIN PAGE */
+.login-card {
+    margin: 10%;
+    width: 50%;
+    position: relative;
+    left: 15%;
+    border: 1px solid #dc3545c4;
+}
+
+.login-card .card-header {
+    background-color: #ffb570;
+    color: #fff;
+}
+
+.login-card .page-title {
+    padding: 0;
+}
+
+.login-form {
+    align-items: center;
+    margin: 15%;
+    line-height: 36px;
+    margin-bottom: 20px;
+
+}
+
+.card-body {
+    padding: 20px;
+    margin: 5%;
+}
+
+.login-form .login-button {
+    margin: 2% 0;
+    position: relative;
+    left: 33.5%;
+    width: 33%;
+}
+
+
 /*Media Queries */
 @media (max-width: 1199px) {
 

@@ -1,10 +1,12 @@
 from django import forms
-from django.forms import ModelForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
 from django_summernote.widgets import SummernoteWidget
 from .models import UserProfile
 
 
-class UserProfileForm(forms.ModelForm):
+class UserProfileForm(UserCreationForm):
+    email = forms.EmailField(required=True)
     """
     This form class defines the output of the user form for the user profile
     """
