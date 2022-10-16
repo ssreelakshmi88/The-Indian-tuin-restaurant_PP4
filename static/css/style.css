@@ -467,13 +467,12 @@ a.post-title-sm:hover {
 
 .sidebar {
     background-color: #fff6e9;
+    float: right;
 }
 
 .sidebar-box {
-    margin-bottom: 40px;
-    padding: 0 25px;
     font-size: 15px;
-    width: 100%;
+    width: 90%;
 }
 
 .sidebar-box h3.sidebar-heading {
@@ -668,7 +667,8 @@ a.post-title-sm:hover {
 }
 
 .desc-item h3 {
-    font-size: 1em;
+    font-size: 0.8em;
+    text-transform: capitalize;
 }
 
 

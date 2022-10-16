@@ -1,5 +1,10 @@
 from django.contrib import admin
-from .models import Menu
+from .models import Menu, Category
 
 
-admin.site.register(Menu)
+@admin.register(Menu)
+class MenuAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+
+
+admin.site.register(Category)

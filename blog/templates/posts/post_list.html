@@ -8,9 +8,67 @@
                     <h1 class="page-title">Our Recipe Blog</h1>
                     <p class="blog-description"><i><b>Finest taste of Indian cuisine at your home.</i></p>
                 </div>
+                <div class="col-md-4 sidebar ftco-animate pt-5">
+                    <div class="sidebar-box pt-md-4">
+                        <form action="{% url 'post_list' %}" method="POST" class="search-form" id="recipes-search">
+                            {% csrf_token %}
 
-                {% for post in post_list %}
-                <div class="col-12 mb-4">
+                            <div class="input-group mb-3">
+                                <input type="search" name="recipe_name" id="recipe-input" class="form-control"
+                                    placeholder="Enter Recipe Here..." aria-label="Recipe Name"
+                                    aria-describedby="button-addon2">
+                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
+                                        class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="sidebar-box ftco-animate">
+                        <h3 class="sidebar-heading">Types</h3>
+                        <ul class="categories">
+                            {% for value, text in food.food_type.field.choices %}
+                            {% if not forloop.first %}
+                            <li>
+                                <a href="{% url 'post_list_food_tag' value %}">{{ text }} </a>
+                            </li>
+                            {% endif%}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-box ftco-animate">
+                        <h3 class="sidebar-heading">Types</h3>
+                        <ul class="categories">
+                            {% for value, text in food.food_type.field.choices %}
+                            {% if not forloop.first %}
+                            <li>
+                                <a href="{% url 'post_list_food_tag' value %}">{{ text }} </a>
+                            </li>
+                            {% endif%}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="sidebar-box ftco-animate">
+                        <h3 class="sidebar-heading">Tag Cloud</h3>
+                        <ul class="tagcloud">
+                            {% for value, text in dishes.meal_type.field.choices %}
+                            {% if not forloop.first %}
+                            <li>
+                                <a href="{% url 'post_list_meal_tag' value %}" class="tag-cloud-link">{{ text }}</a>
+                            </li>
+                            {% endif%}
+                            {% endfor %}
+                            {% for value, text in food.food_type.field.choices %}
+                            {% if not forloop.first %}
+                            <li>
+                                <a href="{% url 'post_list_food_tag' value %}" class="tag-cloud-link">{{ text }}</a>
+                            </li>
+                            {% endif%}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                {% for post in page_obj %}
+                <div class="col-8 mb-4">
                     <div class="card article-card">
                         <a href="{% url 'post_list' %}">
                             <div class="card-image">
@@ -47,91 +105,23 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 sidebar ftco-animate pt-5">
-            <div class="sidebar-box pt-md-4">
-                <form action="{% url 'post_list' %}" method="POST" class="search-form" id="recipes-search">
-                    {% csrf_token %}
 
-                    <div class="input-group mb-3">
-                        <input type="search" name="recipe_name" id="recipe-input" class="form-control"
-                            placeholder="Enter Recipe Here..." aria-label="Recipe Name"
-                            aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
-                                class="fa-solid fa-magnifying-glass"></i></button>
-                    </div>
-                </form>
-            </div>
-            <div class="sidebar-box ftco-animate">
-                <h3 class="sidebar-heading">Types</h3>
-                <ul class="categories">
-                    {% for value, text in food.food_type.field.choices %}
-                    {% if not forloop.first %}
-                    <li>
-                        <a href="{% url 'post_list_food_tag' value %}">{{ text }} </a>
-                    </li>
-                    {% endif%}
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="sidebar-box ftco-animate">
-                <h3 class="sidebar-heading">Types</h3>
-                <ul class="categories">
-                    {% for value, text in food.food_type.field.choices %}
-                    {% if not forloop.first %}
-                    <li>
-                        <a href="{% url 'post_list_food_tag' value %}">{{ text }} </a>
-                    </li>
-                    {% endif%}
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="sidebar-box ftco-animate">
-                <h3 class="sidebar-heading">Tag Cloud</h3>
-                <ul class="tagcloud">
-                    {% for value, text in dishes.meal_type.field.choices %}
-                    {% if not forloop.first %}
-                    <li>
-                        <a href="{% url 'post_list_meal_tag' value %}" class="tag-cloud-link">{{ text }}</a>
-                    </li>
-                    {% endif%}
-                    {% endfor %}
-                    {% for value, text in food.food_type.field.choices %}
-                    {% if not forloop.first %}
-                    <li>
-                        <a href="{% url 'post_list_food_tag' value %}" class="tag-cloud-link">{{ text }}</a>
-                    </li>
-                    {% endif%}
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="pagination custom-pagination">
-                    {% if page_obj.has_previous %}
-                    <li class="page-item prev"><a class="page-link" href="?page={{post_list.previous_page_number}}"><i
-                                class="fa fa-angle-left"></i></a></li>
-                    {% else %}
-                    <li class="disabled"></li>
-                    {% for pages in page_obj.paginator.page_range %}
-                    {% if page_obj.number == pages %}
-                    <li class="page-item active"><a class="page-linkx href=" #">{{page_number}}</a></li>
-                    {% else %}
-                    <li class="page-item active"><a class="page-linkx" href="?page={{pages}}">{{page_number}}</a></li>
-                    {% endif %}
+        <div class="pagination p-links">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                <a href="?page=1" class="page">&laquo</a>
+                <a href="?page={{ page_obj.previous_page_number }}"></a>
+                {% endif %}
 
-                    {% endfor %}
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+                </span>
 
-                    {% if post_list.has_next %}
-                    <li class="page-item next"><a class="page-link" href="?page={{post_list.next_page_number}}"><i
-                                class="fa fa-angle-right"></i></a></li>
-                    {% else %}
-                    <li class="disabled"></li>
-                    {% endif %}
-                </ul>
-            </div>
-            {% endif %}
+                {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}"></a>
+                <a href="?page={{ page_obj.paginator.num_pages }}" class="page">&raquo;</a>
+                {% endif %}
+            </span>
         </div>
     </section>
 </main>

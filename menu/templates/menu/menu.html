@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1 class="menu-title">Our Menu</h1>
-</div>
-</div>
 <div class="row menu-row">
     {% for menu in page_obj %}
     <div class="col-sm-10 col-md-5 col-lg-3 menu-card">
@@ -15,6 +13,7 @@
             <p class="info-item info-p">{{ menu.description }}</p>
         </div>
     </div>
+
     {% endfor %}
 </div>
 

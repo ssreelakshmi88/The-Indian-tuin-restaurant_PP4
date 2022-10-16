@@ -14,6 +14,7 @@ def post_list(request):
     page_obj = paginator.get_page(page_number)
     context = {
         'post_list': post_list,
+        'page_obj': page_obj,
     }
     return render(
         request, 'posts/post_list.html', context)
