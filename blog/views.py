@@ -23,7 +23,7 @@ def post_list(request):
 
 def post_detail(request, slug):
     post_detail = Post.objects.all()
-    post = Post.objects.get(slug=slug)
+    post = get_object_or_404(Post, slug=slug)
     comments = post.comments.filter(approved=True).order_by("-created_on")
     liked = False
     if post.likes.filter(id=request.user.id).exists():
@@ -54,14 +54,25 @@ def post_detail(request, slug):
         request, 'posts/post_detail.html', context)
 
 
-def post_like(request, slug, *args, **kwargs):
-    post = Post.objects.get(id=slug)
-    if post.likes.filter(id=request.user.id).exists():
-        post.likes.remove(request.user)
-    else:
-        post.likes.add(request.user)
+def post_like(request, slug):
+    if request.user.is_authenticated:
+        post = get_object_or_404(Post, slug=slug)
+        liked = False
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+            liked = False
+        else:
+            post.likes.add(request.user)
+            liked = True
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+    else:
+        messages.warning(
+            request,
+            'You must be logged in to perform that action!'
+        )
+        return redirect('login')
 
 
 def create_blog_post(request):
