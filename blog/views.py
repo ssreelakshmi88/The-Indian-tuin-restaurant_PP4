@@ -62,3 +62,4 @@ def post_like(request, slug, *args, **kwargs):
 
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
+
