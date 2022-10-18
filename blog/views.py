@@ -63,3 +63,20 @@ def post_like(request, slug, *args, **kwargs):
     return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
+def create_blog_post(request):
+    """
+    This view to render a form to create new blog posts.
+    """
+    form = PostForm()
+
+    if request.method == 'POST':
+        form = PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Post Created.')
+            return redirect("post_detail", slug=post.slug)
+
+    context = {'form': form}
+    return render(request, 'posts/create_post.html', context)
+
+
