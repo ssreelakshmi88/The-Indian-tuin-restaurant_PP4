@@ -80,3 +80,19 @@ def create_blog_post(request):
     return render(request, 'posts/create_post.html', context)
 
 
+def edit_blog_post(request, slug):
+    """
+    This view to render a form to edit existing blog posts.
+    """
+    post = get_object_or_404(Post, slug=slug)
+    form = PostForm(instance=post)
+
+    if request.method == "POST":
+        form = PostForm(request.POST, instance=post)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'{post.title} Updated.')
+            return redirect("post_detail", slug=post.slug)
+
+    context = {'post': post, 'form': form}
+    return render(request, 'blog/edit_post.html', context)
