@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404
+from django.urls import reverse
 from .models import Post, Comment
 from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 from django.db.models import Count
 from django.contrib import messages
 
@@ -95,4 +96,19 @@ def edit_blog_post(request, slug):
             return redirect("post_detail", slug=post.slug)
 
     context = {'post': post, 'form': form}
-    return render(request, 'blog/edit_post.html', context)
+    return render(request, 'posts/edit_post.html', context)
+
+
+def delete_blog_post(request, slug):
+    """
+    This view is to delete blog posts.
+    """
+    post = get_object_or_404(Post, slug=slug)
+
+    if request.method == "POST":
+        post.delete()
+        return redirect("post_list")
+
+    context = {"post": post}
+
+    return render(request, "posts/delete_post.html", context)
