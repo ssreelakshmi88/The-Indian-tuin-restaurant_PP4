@@ -22,49 +22,6 @@
                             </div>
                         </form>
                     </div>
-                    <div class="sidebar-box ftco-animate">
-                        <h3 class="sidebar-heading">Types</h3>
-                        <ul class="categories">
-                            {% for value, text in food.food_type.field.choices %}
-                            {% if not forloop.first %}
-                            <li>
-                                <a href="{% url 'post_list_food_tag' value %}">{{ text }} </a>
-                            </li>
-                            {% endif%}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="sidebar-box ftco-animate">
-                        <h3 class="sidebar-heading">Types</h3>
-                        <ul class="categories">
-                            {% for value, text in food.food_type.field.choices %}
-                            {% if not forloop.first %}
-                            <li>
-                                <a href="{% url 'post_list_food_tag' value %}">{{ text }} </a>
-                            </li>
-                            {% endif%}
-                            {% endfor %}
-                        </ul>
-                    </div>
-                    <div class="sidebar-box ftco-animate">
-                        <h3 class="sidebar-heading">Tag Cloud</h3>
-                        <ul class="tagcloud">
-                            {% for value, text in dishes.meal_type.field.choices %}
-                            {% if not forloop.first %}
-                            <li>
-                                <a href="{% url 'post_list_meal_tag' value %}" class="tag-cloud-link">{{ text }}</a>
-                            </li>
-                            {% endif%}
-                            {% endfor %}
-                            {% for value, text in food.food_type.field.choices %}
-                            {% if not forloop.first %}
-                            <li>
-                                <a href="{% url 'post_list_food_tag' value %}" class="tag-cloud-link">{{ text }}</a>
-                            </li>
-                            {% endif%}
-                            {% endfor %}
-                        </ul>
-                    </div>
                 </div>
 
                 {% for post in page_obj %}
