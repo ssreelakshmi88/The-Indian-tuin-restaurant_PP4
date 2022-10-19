@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<h1 class="reservation-title">Reservations</h1>
+<div>
+
+    <form class="reservation-form" action="#" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form | crispy }}
+        <img src="{{ time_image.image.url }}" id="open-times-image" class="time-image"
+            alt="an image displaying the open times for the restaurant">
+        <div class="button-row">
+            <button type="submit" class="col-sm-6 col-md-2 reserve-button">Reserve Now</button>
+            <a href="" class="col-sm-4 col-md-2 reserve-button" id="reserve-link">Edit
+                Reservations</a>
+        </div>
+    </form>
+
+
+</div>
+{% endblock %}

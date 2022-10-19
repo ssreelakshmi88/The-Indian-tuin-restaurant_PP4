@@ -785,6 +785,38 @@ span.current {
     width: 33%;
 }
 
+/*  RESERVATION PAGE   */
+.time-image {
+    float: right;
+    width: 20%;
+    margin-top: -286px;
+}
+
+.reservation-form {
+    width: 75%;
+    display: inline-block;
+    text-align: center;
+}
+
+.reservation-form .mb-3 {
+    display: inline-block;
+    left: 2%;
+    width: 25%;
+    margin: 4% 2%;
+}
+
+.button-row {
+    margin: 3% 7%;
+    position: relative;
+    right: 2%;
+}
+
+.button-row a {
+    text-decoration: none;
+    position: relative;
+    left: 10%;
+}
+
 
 /*Media Queries */
 @media (max-width: 1199px) {

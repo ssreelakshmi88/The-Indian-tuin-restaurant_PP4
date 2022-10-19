@@ -20,6 +20,18 @@ def reservations(request):
     This view will render the reservations page
     """
 
-    time_image = Photos.object.get(title='Times Image')
+    time_image = Photo.objects.get(title='Times Image')
     form = ReservationForm()
 
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('reservations'))
+        else:
+            messages.error(request, 'There was an error with your form.')
+         
+    context = {
+        'time_image': time_image,
+        'form': form
+    }
+    return render(request, 'home/reservations.html', context)
