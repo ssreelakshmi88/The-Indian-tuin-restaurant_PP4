@@ -50,7 +50,7 @@
                                         <span><i class="fa-solid fa-user-pen"></i>{{ post.author}}</span>
 
                                         <button type="submit" name="post_id" value="{{ post.id }}"><i
-                                                class="fa-solid fa-heart"></i></button>{{ post.number_of_likes}}
+                                            class="fa-solid fa-heart"></i></button>{{ post.number_of_likes}}
 
                                     </p>
                                 </form>
@@ -78,25 +78,38 @@
                         <div class="col-md-8 card mb-4  mt-3 ">
                             <h3>Comments:</h3>
                             <div class="card-body">
-
                                 {% for comment in comments %}
+                                {% if commented %}
+                                <p>Waiting for approval!!</p>
                                 <div class="comments" style="padding: 10px;">
                                     <p class="font-weight-bold">
                                         {{ comment.name }}
                                         <span class=" text-muted font-weight-normal">
                                             {{ comment.created_on }}
                                         </span> wrote:
+                                        {% if comment.author|stringformat:'s' == request.user.username|stringformat:'s' or user.is_staff %}
+                                        <span> <a href="{% url 'edit_blog_comment' post.slug %}"
+                                                class="btn btn-success comment-button">Edit</a>
+                                            <a href="{% url 'delete_blog_comment' post.slug %}"
+                                                class="btn btn-danger comment-button">Delete</a></span>
+                                        {% endif %}  
                                     </p>
                                     {{ comment.body | linebreaks }}
                                 </div>
                                 <!-- Our for loop ends here -->
-                                {% endfor %}
+                            
                             </div>
+                            {% endif %}
+                            {% endfor %}
                         </div>
-                        <div class="col-md-4 card mb-4  mt-3 ">
+                        <div class="col-md-4 card mb-4 mt-3 ">
 
                             <div class="card-body">
-
+                                {% if commented %}
+                                <div class="alert alert-success" role="alert">
+                                    Your comment is awaiting approval
+                                </div>
+                                {% else %}
                                 {% if user.is_authenticated %}
 
                                 <h3>Leave a comment:</h3>
@@ -106,6 +119,7 @@
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-signup btn-lg">Submit</button>
                                 </form>
+                                {% endif %}
                                 {% endif %}
                             </div>
                         </div>
