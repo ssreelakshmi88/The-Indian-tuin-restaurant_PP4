@@ -6,4 +6,5 @@ app_name = 'restaurant'
 
 urlpatterns = [
     path('', views.home, name='home'),
+    path('', views.reservations, name='reservation'),
 ]

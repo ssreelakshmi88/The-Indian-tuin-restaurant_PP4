@@ -56,9 +56,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                        </li>
                         {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                            <a class="nav-link" href="{% url 'register' %}">Register</a>
                         </li>
                         <li class="nav-item mt-3 mt-lg-0">
                             <a class="main-btn" href="{% url 'account_login' %}">Login</a>
@@ -118,6 +121,13 @@
             let alert = new bootstrap.Alert(messages);
             alert.close();
         }, 2500);
+    </script>
+    <script>
+        $(function () {
+            $("#id_date").datepicker({
+                format: 'dd/mm/yyyy',
+            });
+        });
     </script>
 </body>
 

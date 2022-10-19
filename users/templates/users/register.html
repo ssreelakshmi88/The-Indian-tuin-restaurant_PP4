@@ -1,18 +1,23 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
-
-<div class="card login-card">
+<div class="card register-card">
     <div class="card-header">
-        <h1 class="page-title">User Registration</h1>
+        <h1 class="page-title" id="register-title">User Registration</h1>
     </div>
     <div class="card-body">
-        <form action="{% url 'register' %}" method="POST" class="login-form">
+        <form action="{% url 'register' %}" method="post" id="register-form">
             {% csrf_token %}
+
             {{ form|crispy }}
-            <button class="login-button" type="submit">Register</button>
+
+            {% for error in field.errors %}
+            <p style="color: red;">{{error}}</p>
+            {% endfor %}
+
+
+            <button type="submit" class="form-button">Submit</button>
         </form>
     </div>
-    <p class="text-center">If you already have an account <a href="{% url 'login' %}">login</a>instead.</p>
 </div>
 {% endblock %}
