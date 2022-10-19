@@ -10,7 +10,7 @@ from django.contrib import messages
 
 def post_list(request):
     post_list = Post.objects.all()
-    paginator = Paginator(post_list, 3)
+    paginator = Paginator(post_list, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {
@@ -123,3 +123,21 @@ def delete_blog_post(request, slug):
     context = {"post": post}
 
     return render(request, "posts/delete_post.html", context)
+
+def edit_blog_comment(request, slug):
+     """
+    This view is to edit commment on a blog post.
+    """
+    comment = Comment.objects.get(slug=slug)
+    post = comment.post.id
+    form = CommentForm(instance=comment)
+
+    if request.method == 'POST':
+        form = CommentForm(request.POST, request.FILES, instance=comment)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Comment Updated.')
+            return redirect('post_detail')
+
+    context = {'post': comment, 'form': form, }
+    return render(request, 'posts/edit_comment.html', context)
