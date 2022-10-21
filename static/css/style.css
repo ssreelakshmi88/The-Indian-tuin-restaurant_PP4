@@ -815,10 +815,13 @@ span.current {
 label {
     margin-bottom: 10px;
     color: rgb(23, 58, 211);
+    font-size: 1.2em;
 }
 
 input {
     margin-bottom: 30px;
+    width: 50%;
+    height: 2.2em;
 }
 
 .reservation-form .mb-3 {

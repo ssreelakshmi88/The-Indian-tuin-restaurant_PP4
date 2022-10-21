@@ -10,9 +10,28 @@ from django.contrib import messages
 
 def post_list(request):
     post_list = Post.objects.all()
+    comments = Post.objects.annotate(post_comments=Count('comments')) \
+        .order_by('-post_comments')[:3]
+
+    if request.method == 'POST':
+        recipe = request.POST.get('recipe_name')
+        if recipe != '' and recipe is not None:
+            post_list_recipes = post_list.filter(title__icontains=recipe) \
+                .order_by('created_on')
+            if not post_list_recipes:
+                messages.warning(request, 'No Recipes Found For Your Search')
+                return redirect('post_list')
+            context = {
+                'recipes': post_list_recipes,
+                'comments': comments,
+                }
+            messages.success(request, 'Recipe(s) Found.')
+            return render(request, 'posts/recipes_search.html', context)
+
     paginator = Paginator(post_list, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+
     context = {
         'post_list': post_list,
         'page_obj': page_obj,
@@ -30,7 +49,6 @@ def post_detail(request, slug):
         liked = True
 
     comment_form = CommentForm(data=request.POST)
-    
     if comment_form.is_valid():
         comment_form.instance.email = request.user.email
         comment_form.instance.name = request.user.username
@@ -124,6 +142,7 @@ def delete_blog_post(request, slug):
 
     return render(request, "posts/delete_post.html", context,)
 
+
 def edit_blog_comment(request, slug):
     """
     This view is to edit commment on a blog post.
@@ -136,7 +155,7 @@ def edit_blog_comment(request, slug):
         if form.is_valid():
             form.save()
             messages.success(request, 'Comment Updated.')
-            return redirect('post_detail')
+            return redirect('post_detail', slug=post.slug)
 
     context = {'post': comment, 'form': form, }
     return render(request, 'posts/edit_comment.html', context)

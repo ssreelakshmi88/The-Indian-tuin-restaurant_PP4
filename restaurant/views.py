@@ -30,9 +30,13 @@ def reservations(request):
             return redirect(reverse('reservations'))
         else:
             messages.error(request, 'There was an error with your form.')
-      
     context = {
         'time_image': time_image,
         'form': form
     }
     return render(request, 'home/reservations.html', context)
+
+
+
+
+
