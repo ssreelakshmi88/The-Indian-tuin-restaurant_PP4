@@ -590,7 +590,7 @@ a.post-title-sm:hover {
 
 .reserve-button {
 
-    display: inline-block;
+    display: inline-table;
     border-radius: 50px;
     padding: 10px 27px;
     border: 1px solid var(--primary-color);
@@ -603,6 +603,11 @@ a.post-title-sm:hover {
     background-size: 200% 100%;
     background-position: right bottom;
     transition: all 0.5s ease-out;
+}
+
+.reserve-p {
+    text-align: center;
+    color: rgba(6, 20, 88, 0.893);
 }
 
 /* ---------- BLOG FORM PAGE ---------- */
@@ -788,18 +793,36 @@ span.current {
 /*  RESERVATION PAGE   */
 .time-image {
     float: right;
-    width: 20%;
-    margin-top: -286px;
+    width: 35%;
+    margin-top: -280px;
+}
+
+.side-image {
+    position: relative;
 }
 
 .reservation-form {
-    width: 75%;
+    width: 100%;
     display: inline-block;
     text-align: center;
+
+}
+
+.container {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 10px;
+    color: rgb(23, 58, 211);
+}
+
+input {
+    margin-bottom: 30px;
 }
 
 .reservation-form .mb-3 {
-    display: inline-block;
+    display: table-row-group;
     left: 2%;
     width: 25%;
     margin: 4% 2%;
@@ -816,6 +839,13 @@ span.current {
     position: relative;
     left: 10%;
 }
+
+.reservation-title {
+    text-align: center;
+    color: red;
+    font-size: 3rem;
+}
+
 
 
 /*Media Queries */

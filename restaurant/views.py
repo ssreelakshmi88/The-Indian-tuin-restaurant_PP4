@@ -24,12 +24,13 @@ def reservations(request):
     form = ReservationForm()
 
     if request.method == 'POST':
+        form = ReservationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect(reverse('reservations'))
         else:
             messages.error(request, 'There was an error with your form.')
-         
+      
     context = {
         'time_image': time_image,
         'form': form
