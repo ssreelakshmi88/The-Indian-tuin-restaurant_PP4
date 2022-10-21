@@ -6,7 +6,7 @@ urlpatterns = [
     path('', views.post_list, name="post_list"),
     path('blog/', views.post_list, name="post_list"),
     path('<slug:slug>/', views.post_detail, name="post_detail"),
-    path('recipe_search/', views.post_list, name="recipe_search"),
+    path('recipes_search/', views.post_list, name="recipe_search"),
     path("create_post/", views.create_blog_post, name="create_post"),
     path("<slug:slug>/edit", views.edit_blog_post, name="edit_blog_post"),
     path("<slug:slug>/delete",

@@ -37,7 +37,6 @@ def reservations(request):
     return render(request, 'home/reservations.html', context)
 
 
-@login_required
 def edit_user_reservation(request, pk):
     reservation = Reservation.objects.get(id=pk)
     form = ReservationForm(instance=reservation)
@@ -55,7 +54,6 @@ def edit_user_reservation(request, pk):
     return render(request, 'restaurant/edit_reservation.html', context)
 
 
-@login_required
 def delete_user_reservation(request, pk):
     reservation = Reservation.objects.get(id=pk)
 
@@ -65,5 +63,3 @@ def delete_user_reservation(request, pk):
 
     context = {'reservation': reservation}
     return render(request, 'restaurant/delete_reservation.html', context)
-
-        
