@@ -54,3 +54,16 @@ def edit_user_reservation(request, pk):
     context = {'form': form}
     return render(request, 'restaurant/edit_reservation.html', context)
 
+
+@login_required
+def delete_user_reservation(request, pk):
+    reservation = Reservation.objects.get(id=pk)
+
+    if request.method == 'POST':
+        reservation.delete()
+        messages.success(request, 'Reservation has been deleted.')
+
+    context = {'reservation': reservation}
+    return render(request, 'restaurant/delete_reservation.html', context)
+
+        
