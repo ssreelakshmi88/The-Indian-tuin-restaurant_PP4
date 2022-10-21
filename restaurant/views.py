@@ -37,6 +37,20 @@ def reservations(request):
     return render(request, 'home/reservations.html', context)
 
 
+@login_required
+def edit_user_reservation(request, pk):
+    reservation = Reservation.objects.get(id=pk)
+    form = ReservationForm(instance=reservation)
 
+    if request.method == 'POST':
+        form = ReservationForm(
+            request.POST, request.FILES,
+            instance=reservation
+            )
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reservation Updated.')
 
+    context = {'form': form}
+    return render(request, 'restaurant/edit_reservation.html', context)
 

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load cloudinary %}
+{% block content %}
+
+<h1 class="create-form">Reservation Form</h1>
+<form class="create-form" id="edit-reserve-form" action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form | crispy }}
+
+    <a href="{% url 'user_reservations' %}" class="back-link"><button type="button" class="form-button">Go
+            Back</button></a>
+    <button type="submit" class="form-button">Submit</button>
+
+</form>
+
+{% endblock %}
