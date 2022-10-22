@@ -27,10 +27,52 @@
             <h5>{{ profile.email }}</h5>
         </div>
     </div>
+    {% if user.is_staff %}
+    <div class="card-body-icons">
+        <div>
+            <h3>Approvals:</h3>
+            <h5>{{ approvals }}
+            </h5>
+        </div>
+        <div>
+            <h3>Comments:</h3>
+            <h5><i class="fa-solid fa-comment"></i> {{ comments }}</h5>
+        </div>
+        <div>
+            <h3>Reservations:</h3>
+            <h5><i class="fa-solid fa-calendar-days"></i>
+                {{ reservations }}</h5>
+        </div>
+        <div>
+            <h3>Accounts:</h3>
+            <h5><i class="fa-solid fa-users"></i></a>
+                {{ users }}</h5>
+        </div>
+    </div>
+    {% else %}
+    <div class="card-body-icons">
+        <div>
+            <h3>Likes:</h3>
+            <h5><i class="fa-solid fa-thumbs-up"></i> {{ likes }}</h5>
+        </div>
+        <div>
+            <h3>Comments:</h3>
+            <h5><i class="fa-solid fa-comment"></i> {{ comments }}</h5>
+        </div>
+        <div>
+            <h3>Reservations:</h3>
+            <h5><i class="fa-solid fa-calendar-days"></i></a>
+                {{ reservations }}</h5>
+        </div>
+    </div>
+    {% endif %}
+
     <div class="profile-actions"><button class="reserve-button">Edit
             Profile</button></a>
         <button class="reserve-button">Delete
             Profile</button></a>
 
     </div>
-    {% endblock %}
+</div>
+
+{% endblock %}

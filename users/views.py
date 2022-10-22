@@ -9,6 +9,8 @@ from .forms import UserProfileForm, ContactForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
+from blog.models import Post, Comment
+from restaurant.models import Reservation
 
 
 def user_register(request):
@@ -34,10 +36,28 @@ def user_profile(request):
     """
     user = User.objects.filter(username=request.user.username).first()
     profile = user.userprofile
-    context = {
+    approvals = Comment.objects.filter(approved=False).count()
+    users = UserProfile.objects.all().count()
+    if user.is_staff:
+        reservations = Reservation.objects.all().count()
+    else:
+        reservations = Reservation.objects. \
+                filter(email=request.user.email).count()
+    likes = 0
+    comments = 0
+    posts = Post.objects.all()
+    for post in posts:
+        comments += post.comments.filter(name=request.user).count()
+        likes += post.likes.filter(username=request.user.username).count()
+        context = {
             'profile': profile,
-              }
-    return render(request, 'users/profile.html', context=context)
+            'users': users,
+            'reservations': reservations,
+            'comments': comments,
+            'likes': likes,
+            'approvals': approvals,
+        }
+        return render(request, 'users/profile.html', context=context)
 
 
 def contact(request):
