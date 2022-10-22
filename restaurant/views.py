@@ -25,11 +25,14 @@ def reservations(request):
 
     if request.method == 'POST':
         form = ReservationForm(request.POST)
+        date = form['date'].value()
+        date_value = datetime.strptime(date, '%m/%d/%Y')
         if form.is_valid():
             form.save()
-            return redirect(reverse('reservations'))
+            messages.success(request, 'Reservation created successfully.')
+            return redirect('restaurant:reservations')
         else:
-            messages.error(request, f'There was an error with your form as following details are missing/wrong. {form.errors}')
+            messages.error(request, f'Some details are missing/wrong. {form.errors}')
     context = {
         'time_image': time_image,
         'form': form
@@ -37,8 +40,8 @@ def reservations(request):
     return render(request, 'home/reservations.html', context)
 
 
-def edit_user_reservation(request, pk):
-    reservation = Reservation.objects.get(id=pk)
+def edit_user_reservation(request, slug):
+    reservation = Reservation.objects.get(slug=slug)
     form = ReservationForm(instance=reservation)
 
     if request.method == 'POST':
@@ -49,17 +52,18 @@ def edit_user_reservation(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation Updated.')
+            return redirect('restaurant:reservations')
 
     context = {'form': form}
-    return render(request, 'restaurant/edit_reservation.html', context)
+    return render(request, 'home/edit_reservation.html', context)
 
 
-def delete_user_reservation(request, pk):
-    reservation = Reservation.objects.get(id=pk)
+def delete_user_reservation(request, slug):
+    reservation = Reservation.objects.get(slug=slug)
 
     if request.method == 'POST':
         reservation.delete()
         messages.success(request, 'Reservation has been deleted.')
 
     context = {'reservation': reservation}
-    return render(request, 'restaurant/delete_reservation.html', context)
+    return render(request, 'home/delete_reservation.html', context)

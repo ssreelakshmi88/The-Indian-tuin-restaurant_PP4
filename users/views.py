@@ -5,8 +5,10 @@ from django.contrib.auth \
 from django.contrib.auth.models import User
 from django.contrib import messages
 from .models import UserProfile
-from .forms import UserProfileForm
+from .forms import UserProfileForm, ContactForm
 from django.contrib.auth.forms import AuthenticationForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
 
 
 def user_register(request):
@@ -36,3 +38,21 @@ def user_profile(request):
             'profile': profile,
               }
     return render(request, 'users/profile.html', context=context)
+
+
+def contact(request):
+
+    if request.method == "GET":
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            name: form.cleaned_data['name'],
+            email = form.cleaned_data['email_address'],
+            message = form.cleaned_data['message'],
+            try:
+                send_mail(message, from_email, ["admin@example.com"])
+            except BadHeaderError:
+                return HttpResponse("Invalid header found.")
+            return messages.success(request, 'Message sent')
+    return render(request, "email.html", {"form": form})
