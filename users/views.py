@@ -12,7 +12,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 
 
 def user_register(request):
-    if request.method == 'POST':
+    if request.method == 'GET':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
@@ -42,17 +42,19 @@ def user_profile(request):
 
 def contact(request):
 
-    if request.method == "GET":
-        form = ContactForm()
-    else:
+    if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            name: form.cleaned_data['name'],
-            email = form.cleaned_data['email_address'],
-            message = form.cleaned_data['message'],
+            body = {
+                    'name': form.cleaned_data['name'],
+                    'email': form.cleaned_data['email_address'],
+                    'message': form.cleaned_data['message'],
+            }
+            message = "\n".join(body.values())
             try:
-                send_mail(message, from_email, ["admin@example.com"])
+                send_mail(message, admin@gamil.com, ["laxmi@gamil.com"])
             except BadHeaderError:
                 return HttpResponse("Invalid header found.")
             return messages.success(request, 'Message sent')
-    return render(request, "email.html", {"form": form})
+    form = ContactForm()
+    return render(request, "users/contact.html", {"form": form})

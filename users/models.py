@@ -41,3 +41,12 @@ def create_user_profile(sender, instance, created, **kwargs):
         )
 
 
+class Contact(models.Model):
+    name = models.CharField(max_length=50)
+    email_address = models.EmailField()
+    message = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+

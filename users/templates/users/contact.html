@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<section id="contact">
+    <div class="contact-container container">
+        <div class="contact-img">
+            <img src="{% static 'images/contact page.jpg' %}" alt="restaurant-image">
+        </div>
+
+        <div class="form-container">
+            <h2>Contact Us</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" class="submit-btn">Submit</a>
+            </form>
+        </div>
+    </div>
+</section>
+<div class="row about-container">
+    <div class="col-sm-12 col-md-6 info-container">
+        <div class="about-item"><i class="fa-solid fa-location-dot col-3"></i><span class="about-details col-9">18
+                Angelenhorst,
+                2171,
+                Sassenheim</span>
+        </div>
+        <div class="about-item"><i class="fa-solid fa-phone col-3"></i><span class="about-details col-9">+44 07 123
+                4567</span>
+        </div>
+        <div class="about-item"><i class="fa-solid fa-envelope col-3"></i><span class="about-details col-9">indian_
+                tuin@gmail.com</span>
+        </div>
+    </div>
+    <div class="map-responsive">
+
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.8893725249277!2d4.513617814459842!3d52.22722766563926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5c17a1fe069eb%3A0x865d20dbe9af668e!2sAngelenhorst%2018%2C%202171%20VM%20Sassenheim!5e0!3m2!1sen!2snl!4v1665690868830!5m2!1sen!2snl"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+    </div>
+</div>
+{% endblock %}
