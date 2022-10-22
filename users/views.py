@@ -14,7 +14,10 @@ from restaurant.models import Reservation
 
 
 def user_register(request):
-    if request.method == 'GET':
+    """
+    This view is for regsitering new users.
+    """
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
@@ -59,6 +62,21 @@ def user_profile(request):
         }
         return render(request, 'users/profile.html', context=context)
 
+
+def edit_user_profile(request):
+    if request.user.is_authenticated:
+        user = UserProfile.objects.filter(
+            username=request.user.username
+        ).first()
+        form = UserProfileForm(instance=user)
+
+        if request.method == 'POST':
+            form = UserProfileForm(request.POST, request.FILES, instance=user)
+
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Profile is updated.')
+                return redirect('profile')
 
 def contact(request):
 
