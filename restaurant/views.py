@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from .models import Photo, Reservation
 from .forms import ReservationForm
 from django.contrib import messages
@@ -29,7 +29,7 @@ def reservations(request):
             form.save()
             return redirect(reverse('reservations'))
         else:
-            messages.error(request, 'There was an error with your form.')
+            messages.error(request, f'There was an error with your form as following details are missing/wrong. {form.errors}')
     context = {
         'time_image': time_image,
         'form': form

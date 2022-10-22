@@ -50,7 +50,7 @@
                                         <span><i class="fa-solid fa-user-pen"></i>{{ post.author}}</span>
 
                                         <button type="submit" name="post_id" value="{{ post.id }}"><i
-                                            class="fa-solid fa-heart"></i></button>{{ post.number_of_likes}}
+                                                class="fa-solid fa-heart"></i></button>{{ post.number_of_likes}}
 
                                     </p>
                                 </form>
@@ -76,7 +76,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8 card mb-4  mt-3 ">
-                            <h3>Comments:</h3>
+                            <h3 class="main-comment">Comments:</h3>
                             <div class="card-body">
                                 {% for comment in comments %}
                                 {% if commented %}
@@ -92,12 +92,12 @@
                                                 class="btn btn-success comment-button">Edit</a>
                                             <a href="{% url 'delete_blog_comment' post.slug %}"
                                                 class="btn btn-danger comment-button">Delete</a></span>
-                                        {% endif %}  
+                                        {% endif %}
                                     </p>
                                     {{ comment.body | linebreaks }}
                                 </div>
-                                <!-- Our for loop ends here -->
-                            
+
+
                             </div>
                             {% endif %}
                             {% endfor %}
@@ -105,22 +105,18 @@
                         <div class="col-md-4 card mb-4 mt-3 ">
 
                             <div class="card-body">
-                                {% if commented %}
-                                <div class="alert alert-success" role="alert">
-                                    Your comment is awaiting approval
-                                </div>
-                                {% else %}
+
                                 {% if user.is_authenticated %}
 
-                                <h3>Leave a comment:</h3>
+                                <h3 class="comment-head">Leave a comment:</h3>
                                 <p>Posting as: {{ user.username }}</p>
                                 <form method="post" style="margin-top: 1.3em;">
                                     {{ comment_form | crispy }}
                                     {% csrf_token %}
-                                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                                    <button type="submit" class="submit-btn">Submit</button>
                                 </form>
                                 {% endif %}
-                                {% endif %}
+
                             </div>
                         </div>
                     </div>

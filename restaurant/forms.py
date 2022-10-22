@@ -27,3 +27,10 @@ class ReservationForm(ModelForm):
             'date',
             'time'
         ]
+    
+    def save(self, commit=False):
+        instance = super(ReservationForm, self).save(commit=False)
+        if instance in Reservation.objects.filter(**self.cleaned_data):
+            raise ValueError("Date already booked.")
+        instance.save()
+        return instance

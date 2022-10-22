@@ -30,7 +30,9 @@ def user_profile(request):
     This view will render a user profile.
     This can only be accessed by registered and logged in users
     """
-    if request.user.is_authenticated:
-        user = User.objects.filter(username=request.user.username).first()
-        users = UserProfile.objects.all().count()
-        return render(request, 'users/profile.html')
+    user = User.objects.filter(username=request.user.username).first()
+    profile = user.userprofile
+    context = {
+            'profile': profile,
+              }
+    return render(request, 'users/profile.html', context=context)

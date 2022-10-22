@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django.forms import ModelForm
+from django.dispatch import receiver
+from django.db.models.signals import post_save
 
 
 class UserProfile(models.Model):
@@ -25,4 +27,16 @@ class UserProfile(models.Model):
         Each instance is ordered by creation date.
         """
         ordering = ['create_at']
+
+
+@receiver(post_save, sender=User)
+def create_user_profile(sender, instance, created, **kwargs):
+    if created:
+        user = instance
+        UserProfile.objects.create(
+            user=user,
+            username=user.username,
+            email=user.email,
+        )
+
 
