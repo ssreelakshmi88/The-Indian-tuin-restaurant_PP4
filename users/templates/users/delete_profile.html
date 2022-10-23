@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="create-form">
+    <h1 class="create-form">Delete Profile</h1>
+    <div class="delete-desc">
+        <h3>Are you sure you wish to delete your profile, {{ user.username|capfirst }}?</h3>
+        <p>Please note: The applied changes are <strong>PERMANENT</strong>!</p>
+        <form class="create-form" method="POST">
+            {% csrf_token %}
+
+            <a href="{% url 'profile' %}" class="back-link"><button type="button" class="form-button">Go
+                    Back</button></a>
+            <button type="submit" class="form-button">Delete</button>
+
+        </form>
+    </div>
+
+</div>
+{% endblock %}

@@ -41,6 +41,18 @@ def create_user_profile(sender, instance, created, **kwargs):
         )
 
 
+@receiver(post_save, sender=UserProfile)
+def edit_profile(sender, instance, created, **kwargs):
+    user_profile = instance
+    user = user_profile.user
+
+    if created is False:
+        user.first_name = user_profile.name
+        user.username = user_profile.username
+        user.email = user_profile.email
+        user.save()
+
+
 class Contact(models.Model):
     name = models.CharField(max_length=50)
     email_address = models.EmailField()

@@ -67,10 +67,11 @@
     </div>
     {% endif %}
 
-    <div class="profile-actions"><button class="reserve-button">Edit
-            Profile</button></a>
-        <button class="reserve-button">Delete
-            Profile</button></a>
+    <div class="profile-actions">
+        <a href="{% url 'edit_profile' %}" class="profile-link"><button class="reserve-button">Edit
+                Profile</button></a>
+        <a href="{% url 'delete_profile' %}" class="profile-link"><button class="reserve-button">Delete
+                Profile</button></a>
 
     </div>
 </div>

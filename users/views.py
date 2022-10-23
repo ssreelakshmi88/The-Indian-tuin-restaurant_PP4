@@ -11,6 +11,8 @@ from django.core.mail import send_mail, BadHeaderError
 from django.http import HttpResponse, HttpResponseRedirect
 from blog.models import Post, Comment
 from restaurant.models import Reservation
+from django.contrib.auth.decorators import login_required
+
 
 
 def user_register(request):
@@ -63,20 +65,34 @@ def user_profile(request):
         return render(request, 'users/profile.html', context=context)
 
 
-def edit_user_profile(request):
-    if request.user.is_authenticated:
-        user = UserProfile.objects.filter(
+@login_required
+def edit_profile(request):
+    if request.method == 'POST':
+        form = UserProfileForm(request.POST, request.FILES, instance=request.user)
+        
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Profile is updated.')
+        return redirect('profile')
+
+        context = {'form': form, }
+        return render(request, 'users/edit_profile.html', context)        
+
+
+@login_required
+def delete_profile(request):
+    user = UserProfile.objects.filter(
             username=request.user.username
         ).first()
-        form = UserProfileForm(instance=user)
+    if request.method == 'POST':
+        user.delete()
+        logout(request)
+        messages.success(request, 'Profile Deleted.')
+        return redirect('restaurant:home')
 
-        if request.method == 'POST':
-            form = UserProfileForm(request.POST, request.FILES, instance=user)
+    context = {'user': user}
+    return render(request, 'users/delete_profile.html')
 
-            if form.is_valid():
-                form.save()
-                messages.success(request, 'Profile is updated.')
-                return redirect('profile')
 
 def contact(request):
 
