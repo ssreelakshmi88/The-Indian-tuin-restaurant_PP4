@@ -48,3 +48,18 @@ def edit_menu_item(request, slug):
 
     context = {'form': form}
     return render(request, 'menu/menu_form.html', context)
+
+
+def delete_menu_item(request, slug):
+    """
+    This view renders a form to delete menu items.
+    """
+    menu_item = Menu.objects.get(slug=slug)
+
+    if request.method == 'POST':
+        menu_item.delete()
+        messages.success(request, f'{menu_item.title} Deleted.')
+        return redirect('menu')
+
+    context = {'menu_item': menu_item}
+    return render(request, 'menu/delete_menuitem.html', context)
