@@ -31,3 +31,20 @@ def create_menu_item(request):
     context = {'form': form}
     return render(request, 'menu/menu_form.html', context)
 
+
+def edit_menu_item(request, slug):
+    """
+    This view that renders a form to edit menu items.
+    """
+    menu_item = Menu.objects.get(slug=slug)
+    form = MenuForm(instance=menu_item)
+
+    if request.method == 'POST':
+        form = MenuForm(request.POST, request.FILES, instance=menu_item)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'{menu_item.title} Updated.')
+            return redirect('menu')
+
+    context = {'form': form}
+    return render(request, 'menu/menu_form.html', context)
