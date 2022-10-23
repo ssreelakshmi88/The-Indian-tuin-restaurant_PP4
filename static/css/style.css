@@ -241,6 +241,10 @@ p {
     color: rgba(6, 20, 88, 0.893)
 }
 
+.btn-search {
+    width: 10%;
+}
+
 .main-comment {
     color: rgba(139, 19, 19, 0.893);
 }
@@ -495,55 +499,36 @@ a.post-title-sm:hover {
     margin-bottom: 1rem;
 }
 
-#recipes-search {
-    width: 100%;
-}
-
-#recipes-search .input-group {
-    width: 100%;
-    left: 0;
-}
-
-.categories,
-.sidelink {
-    padding: 0;
-}
-
-.categories li,
-.sidelink li {
+.fg--search {
+    background: white;
     position: relative;
-    margin: 10%;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #dee2e6;
-    list-style: none;
+    width: 300px;
 }
 
-.categories li:last-child,
-.sidelink li:last-child {
-    margin-bottom: 0;
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.categories li a,
-.sidelink li a {
+.fg--search input {
+    width: 100%;
+    padding: 20px 60px 20px 20px;
     display: block;
-    color: #000000;
 }
 
-.categories li a span,
-.sidelink li a span {
+.fg--search button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 20px;
     position: absolute;
-    right: 0;
     top: 0;
-    color: #ccc;
+    right: 0;
+    padding: 7px 20px;
+    z-index: 2;
 }
 
-.categories li.active a,
-.sidelink li.active a {
-    color: #000000;
-    font-style: italic;
+.fg--search input:focus+button .fa-search {
+    color: red;
 }
+
+
 
 .sidebar-box {
     margin: 30% 0%;
@@ -998,6 +983,10 @@ input {
     background-position: right bottom;
     transition: all 0.5s ease-out;
 }
+
+
+
+
 
 /*Media Queries */
 @media (max-width: 1199px) {

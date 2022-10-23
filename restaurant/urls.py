@@ -13,4 +13,9 @@ urlpatterns = [
     path('delete/<slug:slug>/',
          views.delete_user_reservation, name='delete_reservation'
          ),
+     path(
+        'reservations/user/',
+        views.user_reservation,
+        name='user_reservations'
+        ),
 ]

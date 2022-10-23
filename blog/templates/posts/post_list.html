@@ -13,12 +13,13 @@
                         <form action="{% url 'post_list' %}" method="POST" class="search-form" id="recipes-search">
                             {% csrf_token %}
 
-                            <div class="input-group mb-3">
+                            <div class="form-group fg--search">
+
+
                                 <input type="search" name="recipe_name" id="recipe-input" class="form-control"
                                     placeholder="Enter Recipe Here..." aria-label="Recipe Name"
                                     aria-describedby="button-addon2">
-                                <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i
-                                        class="fa-solid fa-magnifying-glass"></i></button>
+                                <button type="submit"><i class="fa fa-search"></i></button>
                             </div>
                         </form>
                     </div>
@@ -46,9 +47,8 @@
                                 <p class="meta">
                                     <span><i class="fa-solid fa-calendar-days"></i>{{ post.created_on }}</span>
                                     <span><i class="fa-solid fa-user-pen"></i>{{ post.author}}</span>
-                                    <span><i
-                                        class="fa-solid fa-heart"></i>{{ post.number_of_likes}}</span>
-            
+                                    <span><i class="fa-solid fa-heart"></i>{{ post.number_of_likes}}</span>
+
 
                                 </p>
                             </div>

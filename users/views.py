@@ -46,13 +46,14 @@ def user_profile(request):
         reservations = Reservation.objects.all().count()
     else:
         reservations = Reservation.objects. \
-                filter(email=request.user.email).count()
+        filter(email=request.user.email).count()
     likes = 0
     comments = 0
     posts = Post.objects.all()
     for post in posts:
         comments += post.comments.filter(name=request.user).count()
         likes += post.likes.filter(username=request.user.username).count()
+        reservations += Reservation.objects.filter(email=request.user.email).count()
         context = {
             'profile': profile,
             'users': users,
