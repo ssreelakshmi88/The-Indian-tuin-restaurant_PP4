@@ -14,7 +14,6 @@ from restaurant.models import Reservation
 from django.contrib.auth.decorators import login_required
 
 
-
 def user_register(request):
     """
     This view is for regsitering new users.
@@ -67,23 +66,24 @@ def user_profile(request):
 
 @login_required
 def edit_profile(request):
+    users = UserProfile.objects.filter(
+            username=request.user.username
+        ).first()
+    form = UserProfileForm(instance=users)
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=request.user)
+        form = UserProfileForm(request.POST, request.FILES, instance=user)
         
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile is updated.')
-        return redirect('profile')
-
+        
         context = {'form': form, }
-        return render(request, 'users/edit_profile.html', context)        
+        return render(request, 'users/edit_profile.html', context)
 
 
 @login_required
 def delete_profile(request):
-    user = UserProfile.objects.filter(
-            username=request.user.username
-        ).first()
+    
     if request.method == 'POST':
         user.delete()
         logout(request)

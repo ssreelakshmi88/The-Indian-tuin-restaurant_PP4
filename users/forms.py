@@ -5,7 +5,7 @@ from . models import UserProfile, Contact
 from django.forms import ModelForm
 
 
-class UserProfileForm(ModelForm):
+class UserProfileForm(forms.ModelForm):
     """
     This form class defines the output of the user form for the user profile
     """
@@ -13,8 +13,8 @@ class UserProfileForm(ModelForm):
         """
         The meta class determines the fields accessible to the user
         """
-    model = UserProfile
-    fields = ['name', 'username', 'email', 'profile_image', ]
+        model = UserProfile
+        fields = ['name', 'username', 'email', 'profile_image', ]
 
 
 class ContactForm(forms.Form):
