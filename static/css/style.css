@@ -839,7 +839,8 @@ input#id_remember {
 .time-image {
     float: right;
     width: 35%;
-    margin-top: -280px;
+    margin-top: -464px;
+    margin-right: -92px;
 }
 
 .side-image {
@@ -985,8 +986,24 @@ input {
 }
 
 
+/*PROFILE PAGE*/
 
+.profile-title {
+    font-size: 3.5em;
+    text-align: center;
+    color: rgba(139, 19, 19, 0.893);
+}
 
+.title-p {
+    text-align: center;
+    color: rgba(6, 20, 88, 0.893);
+
+}
+
+.heading-profile {
+    color: rgba(139, 19, 19, 0.893);
+    text-decoration: underline;
+}
 
 /*Media Queries */
 @media (max-width: 1199px) {
@@ -1062,5 +1079,38 @@ input {
     p {
         font-size: 14px;
         line-height: 24px;
+    }
+}
+
+@media (max-width: 500px) {
+    /* Reservation */
+
+    .time-image {
+        float: left;
+        width: 80%;
+        margin-top: 31px;
+    }
+
+    .button-row {
+        margin: 3% 7%;
+        margin-bottom: 2%;
+        justify-content: center;
+        right: 2%;
+    }
+
+    .reserve-button {
+        margin-bottom: 18px;
+        align-items: flex-end;
+        display: grid;
+
+    }
+
+    .button-row a {
+        position: sticky;
+
+    }
+
+    input {
+        width: 80%;
     }
 }

@@ -80,7 +80,7 @@
                             <div class="card-body">
                                 {% for comment in comments %}
                                 {% if commented %}
-                                <p>Waiting for approval!!</p>
+
                                 <div class="comments" style="padding: 10px;">
                                     <p class="font-weight-bold">
                                         {{ comment.name }}
@@ -96,8 +96,12 @@
                                     </p>
                                     {{ comment.body | linebreaks }}
                                 </div>
-
-
+                                {% if user.is_authenticated %}
+                                <span> <a href="{% url 'edit_blog_comment' post.id %}"
+                                        class="btn btn-success comment-button">Edit</a>
+                                    <a href="{% url 'delete_blog_comment' post.id %}"
+                                        class="btn btn-danger comment-button">Delete</a></span>
+                                {% endif %}
                             </div>
                             {% endif %}
                             {% endfor %}
@@ -115,6 +119,7 @@
                                     {% csrf_token %}
                                     <button type="submit" class="submit-btn">Submit</button>
                                 </form>
+
                                 {% endif %}
 
                             </div>

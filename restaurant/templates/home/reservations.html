@@ -12,11 +12,7 @@
 
             {{ form | crispy }}
 
-            <div class="side-image">
-                <img src="{{ time_image.image.url }}" id="open-times-image" class="time-image"
-                    alt="an image displaying the open times for the restaurant">
 
-            </div>
 
             <div class="button-row">
                 <button type="submit" class="col-sm-6 col-md-2 reserve-button">Book Now</button>
@@ -24,6 +20,11 @@
                     Booking</a>
                 <a href="" class="col-sm-4 col-md-2 reserve-button" id="reserve-link">Delete
                     Booking</a>
+            </div>
+            <div class="side-image">
+                <img src="{{ time_image.image.url }}" id="open-times-image" class="time-image"
+                    alt="an image displaying the open times for the restaurant">
+
             </div>
     </div>
 </div>
