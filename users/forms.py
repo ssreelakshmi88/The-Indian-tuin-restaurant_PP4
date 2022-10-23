@@ -18,6 +18,8 @@ class UserProfileForm(forms.ModelForm):
 
 
 class ContactForm(forms.Form):
-    name = forms.CharField(max_length=50)
-    email_address = forms.EmailField(max_length=150)
+    name = forms.CharField(max_length=50, label="Your Name")
+    email_address = forms.EmailField(max_length=150, label="Your e-mail address", required=False)
+    subject = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea, required=True)
+

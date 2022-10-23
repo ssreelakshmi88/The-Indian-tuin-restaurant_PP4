@@ -7,7 +7,7 @@ from django.contrib import messages
 from .models import UserProfile
 from .forms import UserProfileForm, ContactForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.core.mail import send_mail, BadHeaderError
+from django.core.mail import send_mail, get_connection
 from django.http import HttpResponse, HttpResponseRedirect
 from blog.models import Post, Comment
 from restaurant.models import Reservation
@@ -66,10 +66,10 @@ def user_profile(request):
 
 @login_required
 def edit_profile(request):
-    users = UserProfile.objects.filter(
+    user = UserProfile.objects.filter(
             username=request.user.username
         ).first()
-    form = UserProfileForm(instance=users)
+    form = UserProfileForm(instance=user)
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=user)
         
@@ -83,7 +83,9 @@ def edit_profile(request):
 
 @login_required
 def delete_profile(request):
-    
+    user = UserProfile.objects.filter(
+            username=request.user.username
+        ).first()
     if request.method == 'POST':
         user.delete()
         logout(request)
@@ -95,20 +97,25 @@ def delete_profile(request):
 
 
 def contact(request):
-
+    submitted=False
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            body = {
-                    'name': form.cleaned_data['name'],
-                    'email': form.cleaned_data['email_address'],
-                    'message': form.cleaned_data['message'],
-            }
-            message = "\n".join(body.values())
-            try:
-                send_mail(message, admin@gamil.com, ["laxmi@gamil.com"])
-            except BadHeaderError:
-                return HttpResponse("Invalid header found.")
-            return messages.success(request, 'Message sent')
-    form = ContactForm()
-    return render(request, "users/contact.html", {"form": form})
+                cd = form.cleaned_data
+                con = get_connection('django.core.mail.backends.console.EmailBackend')
+                send_mail(
+                    cd['subject'], 
+                    cd['message'],
+                    cd.get('email', 'noreply@example.com'),
+                    ['siteowner@example.com'],
+                    connection=con
+                )
+                return HttpResponseRedirect('/contact?submitted=True')
+        return messages.success(request, 'Message sent')
+    else:
+        form = ContactForm()
+        if 'submitted' in request.GET:
+            submitted = True
+    return render(request, 'users/contact.html', {"form": form, 
+                'submitted': submitted
+                })

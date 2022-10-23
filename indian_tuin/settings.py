@@ -171,7 +171,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-DEFAULT_FROM_EMAIL = "will@wsvincent.com"
+DEFAULT_FROM_EMAIL = "lakshmi1234@gmail.com"
 EMAIL_HOST = "smtp.sendgrid.net"
 EMAIL_HOST_USER = "apikey"
 EMAIL_HOST_PASSWORD = "<sendgrid_password>"
