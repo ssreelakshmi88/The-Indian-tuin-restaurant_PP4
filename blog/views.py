@@ -16,18 +16,21 @@ def post_list(request):
     if request.method == 'POST':
         recipe = request.POST.get('recipe_name')
         if recipe != '' and recipe is not None:
-            post_list_recipes = post_list.filter(title__icontains=recipe) \
+            post_list_recipes = post_list.filter(title=recipe) \
                 .order_by('created_on')
+
             if not post_list_recipes:
                 messages.warning(request, 'No Recipes Found For Your Search')
-                return redirect('post_list')
+                
+                return redirect('posts/post_list.html')
             context = {
                 'recipes': post_list_recipes,
                 'comments': comments,
+                'post_list': post_list
                 }
             messages.success(request, 'Recipe(s) Found.')
             return render(request, 'posts/recipes_search.html', context)
-
+            
     paginator = Paginator(post_list, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)

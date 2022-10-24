@@ -13,7 +13,7 @@
                         {% for recipe in recipes %}
                         <div class="col-12 mb-4">
                             <article class="card article-card">
-                                <a href="{% url 'post_list' recipe.id %}">
+                                <a href="{% url 'post_list' recipe.slug %}">
                                     <div class="card-image">
                                         <div class="post-info"> <span
                                                 class="text-uppercase">{{ recipe.datepublished }}</span>
@@ -24,10 +24,8 @@
                                 </a>
                                 <div class="card-body px-0 pb-1">
                                     <ul class="post-meta mb-2">
-                                        <li> <a
-                                                href="{% url 'blog_meal_tag' recipe.meal_type %}">{{ recipe.get_meal_type_display }}</a>
-                                            <a
-                                                href="{% url 'blog_food_tag' recipe.dish_type %}">{{ recipe.get_dish_type_display }}</a>
+                                        <li> <a href="#">{{ recipe.get_meal_type_display }}</a>
+                                            <a href="#">{{ recipe.get_food_type_display }}</a>
                                         </li>
                                     </ul>
                                     <div class="meta-wrap">
@@ -41,10 +39,10 @@
                                         </p>
                                     </div>
                                     <h2 class="h1"><a class="post-title"
-                                            href="{% url 'post_list' recipe.id %}">{{ recipe.title }}</a></h2>
+                                            href="{% url 'post_list' recipe.slug %}">{{ recipe.title }}</a></h2>
                                     <p class="card-text">{{ recipe.excerpt }}</p>
                                     <div class="content"> <a class="read-more-btn"
-                                            href="{% url 'post_list' recipe.id %}">Read More</a>
+                                            href="{% url 'post_list' recipe.slug %}">Read More</a>
                                     </div>
                                 </div>
                             </article>
@@ -66,16 +64,7 @@
                             </div>
                         </form>
                     </div>
-                    <div class="sidebar-box ftco-animate">
-                        <h3 class="sidebar-heading">Categories</h3>
-                        <ul class="categories">
-                            {% for value, text in dishes.dish_type.field.choices %}
-                            {% if not forloop.first %}
-                            <li><a href="{% url 'blog_dish_tag' value %}">{{ text }} </a></li>
-                            {% endif%}
-                            {% endfor %}
-                        </ul>
-                    </div>
+
 
                 </div>
             </div>
