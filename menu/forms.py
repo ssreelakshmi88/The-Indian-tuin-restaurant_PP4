@@ -14,4 +14,3 @@ class MenuForm(ModelForm):
         """
         model = Menu
         fields = '__all__'
-        

@@ -32,7 +32,7 @@ class TestPostForm(TestCase):
         form = PostForm()
         self.assertEqual(
             form.Meta.fields,
-            (  
+            (
                 'title',
                 'featured_image',
                 'excerpt',
@@ -68,4 +68,3 @@ class TestCommentForm(TestCase):
             form.Meta.fields,
             ('body', )
         )
-
