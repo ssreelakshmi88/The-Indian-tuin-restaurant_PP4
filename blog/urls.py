@@ -13,10 +13,10 @@ urlpatterns = [
          views.delete_blog_post, name="delete_blog_post"
          ),
     path('like/<slug:slug>/', views.post_like, name="post_like"),
-    path('edit_comment/<int:pk>/',
+    path('edit_comment/<slug:slug>/',
          views.edit_blog_comment, name='edit_blog_comment'
          ),
-    path('delete_comment/<int:pk>>/',
+    path('delete_comment/<slug:slug>>/',
          views.delete_blog_comment,
          name='delete_blog_comment'
          ),
