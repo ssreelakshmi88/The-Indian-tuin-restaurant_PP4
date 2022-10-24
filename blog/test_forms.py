@@ -15,7 +15,7 @@ class TestPostForm(TestCase):
         })
 
         self.assertTrue(form.is_valid())
-  
+
     def test_title_field_cannot_be_empty(self):
         form = PostForm({'title': ''})
         self.assertFalse(form.is_valid())
