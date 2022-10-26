@@ -16,20 +16,20 @@ def post_list(request):
     if request.method == 'POST':
         recipe = request.POST.get('recipe_name')
         if recipe != '' and recipe is not None:
-            post_list_recipes = post_list.filter(title=recipe) \
+            blog_recipes = post_list.filter(title__icontains=recipe) \
                 .order_by('created_on')
 
-            if not post_list_recipes:
+            if not blog_recipes:
                 messages.warning(request, 'No Recipes Found For Your Search')
                 
-                return redirect('posts/post_list.html')
+                return redirect('blog/post_list.html')
             context = {
-                'recipes': post_list_recipes,
+                'recipes': blog_recipes,
                 'comments': comments,
                 'post_list': post_list
                 }
             messages.success(request, 'Recipe(s) Found.')
-            return render(request, 'posts/recipes_search.html', context)
+            return render(request, 'blog/recipes_search.html', context)
             
     paginator = Paginator(post_list, 4)
     page_number = request.GET.get('page')
@@ -40,7 +40,7 @@ def post_list(request):
         'page_obj': page_obj,
     }
     return render(
-        request, 'posts/post_list.html', context)
+        request, 'blog/post_list.html', context)
 
 
 def post_detail(request, slug):
@@ -72,7 +72,7 @@ def post_detail(request, slug):
         'comment_form': comment_form
     }
     return render(
-        request, 'posts/post_detail.html', context)
+        request, 'blog/post_detail.html', context)
 
 
 def post_like(request, slug):
@@ -110,7 +110,7 @@ def create_blog_post(request):
             return redirect("post_detail", slug=post.slug)
 
     context = {'form': form}
-    return render(request, 'posts/create_post.html', context)
+    return render(request, 'blog/create_post.html', context)
 
 
 def edit_blog_post(request, slug):
@@ -128,7 +128,7 @@ def edit_blog_post(request, slug):
             return redirect("post_detail", slug=post.slug)
 
     context = {'post': post, 'form': form}
-    return render(request, 'posts/edit_post.html', context)
+    return render(request, 'blog/edit_post.html', context)
 
 
 def delete_blog_post(request, slug):
@@ -143,7 +143,7 @@ def delete_blog_post(request, slug):
 
     context = {"post": post}
 
-    return render(request, "posts/delete_post.html", context,)
+    return render(request, "blog/delete_post.html", context,)
 
 
 def edit_blog_comment(request, slug):
@@ -160,8 +160,8 @@ def edit_blog_comment(request, slug):
             messages.success(request, 'Comment Updated.')
             return redirect('post_detail')
 
-    context = {'post': comment, 'form': form, }
-    return render(request, 'posts/edit_comment.html', context)
+    context = {'post': comment, 'form': form, 'slug': slug}
+    return render(request, 'blog/edit_comment.html', context)
 
 
 def delete_blog_comment(request, slug):
@@ -177,4 +177,4 @@ def delete_blog_comment(request, slug):
         return redirect('post_detail')
 
     context = {'post': comment}
-    return render(request, 'posts/delete_comment.html', context)
+    return render(request, 'blog/delete_comment.html', context)

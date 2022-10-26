@@ -87,7 +87,7 @@
                                         <span class=" text-muted font-weight-normal">
                                             {{ comment.created_on }}
                                         </span> wrote:
-                                        {% if comment.author|stringformat:'s' == request.user.username|stringformat:'s' or user.is_staff %}
+                                        {% if user.is_staff %}
                                         <span> <a href="{% url 'edit_blog_comment' post.slug %}"
                                                 class="btn btn-success comment-button">Edit</a>
                                             <a href="{% url 'delete_blog_comment' post.slug %}"

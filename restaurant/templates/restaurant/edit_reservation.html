@@ -8,7 +8,7 @@
     {% csrf_token %}
     {{ form | crispy }}
 
-    <a href="{% url 'restaurant:reservations' %}" class="back-link"><button type="button" class="form-button">Go
+    <a href="{% url 'reservations' %}" class="back-link"><button type="button" class="form-button">Go
             Back</button></a>
     <button type="submit" class="form-button">Submit</button>
 

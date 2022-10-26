@@ -13,7 +13,7 @@ def home(request):
     context = {
         'banner_image': banner_image,
         'about_image': about_image}
-    return render(request, 'home/index.html', context)
+    return render(request, 'restaurant/index.html', context)
 
 
 def reservations(request):
@@ -48,7 +48,7 @@ def reservations(request):
         'time_image': time_image,
         'form': form
     }
-    return render(request, 'home/reservations.html', context)
+    return render(request, 'restaurant/reservations.html', context)
 
 
 @login_required
@@ -64,10 +64,11 @@ def edit_user_reservation(request, slug):
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation Updated.')
-            return redirect('user_reservations')
+            return redirect('user_reservation')
 
     context = {'form': form}
-    return render(request, 'home/edit_reservation.html', context)
+    return render(request, 'restaurant/edit_reservation.html', context)
+
 
 @login_required
 def delete_user_reservation(request, slug):
@@ -76,10 +77,10 @@ def delete_user_reservation(request, slug):
     if request.method == 'POST':
         reservation.delete()
         messages.success(request, 'Reservation has been deleted.')
-        
-
+ 
     context = {'reservation': reservation}
-    return render(request, 'home/delete_reservation.html', context)
+    return render(request, 'restaurant/delete_reservation.html', context)
+
 
 @login_required
 def user_reservation(request):
@@ -89,7 +90,7 @@ def user_reservation(request):
     Also accessible for admin or staff people
     """
     if request.user.is_staff:
-         user_reservations = reservations.order_by('date', 'time')
+            user_reservations = reservations.order_by('date', 'time')
     if not user_reservations:
             messages.warning(request, 'No Reservations are found.')
             return render(request, 'users/profile.html')

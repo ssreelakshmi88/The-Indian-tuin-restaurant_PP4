@@ -46,7 +46,7 @@ def user_profile(request):
         reservations = Reservation.objects.all().count()
     else:
         reservations = Reservation.objects. \
-        filter(email=request.user.email).count()
+                filter(email=request.user.email).count()
     likes = 0
     comments = 0
     posts = Post.objects.all()
@@ -54,6 +54,7 @@ def user_profile(request):
         comments += post.comments.filter(name=request.user).count()
         likes += post.likes.filter(username=request.user.username).count()
         reservations += Reservation.objects.filter(email=request.user.email).count()
+        
         context = {
             'profile': profile,
             'users': users,
@@ -71,12 +72,14 @@ def edit_profile(request):
             username=request.user.username
         ).first()
     form = UserProfileForm(instance=user)
+
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=user)
         
         if form.is_valid():
             form.save()
             messages.success(request, 'Profile is updated.')
+            return redirect('profile')
         
         context = {'form': form, }
         return render(request, 'users/edit_profile.html', context)
@@ -98,21 +101,21 @@ def delete_profile(request):
 
 
 def contact(request):
-    submitted=False
+    submitted = False
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-                cd = form.cleaned_data
-                con = get_connection('django.core.mail.backends.console.EmailBackend')
-                send_mail(
+            cd = form.cleaned_data
+            con = get_connection('django.core.mail.backends.console.EmailBackend')
+            send_mail(
                     cd['subject'], 
                     cd['message'],
                     cd.get('email', 'noreply@example.com'),
                     ['siteowner@example.com'],
                     connection=con
                 )
-                return HttpResponseRedirect('/contact?submitted=True')
-        return messages.success(request, 'Message sent')
+            return HttpResponseRedirect('/contact?submitted=True')
+            return messages.success(request, 'Message sent')
     else:
         form = ContactForm()
         if 'submitted' in request.GET:
