@@ -116,7 +116,7 @@ p {
 }
 
 
-/* Navbar */
+/* NAVBAR */
 .header_wrapper .navbar {
     padding: 15px 0;
     -webkit-transition: all .2s linear;
@@ -161,7 +161,7 @@ p {
     box-shadow: 0 4px 6px 0 rgba(12, 0, 46, .05);
 }
 
-/* banner */
+/* BANNER */
 .banner_wrapper {
     padding-top: 70px;
 }
@@ -170,7 +170,7 @@ p {
     height: 200px;
 }
 
-/*About */
+/*ABOUT */
 .about_wrapper {
     background-color: rgba(227, 88, 88, 0.893);
     padding-bottom: 130px;
@@ -182,7 +182,7 @@ p {
     top: 30%;
 }
 
-/*footer */
+/*FOOTER */
 .footer_wrapper {
     background-color: white;
     padding: 20px 0;
@@ -528,61 +528,6 @@ a.post-title-sm:hover {
     color: red;
 }
 
-
-
-.sidebar-box {
-    margin: 30% 0%;
-    padding: 0 25px;
-    font-size: 15px;
-    width: 100%;
-}
-
-.sidebar-box h3.sidebar-heading {
-    font-size: 20px;
-    font-weight: normal;
-    font-style: italic;
-    margin-bottom: 30px;
-}
-
-.sidebar-box .mb-4 {
-    margin-top: 20%
-}
-
-.block-21 .blog-img {
-    margin-right: 5%;
-}
-
-.block-21 .blog-img img {
-    display: block;
-    height: 80px;
-    width: 80px;
-}
-
-.block-21 .text {
-    width: calc(100% - 100px);
-    color: #af8969
-}
-
-.block-21 .text .heading {
-    font-size: 16px;
-}
-
-.block-21 .text .heading a {
-    color: #af8969
-}
-
-.block-21 .text .heading a:hover,
-.block-21 .text .heading a:active,
-.block-21 .text .heading a:focus {
-    color: #1eafed;
-}
-
-.block-21 .text .meta>div {
-    display: inline-block;
-    font-size: 12px;
-    margin-right: 5px;
-}
-
 .reserve-button {
 
     display: inline-table;
@@ -895,7 +840,9 @@ input {
     font-size: 3rem;
 }
 
+
 /*  CONTACT PAGE   */
+
 #contact {
     padding: 5rem 0;
 
@@ -1005,10 +952,11 @@ input {
     text-decoration: underline;
 }
 
-/*Media Queries */
+/*MEDIA QUERIES*/
+
 @media (max-width: 1199px) {
 
-    /* custom css */
+    /* CUSTOM CSS */
     h1 {
         font-size: 65px;
     }
@@ -1016,7 +964,7 @@ input {
 
 @media (max-width:991px) {
 
-    /* custom css */
+    /* CUSTOM CSS */
 
     h2 {
         font-size: 30px;
@@ -1027,7 +975,8 @@ input {
         font-size: 20px;
     }
 
-    /* 2 Navbar */
+    /* 2 NAVBAR */
+
     .header_wrapper .navbar-brand img {
         max-width: 80px;
     }
@@ -1055,7 +1004,8 @@ input {
         height: auto;
     }
 
-    /* About */
+    /* ABOUT */
+
     .about_wrapper {
         padding-bottom: unset;
     }
@@ -1070,7 +1020,7 @@ input {
 
 @media (max-width: 767px) {
 
-    /* custom css */
+    /* CUSTOM CSS*/
     h1 {
         font-size: 40px;
         line-height: 48px;
@@ -1083,7 +1033,8 @@ input {
 }
 
 @media (max-width: 500px) {
-    /* Reservation */
+    /* RESERVATION */
+
 
     .time-image {
         float: left;
@@ -1110,7 +1061,31 @@ input {
 
     }
 
+    /* EDIT_MENU PAGE */
     input {
         width: 80%;
+        border-block-color: black
+    }
+
+    /* POST_LIST PAGE */
+    input {
+        width: 80%;
+        border-block-color: black
+    }
+
+    .meta-wrap p {
+        width: auto;
+    }
+}
+
+@media (max-width: 414px) {
+
+    .article-card {
+        display: inline-grid;
+    }
+
+    textarea {
+
+        border-block-color: black;
     }
 }

@@ -82,26 +82,3 @@ def delete_user_reservation(request, slug):
     return render(request, 'restaurant/delete_reservation.html', context)
 
 
-@login_required
-def user_reservation(request):
-    """
-    This view is for rendering user reservations.
-    Only accessible for logged in users
-    Also accessible for admin or staff people
-    """
-    if request.user.is_staff:
-            user_reservations = reservations.order_by('date', 'time')
-    if not user_reservations:
-            messages.warning(request, 'No Reservations are found.')
-            return render(request, 'users/profile.html')
-    else:
-            user_reservations = reservations.filterfilter(
-            email=request.user.email
-            ).order_by('date', 'time')
-    if not user_reservations:
-        messages.warning(request, 'No Reservations are found at this name')
-        return render (request, 'users/profile.html')
-        context = {'reservations': user_reservations}
-        messages.success(request, 'Reservations Found.')
-    return render(request, 'restaurant/user_reservations.html', context)
-

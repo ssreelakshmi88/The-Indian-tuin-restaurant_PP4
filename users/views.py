@@ -75,14 +75,13 @@ def edit_profile(request):
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES, instance=user)
-        
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Profile is updated.')
-            return redirect('profile')
-        
-        context = {'form': form, }
-        return render(request, 'users/edit_profile.html', context)
+
+    if form.is_valid():
+        form.save()
+        messages.success(request, 'Profile is updated.')
+        return redirect('profile')
+    context = {'form': form, }
+    return render(request, 'users/edit_profile.html', context)
 
 
 @login_required
