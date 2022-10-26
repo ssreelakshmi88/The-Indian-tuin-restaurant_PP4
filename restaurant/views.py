@@ -64,7 +64,7 @@ def edit_user_reservation(request, slug):
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation Updated.')
-            return redirect('user_reservation')
+            return redirect('reservation')
 
     context = {'form': form}
     return render(request, 'restaurant/edit_reservation.html', context)
@@ -77,8 +77,8 @@ def delete_user_reservation(request, slug):
     if request.method == 'POST':
         reservation.delete()
         messages.success(request, 'Reservation has been deleted.')
+        redirect('reservation')
  
     context = {'reservation': reservation}
     return render(request, 'restaurant/delete_reservation.html', context)
-
 
