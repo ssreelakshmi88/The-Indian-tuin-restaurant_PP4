@@ -26,35 +26,3 @@ class TestUserProfileForm(TestCase):
     def test_email_can_be_empty(self):
         form = UserProfileForm({'email': ''})
         self.assertTrue(form.is_valid())
-
-    def test_fields_are_explicit_in_form_metaclass(self):
-        form = UserProfileForm()
-        self.assertEqual(
-            form.Meta.fields,
-            ['username', 'name', 'email', 'profile_image']
-        )
-
-
-class ContactForm(TestCase):
-    """
-    This class tests the user profile form
-    """
-    def test_form_data_input_is_valid(self):
-        form = ContactForm(data={
-         'name': 'Lakshmi',
-         'email': 'lakshmi@gmail.com',
-         'subject': 'topic',
-         'message': 'some content'
-   
-        })
-
-        self.assertTrue(form.is_valid())
-
-    def test_name_can_be_empty(self):
-        form = ContactForm({'name': ''})
-        self.assertTrue(form.is_valid())
-
-    def test_email_can_be_empty(self):
-        form = ContactForm({'email': ''})
-        self.assertTrue(form.is_valid())
-

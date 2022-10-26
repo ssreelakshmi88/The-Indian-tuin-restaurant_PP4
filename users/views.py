@@ -106,8 +106,7 @@ def contact(request):
         if form.is_valid():
             cd = form.cleaned_data
             con = get_connection('django.core.mail.backends.console.EmailBackend')
-            send_mail(
-                    cd['subject'], 
+            send_mail( 
                     cd['message'],
                     cd.get('email', 'noreply@example.com'),
                     ['siteowner@example.com'],

@@ -17,9 +17,16 @@ class UserProfileForm(forms.ModelForm):
         fields = ['name', 'username', 'email', 'profile_image', ]
 
 
-class ContactForm(forms.Form):
+class ContactForm(forms.ModelForm):
     name = forms.CharField(max_length=50, label="Your Name")
     email_address = forms.EmailField(max_length=150, label="Your e-mail address", required=False)
-    subject = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea, required=True)
+
+    class Meta:
+        """
+        The meta class determines the fields accessible to the user
+        """
+        model = Contact
+        fields = ['name', 'email_address', 'message', ]
+
 

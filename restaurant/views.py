@@ -43,7 +43,7 @@ def reservations(request):
             messages.success(request, 'Reservation created successfully.')
             return redirect('restaurant:reservations')
         else:
-            messages.error(request, f'Some details are missing/wrong. {form.errors}')
+            messages.error(request, f'Some details are missing/wrong.')
     context = {
         'time_image': time_image,
         'form': form
@@ -81,4 +81,3 @@ def delete_user_reservation(request, slug):
  
     context = {'reservation': reservation}
     return render(request, 'restaurant/delete_reservation.html', context)
-
