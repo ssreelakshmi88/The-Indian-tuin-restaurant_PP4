@@ -5,7 +5,7 @@ import datetime as date
 
 class TestBlogModels(TestCase):
     """
-    This class tests the models i restaurant class.
+    This class tests the models in restaurant class.
     """
     def test_done_reservation_list_done_now(self):
         item = Reservation.objects.create(
@@ -16,5 +16,3 @@ class TestBlogModels(TestCase):
         )
         current_date = date.datetime.now()
         self.assertEqual(current_date.date(), item.created_on.date())
-
-
