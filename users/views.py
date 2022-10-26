@@ -105,20 +105,19 @@ def contact(request):
     if request.method == "POST":
         form = ContactForm(request.POST)
         if form.is_valid():
-            cd = form.cleaned_data
+            email_data = form.cleaned_data
             con = get_connection('django.core.mail.backends.console.EmailBackend')
-            send_mail( 
-                    cd['message'],
-                    cd.get('email', 'noreply@example.com'),
-                    ['siteowner@example.com'],
-                    connection=con
-                )
-            return HttpResponseRedirect('/contact?submitted=True')
-            return messages.success(request, 'Message sent')
+            send_mail(
+                subject="Email Form",
+                message=email_data['message'],
+                from_email='siteowner@example.com',
+                recipient_list=[email_data['email_address']],
+                connection=con
+            )
+            messages.success(request, 'Message sent')
+            return HttpResponseRedirect('/')
     else:
         form = ContactForm()
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'users/contact.html', {"form": form, 
-                'submitted': submitted
-                })
+    return render(request, 'users/contact.html', {"form": form, 'submitted': submitted})

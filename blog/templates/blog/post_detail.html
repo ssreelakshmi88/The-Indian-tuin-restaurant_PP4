@@ -87,18 +87,18 @@
                                                 {{ comment.created_on }}
                                             </span> wrote:
                                             {% if user.is_staff %}
-                                            <span> <a href="{% url 'edit_blog_comment' post.slug %}"
+                                            <span> <a href="{% url 'edit_blog_comment' comment.pk %}"
                                                     class="btn btn-success comment-button">Edit</a>
-                                                <a href="{% url 'delete_blog_comment' post.slug %}"
+                                                <a href="{% url 'delete_blog_comment' comment.pk %}"
                                                     class="btn btn-danger comment-button">Delete</a></span>
                                             {% endif %}
                                         </p>
                                         {{ comment.body | linebreaks }}
                                     </div>
                                     {% if user.is_authenticated %}
-                                    <span> <a href="{% url 'edit_blog_comment' post.slug %}"
+                                    <span> <a href="{% url 'edit_blog_comment' comment.pk %}"
                                             class="btn btn-success comment-button">Edit</a>
-                                        <a href="{% url 'delete_blog_comment' post.slug %}"
+                                        <a href="{% url 'delete_blog_comment' comment.pk %}"
                                             class="btn btn-danger comment-button">Delete</a></span>
                                     {% endif %}
                                 </div>

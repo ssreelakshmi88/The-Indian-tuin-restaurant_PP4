@@ -8,10 +8,10 @@ urlpatterns = [
     path('recipes_search/', views.post_list, name="recipe_search"),
     path("create_post/", views.create_blog_post, name="create_post"),
     path('like/<slug:slug>/', views.post_like, name="post_like"),
-    path('edit_comment/<slug:slug>/',
+    path('edit_comment/<int:pk>/',
          views.edit_blog_comment, name='edit_blog_comment'
          ),
-    path('delete_comment/<slug:slug>/',
+    path('delete_comment/<int:pk>/',
          views.delete_blog_comment,
          name='delete_blog_comment'
          ),

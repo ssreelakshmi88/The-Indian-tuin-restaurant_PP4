@@ -146,11 +146,11 @@ def delete_blog_post(request, slug):
     return render(request, "blog/delete_post.html", context,)
 
 
-def edit_blog_comment(request, slug):
+def edit_blog_comment(request, pk):
     """
     This view is to edit commment on a blog post.
     """
-    comment = get_object_or_404(Comment, slug=slug)
+    comment = get_object_or_404(Comment, pk=pk)
     post = comment.post.id
     form = CommentForm(instance=comment)
     if request.method == 'POST':
@@ -160,15 +160,15 @@ def edit_blog_comment(request, slug):
             messages.success(request, 'Comment Updated.')
             return redirect('post_detail')
 
-    context = {'post': comment, 'form': form, 'slug': slug}
+    context = {'post': comment, 'form': form, 'pk': pk}
     return render(request, 'blog/edit_comment.html', context)
 
 
-def delete_blog_comment(request, slug):
+def delete_blog_comment(request, pk):
     """
     This view is to delete commment on a blog post.
     """
-    comment = get_object_or_404(Comment, slug=slug)
+    comment = get_object_or_404(Comment, pk=pk)
     post = comment.post.id
 
     if request.method == 'POST':
