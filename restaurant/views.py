@@ -27,7 +27,7 @@ def reservations(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         date = form['date'].value()
-        date_value = datetime.strptime(date, '%m/%d/%Y')
+        date_value = datetime.strptime(date, "%Y-%m-%d")
         time = form['time'].value()
         reservation = Reservation.objects. \
             filter(date=date_value, time=time)

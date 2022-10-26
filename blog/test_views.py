@@ -22,7 +22,6 @@ class TestBlogViews(TestCase):
             food_type=3,
             content='Some content'
         )
-        response = self.client.get('blog/edit_post')
+        response = self.client.reverse('edit_post/10')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/edit_post.html')
-

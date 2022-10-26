@@ -33,6 +33,7 @@ def user_register(request):
     return render(request, 'users/register.html', {'form': form})
 
 
+@login_required
 def user_profile(request):
     """
     This view will render a user profile.

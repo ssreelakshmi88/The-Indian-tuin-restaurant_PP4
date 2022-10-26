@@ -1,7 +1,10 @@
 from django import forms
 from django.forms import ModelForm
 from .models import Reservation
-from .widgets import FengyuanChenDatePickerInput
+
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
 
 
 class ReservationForm(ModelForm):
@@ -9,10 +12,6 @@ class ReservationForm(ModelForm):
     This defines the user form output for the
     Reservation model class
     """
-    date = forms.DateField(
-        input_formats=['%m/%d/%Y'],
-        widget=FengyuanChenDatePickerInput()
-        )
 
     class Meta:
         """
@@ -27,7 +26,10 @@ class ReservationForm(ModelForm):
             'date',
             'time'
         ]
-    
+        widgets = {
+            'date': DateInput(),
+        }
+ 
     def save(self, commit=False):
         instance = super(ReservationForm, self).save(commit=False)
         if instance in Reservation.objects.filter(**self.cleaned_data):
