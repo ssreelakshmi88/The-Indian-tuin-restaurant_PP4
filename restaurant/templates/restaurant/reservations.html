@@ -14,12 +14,17 @@
 
             <div class="button-row">
                 <button type="submit" class="col-sm-6 col-md-2 reserve-button">Book Now</button>
-                <a href="{% url 'delete_user_reservation' reservation.pk %}" class="col-sm-4 col-md-2 reserve-button"
-                    id="reserve-link">Edit
+
+                {% if existing_reservation %}
+                {% for reservation in existing_reservation %}
+                <a href="{% url 'restaurant:delete_user_reservation' reservation.pk %}"
+                    class="col-sm-4 col-md-2 reserve-button" id="reserve-link">Edit
                     Booking</a>
-                <a href="{% url 'delete_user_reservation' reservation.pk %}" class="col-sm-4 col-md-2 reserve-button"
-                    id="reserve-link">Delete
+                <a href="{% url 'restaurant:delete_user_reservation' reservation.pk %}"
+                    class="col-sm-4 col-md-2 reserve-button" id="reserve-link">Delete
                     Booking</a>
+                {% endfor %}
+                {% endif %}
             </div>
             <div class="side-image">
                 <img src="{{ time_image.image.url }}" id="open-times-image" class="time-image"

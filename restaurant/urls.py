@@ -10,8 +10,8 @@ urlpatterns = [
     path('edit/reservations/<int:pk>',
          views.edit_user_reservation, name='edit_reservation'
          ),
-    path('delete/<slug:slug>/',
-         views.delete_user_reservation, name='delete_reservation'
+    path('delete/<int:pk>/',
+         views.delete_user_reservation, name='delete_user_reservation'
          ),
 
 ]

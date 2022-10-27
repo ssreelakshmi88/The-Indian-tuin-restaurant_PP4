@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-md-4 sidebar ftco-animate pt-5" lang="hi">
                     <div class="sidebar-box pt-md-4">
-                        <form action="{% url 'post_list' %}" method="POST" class="search-form" id="recipes-search">
+                        <form action="{% url 'blog:post_list' %}" method="POST" class="search-form" id="recipes-search">
                             {% csrf_token %}
 
                             <div class="form-group fg--search">
@@ -28,7 +28,7 @@
                 {% for post in page_obj %}
                 <div class="col-12 mb-4">
                     <div class="card article-card">
-                        <a href="{% url 'post_list' %}">
+                        <a href="{% url 'blog:post_list' %}">
                             <div class="card-image">
                                 <div class="post-info"> <span class="text-uppercase">{{ post.datepublished }}</span>
                                 </div>
@@ -54,7 +54,8 @@
                             </div>
                             <h2 class="h1">{{ post.title }}</h2>
                             <p class="card-text">{{ post.excerpt }}</p>
-                            <div class="content"> <a class="read-more-btn" href="{% url 'post_detail' post.pk %}">Read
+                            <div class="content"> <a class="read-more-btn"
+                                    href="{% url 'blog:post_detail' post.pk %}">Read
                                     More</a>
                             </div>
                         </div>

@@ -27,6 +27,10 @@ def reservations(request):
     time_image = Photo.objects.get(title='Times Image')
     form = ReservationForm()
 
+    existing_reservation = None
+
+    existing_reservation = Reservation.objects.filter(user = request.user)
+
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         date = form['date'].value()
@@ -51,6 +55,8 @@ def reservations(request):
         'time_image': time_image,
         'form': form
     }
+    if existing_reservation:
+        context['existing_reservation'] = existing_reservation
     return render(request, 'restaurant/reservations.html', context)
 
 

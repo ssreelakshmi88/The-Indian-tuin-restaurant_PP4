@@ -10,7 +10,7 @@
                 <p class="home-description">{{ post.excerpt }}</p>
                 <div class="col-md-4 sidebar ftco-animate pt-5" lang="hi">
                     <div class="sidebar-box pt-md-4">
-                        <form action="{% url 'post_list' %}" method="POST" class="search-form" id="recipes-search">
+                        <form action="{% url 'blog:post_list' %}" method="POST" class="search-form" id="recipes-search">
                             {% csrf_token %}
 
                             <div class="form-group fg--search">
@@ -42,7 +42,7 @@
                                     </li>
                                 </ul>
                                 <div class="meta-wrap" id="post-meta">
-                                    <form action="{% url 'post_like' post.ok %}" method="POST">
+                                    <form action="{% url 'blog:post_like' post.pk %}" method="POST">
                                         {% csrf_token %}
                                         <p class="meta">
                                             <span><i class="fa-solid fa-calendar-days"></i>{{ post.created_on }}</span>
@@ -58,9 +58,9 @@
 
                             {% if user.is_staff %}
                             <div class="blog-post-buttons">
-                                <a href="{% url 'edit_blog_post' post.pk %}"><button type="submit"
+                                <a href="{% url 'blog:edit_blog_post' post.pk %}"><button type="submit"
                                         class="reserve-button">Edit</button></a>
-                                <a href="{% url 'delete_blog_post' post.pk %}"><button type="submit"
+                                <a href="{% url 'blog:delete_blog_post' post.pk %}"><button type="submit"
                                         class="reserve-button">Delete</button></a>
                             </div>
                             {% endif %}
@@ -87,18 +87,18 @@
                                                 {{ comment.created_on }}
                                             </span> wrote:
                                             {% if user.is_staff %}
-                                            <span> <a href="{% url 'edit_blog_comment' comment.pk %}"
+                                            <span> <a href="{% url 'blog:edit_blog_comment' comment.pk %}"
                                                     class="btn btn-success comment-button">Edit</a>
-                                                <a href="{% url 'delete_blog_comment' comment.pk %}"
+                                                <a href="{% url 'blog:delete_blog_comment' comment.pk %}"
                                                     class="btn btn-danger comment-button">Delete</a></span>
                                             {% endif %}
                                         </p>
                                         {{ comment.body | linebreaks }}
                                     </div>
                                     {% if user.is_authenticated %}
-                                    <span> <a href="{% url 'edit_blog_comment' comment.pk %}"
+                                    <span> <a href="{% url 'blog:edit_blog_comment' comment.pk %}"
                                             class="btn btn-success comment-button">Edit</a>
-                                        <a href="{% url 'delete_blog_comment' comment.pk %}"
+                                        <a href="{% url 'blog:delete_blog_comment' comment.pk %}"
                                             class="btn btn-danger comment-button">Delete</a></span>
                                     {% endif %}
                                 </div>

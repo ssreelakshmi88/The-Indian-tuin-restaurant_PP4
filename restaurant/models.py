@@ -18,6 +18,7 @@ class Reservation(models.Model):
     Reservation model class.
     Creates a table in the database which stores each objects data"
     """
+    # user = user.ForeignKey()
     name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()
     number_of_persons = models.PositiveSmallIntegerField(choices=(
