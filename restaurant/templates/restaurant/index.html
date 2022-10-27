@@ -11,7 +11,7 @@
                 <a class="main-btn mt-4" href="{% url 'menu' %}">View Menu</a>
             </div>
             <div class="col-lg-7 text-center order-lg-2 order-1">
-                <img src="{{banner_image.image.url}}" class="img-fluid">
+                <img src="{{banner_image.image.url}}" class="img-fluid" alt="banner-image">
             </div>
         </div>
         <!-- About section -->
@@ -27,7 +27,7 @@
                                 </p>
 
                                 <a href="{% url 'restaurant:reservations' %}" class="main-btn mt-4">Book a Table</Table>
-                                    </a>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -38,5 +38,7 @@
                 </div>
             </div>
         </section>
-        <!-- About section exit -->
-        {% endblock %}
+    </div>
+</section>
+<!-- About section exit -->
+{% endblock %}

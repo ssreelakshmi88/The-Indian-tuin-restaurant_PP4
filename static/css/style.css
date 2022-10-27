@@ -897,7 +897,7 @@ input {
 
 .form-container h2 {
     font-size: 2.7rem;
-    font-weight: 500;
+    font-weight: 600;
     color: firebrick;
     margin-bottom: 1rem;
     margin-top: -1.2rem;
@@ -1027,9 +1027,54 @@ input {
     }
 
     p {
-        font-size: 14px;
+        font-size: 20px;
         line-height: 24px;
     }
+
+    .info-p {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .desc-block {
+        height: 40%;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .info-p {
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    /* CONTACT PAGE*/
+
+    .contact-container {
+        display: inline-table;
+
+    }
+
+    .contact-img img {
+        height: 244px;
+        width: 120%;
+
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-container input {
+        width: 120%;
+    }
+
+    .form-container textarea {
+        width: 120%;
+    }
+
 }
 
 @media (max-width: 500px) {
@@ -1076,6 +1121,31 @@ input {
     .meta-wrap p {
         width: auto;
     }
+
+    /* CONTACT PAGE*/
+
+    .contact-container {
+        display: inline-table;
+
+    }
+
+    .contact-img img {
+        height: 244px;
+        width: 120%;
+
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-container input {
+        width: 120%;
+    }
+
+    .form-container textarea {
+        width: 120%;
+    }
 }
 
 @media (max-width: 414px) {
@@ -1087,5 +1157,18 @@ input {
     textarea {
 
         border-block-color: black;
+    }
+
+    /* CONTACT PAGE*/
+    .contact-container {
+        width: max-content;
+    }
+
+    .form-container input {
+        width: 140%;
+    }
+
+    .form-container textarea {
+        width: 140%;
     }
 }

@@ -21,7 +21,6 @@ def post_list(request):
 
             if not blog_recipes:
                 messages.warning(request, 'No Recipes Found For Your Search')
-                
                 return redirect('blog/post_list.html')
             context = {
                 'recipes': blog_recipes,
@@ -30,7 +29,7 @@ def post_list(request):
                 }
             messages.success(request, 'Recipe(s) Found.')
             return render(request, 'blog/recipes_search.html', context)
-            
+         
     paginator = Paginator(post_list, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -43,9 +42,10 @@ def post_list(request):
         request, 'blog/post_list.html', context)
 
 
-def post_detail(request, slug):
+def post_detail(request, pk):
+
     post_detail = Post.objects.all()
-    post = get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post, id=pk)
     comments = post.comments.filter(approved=True).order_by("-created_on")
     liked = False
     if post.likes.filter(id=request.user.id).exists():
@@ -69,15 +69,15 @@ def post_detail(request, slug):
         "comment_form": CommentForm(),
         'commented': True,
         'comments': comments,
-        'comment_form': comment_form
+        'comment_form': comment_form,
     }
-    return render(
-        request, 'blog/post_detail.html', context)
+    return render(request, 'blog/post_detail.html', context)
 
 
-def post_like(request, slug):
+def post_like(request, pk):
+    
     if request.user.is_authenticated:
-        post = get_object_or_404(Post, slug=slug)
+        post = get_object_or_404(Post, slug=pk)
         liked = False
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
@@ -86,7 +86,7 @@ def post_like(request, slug):
             post.likes.add(request.user)
             liked = True
 
-        return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+        return HttpResponseRedirect(reverse('post_detail', args=[str(pk)]))
 
     else:
         messages.warning(
@@ -107,17 +107,17 @@ def create_blog_post(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Post Created.')
-            return redirect("post_detail", slug=post.slug)
+            return redirect("post_detail", pk=pk)
 
     context = {'form': form}
     return render(request, 'blog/create_post.html', context)
 
 
-def edit_blog_post(request, slug):
+def edit_blog_post(request, pk):
     """
     This view to render a form to edit existing blog posts.
     """
-    post = get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post, pk=pk)
     form = PostForm(instance=post)
 
     if request.method == "POST":
@@ -125,17 +125,17 @@ def edit_blog_post(request, slug):
         if form.is_valid():
             form.save()
             messages.success(request, f'{post.title} Updated.')
-            return redirect("post_detail", slug=post.slug)
+            return redirect("post_detail", pk=pk)
 
     context = {'post': post, 'form': form}
     return render(request, 'blog/edit_post.html', context)
 
 
-def delete_blog_post(request, slug):
+def delete_blog_post(request, pk):
     """
     This view is to delete blog posts.
     """
-    post = get_object_or_404(Post, slug=slug)
+    post = get_object_or_404(Post, pk=pk)
 
     if request.method == "POST":
         post.delete()

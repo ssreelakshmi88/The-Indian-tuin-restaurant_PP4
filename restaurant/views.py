@@ -52,8 +52,8 @@ def reservations(request):
 
 
 @login_required
-def edit_user_reservation(request, slug):
-    reservation = Reservation.objects.get(slug=slug)
+def edit_user_reservation(request, pk):
+    reservation = Reservation.objects.get(reservation.id == pk)
     form = ReservationForm(instance=reservation)
 
     if request.method == 'POST':
@@ -66,7 +66,7 @@ def edit_user_reservation(request, slug):
             messages.success(request, 'Reservation Updated.')
             return redirect('reservation')
 
-    context = {'form': form}
+    context = {'form': form, 'pk': pk}
     return render(request, 'restaurant/edit_reservation.html', context)
 
 

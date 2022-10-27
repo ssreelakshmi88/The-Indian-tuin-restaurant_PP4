@@ -42,7 +42,7 @@
                                     </li>
                                 </ul>
                                 <div class="meta-wrap" id="post-meta">
-                                    <form action="{% url 'post_like' post.slug %}" method="POST">
+                                    <form action="{% url 'post_like' post.ok %}" method="POST">
                                         {% csrf_token %}
                                         <p class="meta">
                                             <span><i class="fa-solid fa-calendar-days"></i>{{ post.created_on }}</span>
@@ -58,9 +58,9 @@
 
                             {% if user.is_staff %}
                             <div class="blog-post-buttons">
-                                <a href="{% url 'edit_blog_post' post.slug %}"><button type="submit"
+                                <a href="{% url 'edit_blog_post' post.pk %}"><button type="submit"
                                         class="reserve-button">Edit</button></a>
-                                <a href="{% url 'delete_blog_post' post.slug %}"><button type="submit"
+                                <a href="{% url 'delete_blog_post' post.pk %}"><button type="submit"
                                         class="reserve-button">Delete</button></a>
                             </div>
                             {% endif %}

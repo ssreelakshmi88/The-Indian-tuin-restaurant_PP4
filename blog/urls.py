@@ -7,7 +7,7 @@ urlpatterns = [
     path('blog/', views.post_list, name="post_list"),
     path('recipes_search/', views.post_list, name="recipe_search"),
     path("create_post/", views.create_blog_post, name="create_post"),
-    path('like/<slug:slug>/', views.post_like, name="post_like"),
+    path('like/<int:pk>/', views.post_like, name="post_like"),
     path('edit_comment/<int:pk>/',
          views.edit_blog_comment, name='edit_blog_comment'
          ),
@@ -15,9 +15,9 @@ urlpatterns = [
          views.delete_blog_comment,
          name='delete_blog_comment'
          ),
-    path('<slug:slug>/', views.post_detail, name="post_detail"),
-    path("<slug:slug>/edit", views.edit_blog_post, name="edit_blog_post"),
-    path("<slug:slug>/delete",
+    path('<int:pk>/', views.post_detail, name="post_detail"),
+    path("<int:pk>/edit", views.edit_blog_post, name="edit_blog_post"),
+    path("<int:pk>/delete",
          views.delete_blog_post, name="delete_blog_post"
          ),
 ]
