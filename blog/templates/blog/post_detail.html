@@ -58,7 +58,7 @@
 
                             {% if user.is_staff %}
                             <div class="blog-post-buttons">
-                                <a href="{% url 'blog:edit_blog_post' post.pk %}"><button type="submit"
+                                <a href="{% url 'edit_blog_post' post.pk %}"><button type="submit"
                                         class="reserve-button">Edit</button></a>
                                 <a href="{% url 'blog:delete_blog_post' post.pk %}"><button type="submit"
                                         class="reserve-button">Delete</button></a>
