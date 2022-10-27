@@ -19,7 +19,7 @@ class UserProfileForm(forms.ModelForm):
 
 class ContactForm(forms.ModelForm):
     name = forms.CharField(max_length=50, label="Your Name")
-    email_address = forms.EmailField(max_length=150, label="Your e-mail address", required=False)
+    email_address = forms.EmailField(max_length=150, required=False)
     message = forms.CharField(widget=forms.Textarea, required=True)
 
     class Meta:
@@ -28,5 +28,3 @@ class ContactForm(forms.ModelForm):
         """
         model = Contact
         fields = ['name', 'email_address', 'message', ]
-
-

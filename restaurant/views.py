@@ -7,6 +7,9 @@ from django.contrib.auth.decorators import login_required
 
 
 def home(request):
+    """
+    This view will render the images of the home page.
+    """
     banner_image = Photo.objects.get(title='banner_image')
     about_image = Photo.objects.get(title='about_image')
     logo_image = Photo.objects.get(title='indian tuin_logo')
@@ -37,7 +40,7 @@ def reservations(request):
                 'Date and time already booked.'
                 'Please choose another date and time'
                 )
-            return redirect('restaurant:reservations')   
+            return redirect('restaurant:reservations')
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation created successfully.')
@@ -53,6 +56,9 @@ def reservations(request):
 
 @login_required
 def edit_user_reservation(request, pk):
+    """
+    This view allows the user to edit reservations.
+    """
     reservation = Reservation.objects.get(reservation.id == pk)
     form = ReservationForm(instance=reservation)
 
@@ -71,13 +77,16 @@ def edit_user_reservation(request, pk):
 
 
 @login_required
-def delete_user_reservation(request, slug):
-    reservation = Reservation.objects.get(slug=slug)
+def delete_user_reservation(request, pk):
+    """
+    This view allows the user to delete reservations.
+    """
+    reservation = Reservation.objects.get(pk=pk)
 
     if request.method == 'POST':
         reservation.delete()
         messages.success(request, 'Reservation has been deleted.')
         redirect('reservation')
- 
+
     context = {'reservation': reservation}
     return render(request, 'restaurant/delete_reservation.html', context)

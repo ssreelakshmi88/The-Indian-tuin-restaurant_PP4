@@ -29,8 +29,13 @@ class ReservationForm(ModelForm):
         widgets = {
             'date': DateInput(),
         }
- 
+
     def save(self, commit=False):
+        """
+    This function prevents the user from creating
+    double bookings in the same date.
+    """
+
         instance = super(ReservationForm, self).save(commit=False)
         if instance in Reservation.objects.filter(**self.cleaned_data):
             raise ValueError("Date already booked.")

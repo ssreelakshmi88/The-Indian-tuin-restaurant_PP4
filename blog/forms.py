@@ -25,9 +25,17 @@ class PostForm(ModelForm):
             'food_type',
             'content'
         )
- 
+
 
 class CommentForm(forms.ModelForm):
+    """
+    The CommentForm class defines the user form output for the
+    Comment model class.
+    """
     class Meta:
+        """
+        The Meta class defines which model is associated and from that model,
+        which fields will be accessible to the user.
+        """
         model = Comment
         fields = ('body',)

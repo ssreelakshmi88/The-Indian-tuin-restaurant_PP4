@@ -9,6 +9,11 @@ from django.contrib import messages
 
 
 def post_list(request):
+    """
+    This view is to render the blog page and all the posts.
+    This view limits the posts to 4 per page and then creates page arrows.
+    """
+
     post_list = Post.objects.all()
     comments = Post.objects.annotate(post_comments=Count('comments')) \
         .order_by('-post_comments')[:3]
@@ -29,7 +34,6 @@ def post_list(request):
                 }
             messages.success(request, 'Recipe(s) Found.')
             return render(request, 'blog/recipes_search.html', context)
-         
     paginator = Paginator(post_list, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -43,7 +47,11 @@ def post_list(request):
 
 
 def post_detail(request, pk):
-
+    """
+    This view is to render single blog post.
+    This view allows the user to like and unlike the posts.
+    Registered users can leave comments.
+    """
     post_detail = Post.objects.all()
     post = get_object_or_404(Post, id=pk)
     comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -75,7 +83,9 @@ def post_detail(request, pk):
 
 
 def post_like(request, pk):
-    
+    """
+    This view allows users to like or unlike a blog post.
+    """
     if request.user.is_authenticated:
         post = get_object_or_404(Post, slug=pk)
         liked = False

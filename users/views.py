@@ -46,16 +46,16 @@ def user_profile(request):
     if user.is_staff:
         reservations = Reservation.objects.all().count()
     else:
-        reservations = Reservation.objects. \
-                filter(email=request.user.email).count()
+        reservations = Reservation.objects.all().count()
     likes = 0
     comments = 0
     posts = Post.objects.all()
     for post in posts:
         comments += post.comments.filter(name=request.user).count()
         likes += post.likes.filter(username=request.user.username).count()
-        reservations += Reservation.objects.filter(email=request.user.email).count()
-        
+        reservations += Reservation.objects.filter(
+                    email=request.user.email).count()
+
         context = {
             'profile': profile,
             'users': users,
@@ -69,6 +69,9 @@ def user_profile(request):
 
 @login_required
 def edit_profile(request):
+    """
+    This view is for users to edit their profile.
+    """
     user = UserProfile.objects.filter(
             username=request.user.username
         ).first()
@@ -87,6 +90,9 @@ def edit_profile(request):
 
 @login_required
 def delete_profile(request):
+    """
+    This view is for users to delete their profile.
+    """
     user = UserProfile.objects.filter(
             username=request.user.username
         ).first()
