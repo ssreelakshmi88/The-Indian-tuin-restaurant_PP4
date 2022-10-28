@@ -20,7 +20,7 @@ def post_list(request):
     comments = Post.objects.annotate(post_comments=Count('comments')) \
         .order_by('-post_comments')[:3]
 
-    paginator = Paginator(post_list, 4)
+    paginator = Paginator(post_list, 2)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

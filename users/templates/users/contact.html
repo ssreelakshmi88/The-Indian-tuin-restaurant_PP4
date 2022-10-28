@@ -14,10 +14,10 @@
             {% if submitted %}
             <p class="success">Your message submitted successfully</p>
             {% else %}
-            <form method="POST" action="" novalidate>
+            <form method="POST" action="">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button type="submit" class="submit-btn">Submit</a>
+                <a> <button type="submit" class="submit-btn">Submit</a></button>
             </form>
         </div>
     </div>
@@ -41,7 +41,8 @@
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.8893725249277!2d4.513617814459842!3d52.22722766563926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5c17a1fe069eb%3A0x865d20dbe9af668e!2sAngelenhorst%2018%2C%202171%20VM%20Sassenheim!5e0!3m2!1sen!2snl!4v1665690868830!5m2!1sen!2snl"
             width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
 
     </div>
 </div>
