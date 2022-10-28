@@ -1,0 +1,4 @@
+[MASTER]
+disable=
+    W0602,
+    W0603

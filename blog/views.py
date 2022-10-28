@@ -1,3 +1,6 @@
+"""
+Importing libraries to use in system.
+"""
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from .models import Post, Comment
@@ -13,7 +16,6 @@ def post_list(request):
     This view is to render the blog page and all the posts.
     This view limits the posts to 4 per page and then creates page arrows.
     """
-
     post_list = Post.objects.all()
     comments = Post.objects.annotate(post_comments=Count('comments')) \
         .order_by('-post_comments')[:3]
@@ -71,7 +73,7 @@ def post_like(request, pk):
     This view allows users to like or unlike a blog post.
     """
     if request.user.is_authenticated:
-        post = get_object_or_404(Post, id=pk)
+        post = get_object_or_404(Post, id=request.POST.get('post_id'))
         liked = False
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
@@ -85,7 +87,7 @@ def post_like(request, pk):
     else:
         messages.warning(
             request,
-            'You must be logged in to perform that action!'
+            'You have to log in!'
         )
         return redirect('login')
 
@@ -144,17 +146,17 @@ def edit_blog_comment(request, pk):
     """
     This view is to edit commment on a blog post.
     """
-    comment = get_object_or_404(Comment, pk=pk)
+    comment = get_object_or_404(Comment, id=pk)
     post = comment.post.id
     form = CommentForm(instance=comment)
     if request.method == 'POST':
         form = CommentForm(request.POST, request.FILES, instance=comment)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Comment Updated.')
-            return redirect('post_detail')
+            messages.success(request, 'Comment is updated.')
+            return redirect(f'/blog/{post}')
 
-    context = {'post': comment, 'form': form, 'pk': pk}
+    context = {'post': comment, 'form': form, }
     return render(request, 'blog/edit_comment.html', context)
 
 
@@ -167,8 +169,8 @@ def delete_blog_comment(request, pk):
 
     if request.method == 'POST':
         comment.delete()
-        messages.success(request, f'Comment Deleted.')
-        return redirect('post_detail')
+        messages.success(request, f'Comment is deleted.')
+        return redirect(f'/blog/{post}')
 
     context = {'post': comment}
     return render(request, 'blog/delete_comment.html', context)
