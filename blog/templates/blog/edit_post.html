@@ -10,7 +10,7 @@
 
     {{ form | crispy }}
 
-    <a href="{% url 'post_detail' post.slug %}" class="back-link"><button type="button" class="form-button">Go
+    <a href="{% url 'post_detail' post.pk %}" class="back-link"><button type="button" class="form-button">Go
             Back</button></a>
     <button type="submit" class="form-button">Submit</button>
 

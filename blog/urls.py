@@ -1,13 +1,10 @@
 from . import views
 from django.urls import path
 
-
-app_name = 'blog'
-
 urlpatterns = [
     path('', views.post_list, name="post_list"),
     path('blog/', views.post_list, name="post_list"),
-    path('recipes_search/', views.post_list, name="recipe_search"),
+    path('recipes_search/', views.post_list, name="recipes_search"),
     path("create_post/", views.create_blog_post, name="create_post"),
     path('like/<int:pk>/', views.post_like, name="post_like"),
     path('edit_comment/<int:pk>/',

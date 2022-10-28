@@ -18,22 +18,6 @@ def post_list(request):
     comments = Post.objects.annotate(post_comments=Count('comments')) \
         .order_by('-post_comments')[:3]
 
-    if request.method == 'POST':
-        recipe = request.POST.get('recipe_name')
-        if recipe != '' and recipe is not None:
-            blog_recipes = post_list.filter(title__icontains=recipe) \
-                .order_by('created_on')
-
-            if not blog_recipes:
-                messages.warning(request, 'No Recipes Found For Your Search')
-                return redirect('blog/post_list.html')
-            context = {
-                'recipes': blog_recipes,
-                'comments': comments,
-                'post_list': post_list
-                }
-            messages.success(request, 'Recipe(s) Found.')
-            return render(request, 'blog/recipes_search.html', context)
     paginator = Paginator(post_list, 4)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
