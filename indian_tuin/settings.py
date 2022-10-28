@@ -54,8 +54,8 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_summernote',
     'crispy_forms',
-    'blog',
-    'restaurant',
+    'blog.apps.BlogConfig',
+    'restaurant.apps.RestaurantConfig',
     'menu',
     'users',
 ]

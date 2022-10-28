@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect
 from .models import Photo, Reservation
 from .forms import ReservationForm
 from django.contrib import messages
@@ -27,10 +27,6 @@ def reservations(request):
     time_image = Photo.objects.get(title='Times Image')
     form = ReservationForm()
 
-    existing_reservation = None
-
-    existing_reservation = Reservation.objects.filter(user=request.user)
-
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         date = form['date'].value()
@@ -55,8 +51,6 @@ def reservations(request):
         'time_image': time_image,
         'form': form
     }
-    if existing_reservation:
-        context['existing_reservation'] = existing_reservation
     return render(request, 'restaurant/reservations.html', context)
 
 
@@ -65,10 +59,10 @@ def edit_user_reservation(request, pk):
     """
     This view allows the user to edit reservations.
     """
-    reservation = Reservation.objects.get(reservation.id == pk)
+    reservation = Reservation.objects.get(id=pk)
     form = ReservationForm(instance=reservation)
 
-    if request.method == 'POST':
+    if request.method == 'POST': 
         form = ReservationForm(
             request.POST, request.FILES,
             instance=reservation
@@ -76,9 +70,9 @@ def edit_user_reservation(request, pk):
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation Updated.')
-            return redirect('reservation')
+            return redirect('user_reservations')
 
-    context = {'form': form, 'pk': pk}
+    context = {'form': form}
     return render(request, 'restaurant/edit_reservation.html', context)
 
 
@@ -87,12 +81,33 @@ def delete_user_reservation(request, pk):
     """
     This view allows the user to delete reservations.
     """
-    reservation = Reservation.objects.get(pk=pk)
+    reservation = Reservation.objects.get(id=pk)
 
     if request.method == 'POST':
         reservation.delete()
         messages.success(request, 'Reservation has been deleted.')
-        redirect('reservation')
+        redirect('user_reservations')
 
     context = {'reservation': reservation}
     return render(request, 'restaurant/delete_reservation.html', context)
+
+
+@login_required
+def user_reservations(request):
+    reservations = Reservation.objects.all()
+
+    if request.user.is_staff:
+        user_reservations = reservations.order_by('date')
+        if not user_reservations:
+            messages.warning(request, 'No Reservations Booked At This Time.')
+            return render(request, 'users/profile_page.html')
+    else:
+        user_reservations = reservations.filter(
+            email=request.user.email
+            ).order_by('date')
+        if not user_reservations:
+            messages.warning(request, 'No Reservations Found For This Email.')
+            return render(request, 'users/profile_page.html')
+    context = {'reservations': user_reservations}
+    messages.success(request, 'Reservations Found.')
+    return render(request, 'restaurant/user_reservations.html', context)

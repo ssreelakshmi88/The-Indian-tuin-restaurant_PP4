@@ -87,7 +87,7 @@ def post_like(request, pk):
     This view allows users to like or unlike a blog post.
     """
     if request.user.is_authenticated:
-        post = get_object_or_404(Post, slug=pk)
+        post = get_object_or_404(Post, id=pk)
         liked = False
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)

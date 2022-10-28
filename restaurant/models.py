@@ -20,7 +20,7 @@ class Reservation(models.Model):
     Creates a table in the database which stores each objects data"
     """
     
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reservation")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reservation", null=True)
     name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()
     number_of_persons = models.PositiveSmallIntegerField(choices=(

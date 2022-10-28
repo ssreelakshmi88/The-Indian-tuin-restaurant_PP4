@@ -6,7 +6,7 @@
 <div class="container">
     <div class="row justify-content-center mb-5">
 
-        <form class="col-md-8" action="" method="post" enctype="multipart/form-data">
+        <form class="col-md-8" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data">
 
             {% csrf_token %}
 
@@ -15,16 +15,9 @@
             <div class="button-row">
                 <button type="submit" class="col-sm-6 col-md-2 reserve-button">Book Now</button>
 
-                {% if existing_reservation %}
-                {% for reservation in existing_reservation %}
-                <a href="{% url 'restaurant:delete_user_reservation' reservation.pk %}"
-                    class="col-sm-4 col-md-2 reserve-button" id="reserve-link">Edit
+                <a href="{% url 'user_reservations' %}" class="col-sm-4 col-md-2 reserve-button" id="reserve-link">Edit
                     Booking</a>
-                <a href="{% url 'restaurant:delete_user_reservation' reservation.pk %}"
-                    class="col-sm-4 col-md-2 reserve-button" id="reserve-link">Delete
-                    Booking</a>
-                {% endfor %}
-                {% endif %}
+
             </div>
             <div class="side-image">
                 <img src="{{ time_image.image.url }}" id="open-times-image" class="time-image"

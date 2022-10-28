@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="page-title">Your Reservations</h1>
+<p id="reservation-info" class="home-description">You can view and edit your reservations below.</p>
+
+
+{% if reservations %}
+<table class="table table-hover table-bordered" id="reservations-table">
+    <thead class="table-head">
+        <tr>
+            <th>#</th>
+            {% if user.is_staff %}
+            <th>Name</th>
+            {% endif %}
+            <th>Date</th>
+            <th>Time</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider table-body">
+        {% for reservation in reservations %}
+
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            {% if user.is_staff %}
+            <td>{{ reservation.name }}</td>
+            {% endif %}
+            <td>{{ reservation.date }}</td>
+            <td>{{ reservation.get_time_display }}</td>
+            <td>{{ reservation.number_of_clients }}</td>
+            <td><a href="{% url 'editReservations' reservation.id %}"><i class="fa-solid fa-pen-to-square"></i></a></td>
+            <td><a href="{% url 'deleteReservations' reservation.id %}"><i class="fa-solid fa-trash-can"></i></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endif %}
+
+{% endblock %}
