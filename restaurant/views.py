@@ -29,7 +29,7 @@ def reservations(request):
 
     existing_reservation = None
 
-    #existing_reservation = Reservation.objects.filter(user=request.user)
+    existing_reservation = Reservation.objects.filter(user=request.user)
 
     if request.method == 'POST':
         form = ReservationForm(request.POST)

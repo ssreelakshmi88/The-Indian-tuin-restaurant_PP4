@@ -1,5 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+from django.contrib.auth.models import User
 
 
 class Photo(models.Model):
@@ -18,7 +19,8 @@ class Reservation(models.Model):
     Reservation model class.
     Creates a table in the database which stores each objects data"
     """
-    # user = user.ForeignKey()
+    
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reservation")
     name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()
     number_of_persons = models.PositiveSmallIntegerField(choices=(
