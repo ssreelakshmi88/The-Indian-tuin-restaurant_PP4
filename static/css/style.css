@@ -840,6 +840,31 @@ input {
     font-size: 3rem;
 }
 
+/* ---------- USER RESERVATIONS PAGE ---------- */
+
+.reserve-title {
+    text-align: center;
+    color: #b93a2c;
+}
+
+.reservations-table {
+    margin: 5%;
+    width: 60%;
+    text-align: center;
+    position: relative;
+    left: 15%;
+}
+
+.table-head {
+    color: white;
+    background-color: firebrick;
+}
+
+.table-body i {
+    color: #b93a2c;
+}
+
+
 
 /*  CONTACT PAGE   */
 
@@ -954,7 +979,9 @@ input {
 
 /*MEDIA QUERIES*/
 
-@media (max-width: 1199px) {
+
+/* For large to medium screens size from 1300px wide and down */
+@media screen and (max-width: 1200px) {
 
     /* CUSTOM CSS */
     h1 {
@@ -962,7 +989,8 @@ input {
     }
 }
 
-@media (max-width:991px) {
+/* For medium screens size from 990px wide and down */
+@media screen and (max-width: 990px) {
 
     /* CUSTOM CSS */
 
@@ -1016,9 +1044,19 @@ input {
         top: unset;
     }
 
+    /*USER RESERVATIONS PAGE */
+
+    .reservations-table {
+        width: 70%;
+        left: 10%;
+    }
+
+
+
 }
 
-@media (max-width: 767px) {
+/* For medium screens size from 767px wide and down */
+@media screen and (max-width: 767px) {
 
     /* CUSTOM CSS*/
     h1 {
@@ -1038,6 +1076,23 @@ input {
 
     .desc-block {
         height: 40%;
+    }
+
+    /*USER RESERVATIONS PAGE */
+
+    .reservations-table {
+        width: 80%;
+        left: 5%;
+    }
+
+    /*EDIT RESERVATIONS PAGE */
+    .mb-3 {
+        width: 45%;
+        left: 27.5%;
+    }
+
+    input {
+        border-color: black;
     }
 
 }

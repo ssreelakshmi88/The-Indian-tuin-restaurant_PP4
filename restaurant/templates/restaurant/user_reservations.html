@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1 class="page-title">Your Reservations</h1>
-<p id="reservation-info" class="home-description">You can view and edit your reservations below.</p>
+<h1 class="reserve-title">Your Reservations</h1>
+<p class="reserve-p">You can view and edit your reservations below.</p>
 
 
 {% if reservations %}
-<table class="table table-hover table-bordered" id="reservations-table">
+<table class="table table-hover table-bordered" class="reservations-table">
     <thead class="table-head">
         <tr>
             <th>#</th>
@@ -15,7 +15,7 @@
             {% endif %}
             <th>Date</th>
             <th>Time</th>
-            <th>Edit</th>
+            <th>Update</th>
             <th>Delete</th>
         </tr>
     </thead>
@@ -29,7 +29,6 @@
             {% endif %}
             <td>{{ reservation.date }}</td>
             <td>{{ reservation.get_time_display }}</td>
-            <td>{{ reservation.number_of_clients }}</td>
             <td><a href="{% url 'editReservations' reservation.id %}"><i class="fa-solid fa-pen-to-square"></i></a></td>
             <td><a href="{% url 'deleteReservations' reservation.id %}"><i class="fa-solid fa-trash-can"></i></a></td>
         </tr>
