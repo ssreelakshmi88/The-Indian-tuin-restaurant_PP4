@@ -926,6 +926,10 @@ input {
     text-decoration: underline;
 }
 
+.profile-image {
+    height: 19vh;
+}
+
 /*MEDIA QUERIES*/
 
 
@@ -1207,5 +1211,10 @@ input {
 
     .form-container textarea {
         width: 160%;
+    }
+
+    /* PROFILE PAGE*/
+    .title-p {
+        font-size: 2rem;
     }
 }

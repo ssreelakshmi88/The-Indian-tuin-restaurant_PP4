@@ -107,6 +107,9 @@ def delete_profile(request):
 
 
 def contact(request):
+    """
+    This view is to render contact page.
+    """
     submitted = False
     if request.method == "POST":
         form = ContactForm(request.POST)
