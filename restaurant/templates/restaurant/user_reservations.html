@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <h1 class="reserve-title">Your Reservations</h1>
 <p class="reserve-p">You can view and edit your reservations below.</p>
-
-
 {% if reservations %}
 <table class="table table-hover table-bordered" class="reservations-table">
     <thead class="table-head">
@@ -21,7 +18,6 @@
     </thead>
     <tbody class="table-group-divider table-body">
         {% for reservation in reservations %}
-
         <tr>
             <td>{{ forloop.counter }}</td>
             {% if user.is_staff %}
@@ -36,5 +32,4 @@
     </tbody>
 </table>
 {% endif %}
-
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
+from django.contrib import messages
 from .models import Menu, Category
 from .forms import MenuForm
 
@@ -11,7 +12,7 @@ def menu(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     context = {'menu': menu, 'categories': categories, 'page_obj': page_obj, }
-    
+
     return render(request, 'menu/menu.html', context)
 
 

@@ -1,8 +1,8 @@
 from django import forms
+from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django_summernote.widgets import SummernoteWidget
 from . models import UserProfile, Contact
-from django.forms import ModelForm
 
 
 class UserProfileForm(forms.ModelForm):
@@ -18,6 +18,9 @@ class UserProfileForm(forms.ModelForm):
 
 
 class ContactForm(forms.ModelForm):
+    """
+    This form class defines contact form
+    """
     name = forms.CharField(max_length=50, label="Your Name")
     email_address = forms.EmailField(max_length=150, required=False)
     message = forms.CharField(widget=forms.Textarea, required=True)

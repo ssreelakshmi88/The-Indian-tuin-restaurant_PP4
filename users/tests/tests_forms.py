@@ -11,7 +11,7 @@ class TestUserProfileForm(TestCase):
          'name': 'Lakshmi',
          'username': 'Lakshmi1234',
          'email': 'lakshmi@gmail.com'
-   
+
         })
         self.assertTrue(form.is_valid())
 

@@ -4,6 +4,9 @@ from .models import Reservation
 
 
 class DateInput(forms.DateInput):
+    """
+    This class defines to select date with the help of datepicker
+    """
     input_type = 'date'
 
 

@@ -1,10 +1,9 @@
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+from django.forms import ModelForm
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from django.forms import ModelForm
-from django.dispatch import receiver
-from django.db.models.signals import post_save
-from django_summernote.widgets import SummernoteWidget
 
 
 class UserProfile(models.Model):

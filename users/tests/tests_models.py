@@ -1,6 +1,6 @@
+import datetime as date
 from django.test import TestCase
 from .models import UserProfile
-import datetime as date
 
 
 class TestBlogModels(TestCase):

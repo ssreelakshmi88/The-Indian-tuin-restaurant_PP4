@@ -1,17 +1,16 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth \
-    import logout, login, authenticate, update_session_auth_hash
+    import logout, login, authenticate
 from django.contrib.auth.models import User
 from django.contrib import messages
-from .models import UserProfile
-from .forms import UserProfileForm, ContactForm
-from django.contrib.auth.forms import AuthenticationForm
 from django.core.mail import send_mail, get_connection
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
 from blog.models import Post, Comment
 from restaurant.models import Reservation
-from django.contrib.auth.decorators import login_required
+from .models import UserProfile
+from .forms import UserProfileForm, ContactForm
 
 
 def user_register(request):
@@ -127,4 +126,5 @@ def contact(request):
         form = ContactForm()
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'users/contact.html', {"form": form, 'submitted': submitted})
+    return render(request, 'users/contact.html', {"form": form,
+                  'submitted': submitted})

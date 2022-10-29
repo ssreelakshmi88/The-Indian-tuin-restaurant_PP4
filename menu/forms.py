@@ -1,5 +1,5 @@
-from .models import Menu
 from django import forms
+from .models import Menu
 from django.forms import ModelForm
 
 

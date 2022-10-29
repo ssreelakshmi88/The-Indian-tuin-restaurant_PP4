@@ -3,6 +3,9 @@ from .forms import PostForm, CommentForm
 
 
 class TestPostForm(TestCase):
+    """
+    This class tests PostForm
+    """
 
     def test_form_data_input_is_valid(self):
         form = PostForm(data={

@@ -1,9 +1,9 @@
+from datetime import datetime
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Photo, Reservation
 from .forms import ReservationForm
-from django.contrib import messages
-from datetime import datetime
-from django.contrib.auth.decorators import login_required
 
 
 def home(request):
@@ -20,7 +20,6 @@ def reservations(request):
     """
     This view will render the reservations page
     """
-
     time_image = Photo.objects.get(title='Times Image')
     form = ReservationForm()
 
@@ -59,7 +58,7 @@ def edit_user_reservation(request, pk):
     reservation = Reservation.objects.get(id=pk)
     form = ReservationForm(instance=reservation)
 
-    if request.method == 'POST': 
+    if request.method == 'POST':
         form = ReservationForm(
             request.POST, request.FILES,
             instance=reservation
@@ -91,6 +90,10 @@ def delete_user_reservation(request, pk):
 
 @login_required
 def user_reservations(request):
+    """
+    This view allows the user to see their reservations.
+    """
+
     reservations = Reservation.objects.all()
 
     if request.user.is_staff:

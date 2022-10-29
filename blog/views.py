@@ -3,18 +3,18 @@ Importing libraries to use in system.
 """
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from .models import Post, Comment
 from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
-from .forms import CommentForm, PostForm
 from django.db.models import Count
 from django.contrib import messages
+from .models import Post, Comment
+from .forms import CommentForm, PostForm
 
 
 def post_list(request):
     """
     This view is to render the blog page and all the posts.
-    This view limits the posts to 4 per page and then creates page arrows.
+    This view limits the posts to 2 per page.
     """
     post_list = Post.objects.all()
     comments = Post.objects.annotate(post_comments=Count('comments')) \
