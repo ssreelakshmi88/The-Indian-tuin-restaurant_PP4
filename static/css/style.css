@@ -1012,13 +1012,13 @@ input {
     }
 
     .contact-img img {
-        height: 30vh;
-        width: 120%;
+        height: 44vh;
+        width: 70%;
 
     }
 
     .form-container {
-
+        margin-left: 111px;
         width: 30%;
     }
 
@@ -1091,8 +1091,8 @@ input {
     }
 
     .form-container {
-
-        width: 20%;
+        margin-left: 111px;
+        width: 30%;
     }
 
     .form-container h2 {
@@ -1164,9 +1164,14 @@ input {
     }
 
     .contact-img img {
-        height: 20vh;
-        width: 120%;
+        height: 40vh;
+        width: 70%;
 
+    }
+
+    .form-container {
+        margin-left: 111px;
+        width: 30%;
     }
 
     .form-container h2 {
@@ -1174,7 +1179,7 @@ input {
     }
 
     .form-container input {
-        width: 120%;
+        width: 100%;
     }
 
     .form-container textarea {
@@ -1200,12 +1205,21 @@ input {
         width: max-content;
     }
 
+    .form-container {
+        margin-left: 111px;
+        width: 30%;
+    }
+
+    .about-item {
+        font-size: 1.5 rem;
+    }
+
     .form-container input {
-        width: 160%;
+        width: 120%;
     }
 
     .form-container textarea {
-        width: 160%;
+        width: 120%;
     }
 
     /* PROFILE PAGE*/
