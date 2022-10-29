@@ -404,7 +404,7 @@ a.post-title-sm:hover {
 .post-meta {
     padding-left: 0;
     display: -webkit-box;
-    background-color: #c0736a;
+    display: block;
 }
 
 .post-meta span {
@@ -412,7 +412,6 @@ a.post-title-sm:hover {
     display: inline-block;
     color: #e4260bda;
     font-weight: 500;
-    background-color: #fad2d6;
 }
 
 .post-meta li a {

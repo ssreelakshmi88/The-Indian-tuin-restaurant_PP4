@@ -10,10 +10,8 @@ def home(request):
     """
     This view will render the images of the home page.
     """
-    banner_image = Photo.objects.get(title='banner_image')
     about_image = Photo.objects.get(title='about_image')
     context = {
-        'banner_image': banner_image,
         'about_image': about_image}
     return render(request, 'restaurant/index.html', context)
 

@@ -61,7 +61,6 @@ def user_profile(request):
             'reservations': reservations,
             'comments': comments,
             'likes': likes,
-            'approvals': approvals,
         }
         return render(request, 'users/profile.html', context=context)
 
