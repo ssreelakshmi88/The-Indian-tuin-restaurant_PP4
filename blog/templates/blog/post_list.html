@@ -21,9 +21,10 @@
                         </a>
                         <div class="card-body px-0 pb-1">
                             <ul class="post-meta mb-2">
-                                <li> {{ post.get_meal_type_display| capfirst }} </li>,
-
-                                <li> {{ post.get_food_type_display| capfirst }}</li>
+                                <li> {{ post.get_meal_type_display| capfirst }}
+                                </li>
+                                <br>
+                                <li class="food-type"> {{ post.get_food_type_display| capfirst }}</li>
 
                             </ul>
                             <div class="meta-wrap">
