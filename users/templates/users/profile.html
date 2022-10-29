@@ -30,11 +30,6 @@
     {% if user.is_staff %}
     <div class="card-body-icons">
         <div>
-            <h3 class="heading-profile">Approvals:</h3>
-            <h5>{{ approvals }}
-            </h5>
-        </div>
-        <div>
             <h3 class="heading-profile">Comments:</h3>
             <h5><i class="fa-solid fa-comment"></i> {{ comments }}</h5>
         </div>
@@ -46,10 +41,6 @@
     </div>
     {% else %}
     <div class="card-body-icons">
-        <div>
-            <h3 class="heading-profile">Likes:</h3>
-            <h5><i class="fa-solid fa-thumbs-up"></i> {{ likes }}</h5>
-        </div>
         <div>
             <h3 class="heading-profile">Comments:</h3>
             <h5><i class="fa-solid fa-comment"></i> {{ comments }}</h5>

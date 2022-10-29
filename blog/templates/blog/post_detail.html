@@ -18,13 +18,13 @@
                                     alt="Post Thumbnail" class="w-100">
                             </div>
                             <div class="card-body px-0 pb-1">
-                                <ul class="post-meta mb-2">
-                                    <li>
-                                        {{ post.get_meal_type_display|capfirst }} </li>,
+                                <div class="post-meta mb-2">
+                                    <span>{{ post.get_meal_type_display| capfirst }}
+                                    </span>
+                                    <span>
+                                        {{ post.get_food_type_display| capfirst }}<span>
 
-                                    <li> {{ post.get_food_type_display }}
-                                    </li>
-                                </ul>
+                                </div>
                                 <div class="meta-wrap" id="post-meta">
                                     <form action="{% url 'post_like' post.pk %}" method="POST">
                                         {% csrf_token %}

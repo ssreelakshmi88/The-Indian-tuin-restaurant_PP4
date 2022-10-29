@@ -41,7 +41,6 @@ def user_profile(request):
     """
     user = User.objects.filter(username=request.user.username).first()
     profile = user.userprofile
-    approvals = Comment.objects.filter(approved=False).count()
     users = UserProfile.objects.all().count()
     if user.is_staff:
         reservations = Reservation.objects.all().count()
@@ -52,7 +51,7 @@ def user_profile(request):
     posts = Post.objects.all()
     for post in posts:
         comments += post.comments.filter(name=request.user).count()
-        likes += post.likes.filter(username=request.user.username).count()
+
         reservations += Reservation.objects.filter(
                     email=request.user.email).count()
 

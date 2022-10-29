@@ -20,13 +20,14 @@
                             </div>
                         </a>
                         <div class="card-body px-0 pb-1">
-                            <ul class="post-meta mb-2">
-                                <li> {{ post.get_meal_type_display| capfirst }}
-                                </li>
-                                <br>
-                                <li class="food-type"> {{ post.get_food_type_display| capfirst }}</li>
+                            <div class="post-meta mb-2">
+                                <span>{{ post.get_meal_type_display| capfirst }}
+                                </span>
 
-                            </ul>
+                                <span>
+                                    {{ post.get_food_type_display| capfirst }}<span>
+
+                            </div>
                             <div class="meta-wrap">
                                 <p class="meta">
                                     <span><i class="fa-solid fa-calendar-days"></i>{{ post.created_on }}</span>

@@ -404,9 +404,10 @@ a.post-title-sm:hover {
 .post-meta {
     padding-left: 0;
     display: -webkit-box;
+    background-color: #c0736a;
 }
 
-.post-meta li {
+.post-meta span {
     list-style-type: none;
     display: inline-block;
     color: #e4260bda;
@@ -424,10 +425,6 @@ a.post-title-sm:hover {
     margin-right: 2px;
     font-size: 14px;
     border-radius: 0;
-}
-
-.food-type {
-    color: rgba(192, 185, 240, 0.893)
 }
 
 .post-meta li a:hover {

@@ -14,10 +14,10 @@
             {% if submitted %}
             <p class="success">Your message submitted successfully</p>
             {% else %}
-            <form method="POST" action="">
+            <form method="POST" action="#">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <a> <button type="submit" class="submit-btn">Submit</a></button>
+                <button type="submit" class="submit-btn">Submit</button>
             </form>
         </div>
     </div>
