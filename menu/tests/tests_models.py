@@ -1,6 +1,6 @@
+import datetime as date
 from django.test import TestCase
 from .models import Menu, Category
-import datetime as date
 
 
 class TestBlogModels(TestCase):

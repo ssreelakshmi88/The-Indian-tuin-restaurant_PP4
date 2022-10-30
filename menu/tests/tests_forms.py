@@ -15,7 +15,7 @@ class TestMenuForm(TestCase):
             'price': 9.99,
             'featured_image': '',
         })
-     
+
         self.assertFalse(form.is_valid())
 
     def test_name_field_cannot_be_empty(self):

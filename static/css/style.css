@@ -948,7 +948,7 @@ input {
     }
 
     h3 {
-        font-size: 20px;
+        font-size: 2.5rem;
     }
 
     /* 2 NAVBAR */
@@ -990,6 +990,19 @@ input {
         z-index: 10;
         right: unset;
         top: unset;
+    }
+
+    /* DELETE FORM */
+    .create-form {
+        height: 30vh;
+    }
+
+    .col-md-2 {
+        width: 26%;
+    }
+
+    .time-image {
+        width: 58%;
     }
 
     /*USER RESERVATIONS PAGE */
@@ -1224,6 +1237,17 @@ input {
 
     /* PROFILE PAGE*/
     .title-p {
+        font-size: 1.3rem;
+        margin-left: -33px;
+    }
+
+    .profile-title {
+
         font-size: 2rem;
+    }
+
+    /* RESERVATION PAGE*/
+    .col-md-2 {
+        width: 36%;
     }
 }

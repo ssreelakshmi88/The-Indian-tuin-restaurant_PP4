@@ -15,7 +15,7 @@ from .forms import UserProfileForm, ContactForm
 
 def user_register(request):
     """
-    This view is for regsitering new users.
+    This view is for registering new users.
     """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -112,7 +112,9 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             email_data = form.cleaned_data
-            con = get_connection('django.core.mail.backends.console.EmailBackend')
+            con = get_connection(
+                'django.core.mail.backends.console.EmailBackend'
+                )
             send_mail(
                 subject="Email Form",
                 message=email_data['message'],

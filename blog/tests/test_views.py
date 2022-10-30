@@ -11,4 +11,3 @@ class TestBlogViews(TestCase):
         response = self.client.get('/blog/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'blog/post_list.html')
-

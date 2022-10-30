@@ -20,4 +20,3 @@ class TestBlogModels(TestCase):
         )
         current_date = date.datetime.now()
         self.assertEqual(current_date.date(), item.created_on.date())
-

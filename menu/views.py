@@ -6,6 +6,10 @@ from .forms import MenuForm
 
 
 def menu(request):
+    """
+    This view is to render menu items in the page.
+    Each page will render 6 items per page.
+    """
     menu = Menu.objects.all()
     categories = Category.objects.all()
     paginator = Paginator(menu, 6)
