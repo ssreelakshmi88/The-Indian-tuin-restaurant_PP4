@@ -3,6 +3,38 @@
 The webpage of “Indian Tuin” restaurant was developed to introduce customers to the rich and exquisite Indian cuisines. 
 The project was developed based on the principles of UX design and the agile development methodology. The webpage has been created using HTML, CSS, Javascript, Python and Django framework.
 
+
+![responsive page view](https://user-images.githubusercontent.com/97182442/198889121-4c2ab0c2-41e3-47a0-bdd1-b36a267202ed.jpg)
+
+
+## **Table of content** 
+
+  - [UX Design](#ux-design)
+    - [User stories](#user-stories)
+    - Admin features (#admin-features)
+    - Structure(#structure)
+  - Design (design)
+  - [Features](#features)
+    - [Implemented features](#implemented-features)
+    - [Features left to implement](#features-left-to-implement)
+  - [Technologies Used](#technology-used)
+    - [Languages](#languages)
+    - [Database](#database)
+    - [Libraries, frameworks and other technologies](#libraries-frameworks-and-other-technologies)
+  - [Code structure](#code-structure)
+  - [Data validation](#data-validation)
+  - [Testing](#testing)
+    - Testing User stories (#testing-user-stories)
+    - Further testing (#further-testing)  
+  - [Deployment](#deployment)
+    - Forking the github repository (#forking-the-github-repository)
+   - [Credits](#credits)
+     - [Code](#code)
+     - [Content](#content)
+     - [Media](#media)
+     - [Acknowledgments](#acknowledgments)
+
+
 ## UX (User Experience)
 
 #### User stories
