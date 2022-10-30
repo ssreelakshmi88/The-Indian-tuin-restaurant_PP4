@@ -4,6 +4,10 @@ from cloudinary.models import CloudinaryField
 
 
 class Menu(models.Model):
+    """
+    This model class defines all the fields in the class.
+    Creates a table in the database which stores each objects data.
+    """
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=200, unique=True)
     description = models.TextField(max_length=500)
@@ -18,6 +22,10 @@ class Menu(models.Model):
 
 
 class Category(models.Model):
+    """
+    This model class defines all the fields in the class.
+    Creates a table in the database which stores each objects data.
+    """
     name = models.CharField(max_length=30)
 
     class Meta:
