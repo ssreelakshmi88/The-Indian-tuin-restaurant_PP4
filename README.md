@@ -2,8 +2,12 @@
 
 The webpage of “Indian Tuin” restaurant introduce our clients to the rich and exquisite Indian cuisines and delicacies. The project encompasses the principles of UX design and agile development methodology and designed using HTML, CSS, Javascript, Python and Django framework.
 
+[View live project here](https://indian-tuin.herokuapp.com/)
+
+
 
 ![responsive page view](https://user-images.githubusercontent.com/97182442/198889121-4c2ab0c2-41e3-47a0-bdd1-b36a267202ed.jpg)
+
 
 
 ## **Table of Contents** 
