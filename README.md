@@ -313,13 +313,14 @@ Agile methodology has been used to plan and design this website/project. User st
    i. Links to social media page of the restaurant can be accessed at the footer of the page.
 
 ### Further testing
+
 The W3C Markup Validator, W3C CSS Validator Services, Pylint validator and Unittests were used to validate every page of the project to ensure there were no syntax errors in the project.
 
 The results of these tests are found here:
 
-**Python test results:**
+**Python test results:** [python test results](./tests_python.md).
 
-**HTML and CSS test results:**
+**HTML and CSS test results:** [html and css test results](./tests_html&css.md).
 
 
 #### Other tests
@@ -344,7 +345,7 @@ The website is not responsive in all devices. In some devices, the submit button
 Deploying the project using Heroku: 
 1.  Login to Heroku and Create a New App
 2.  Give the App a name, it must be unique, and select a region.
-3. .Click on 'Create App', this will take you to a page where you can deploy your project.
+3. Click on 'Create App', this will take you to a page where you can deploy your project.
 4. Click on the 'Resources' tab and search for 'Heroku Postgres' as this is the add-on you will use for the deployed database.
 5. Click on the 'Settings' tab at the top of the page. The following step must be completed before deployment.
 6. Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py as a root level file. The env.py files is where the projects secret environment variables are stored. This file is then added to a .gitignore file so it isn't stored publicly within the projects repository.
