@@ -90,6 +90,10 @@ ERM diagram demonstrates how the information is stored when data is at rest. As 
 
 
 
+![ERD diagram_new](https://user-images.githubusercontent.com/97182442/198904359-981942e4-1d1c-4ee8-be6e-c8749e9cf97d.png)
+
+
+
 ## Design
 
 #### Colour Scheme
@@ -121,6 +125,13 @@ Following features have been implemented.
 - **User registration**
 
   New visitors can register to create a personal account. Users will be intimidated upon successful registration. Certain privileges will be open to registered users such as;
+  
+  ![Screen shot-sign in message](https://user-images.githubusercontent.com/97182442/198905753-fc633748-0a68-47ea-9ad0-bb6b398861f8.jpg)
+  
+  
+  ![screenshot_logged out](https://user-images.githubusercontent.com/97182442/198905771-76690247-b3fc-4ef3-a4ea-d84c38d9acfe.jpg)
+
+
 
      i. Registered users can cancel and/or make changes to an existing reservation. 
 	 
@@ -129,6 +140,12 @@ Following features have been implemented.
 	 iii. They can create personalized profile.
 	 
 	 iv. They will be able to comment on other user experience/reviews.
+
+
+![user registration](https://user-images.githubusercontent.com/97182442/198904448-267a0e9d-9897-4efb-a0b6-2932e6790563.jpg)
+
+
+![User profile page](https://user-images.githubusercontent.com/97182442/198904470-818ea9b2-dede-4698-a185-357a2563b948.jpg)
 
 
 - **Admin profile**
@@ -141,26 +158,54 @@ Following features have been implemented.
   
   iii. Can modify blogs from frontend.
   
+  
+  ![admin profile](https://user-images.githubusercontent.com/97182442/198904513-1b494081-c632-4902-a223-b263b9389681.jpg)
+
+  
 - **Menu**
 
     i. There are 6 cuisines listed per menu page with a brief description. Cost of each item is displayed.
 
     ii.Only the admin or staff members can modify menu items.
+    
+    
+    ![menu page_6 per page](https://user-images.githubusercontent.com/97182442/198904562-f0d1d86c-c651-4c58-9d46-8829f4061d3a.jpg)
+    
+    
+
 
 - **Blog posts**
 
    i. A blog section highlighting interesting recipes has been created to enrich user experience. Only staff members or admin have the permission to edit and delete the blog posts.
+   
+   ![blog recipe with edit and delete](https://user-images.githubusercontent.com/97182442/198904701-f8f38d14-66fa-4d90-a603-1cb4a64a3722.jpg)
    
    ii. All users can view blog posts and comments made by registered users.
    
    iii. Only registered users can make/edit comment, like or dislike posts.
    
    iv. User comments have to approved by the admin before being displayed.
+   
+   
+   
+   ![recipe blog](https://user-images.githubusercontent.com/97182442/198904601-028f4d12-a256-4cff-a986-65b03f497542.jpg)
+   
+   
+
+![blog recipe with edit and delete](https://user-images.githubusercontent.com/97182442/198904701-f8f38d14-66fa-4d90-a603-1cb4a64a3722.jpg)
+
+
+
+![comment_blog post](https://user-images.githubusercontent.com/97182442/198904740-b28d6172-dc95-46e2-8e9c-31a98a9b63dd.jpg)
 
 
 - **Reservation**
 
     Reservations can be made by users without registration. However, only registered users can update and/or cancel reservations. User will be notified in case of multiple reservation for a slot.
+    
+    
+    
+![screenshot_reservation](https://user-images.githubusercontent.com/97182442/198904857-f1385a67-5c94-41bf-91b1-5acac9135957.jpg)
 
 
 - **Contact page**
@@ -168,9 +213,16 @@ Following features have been implemented.
      Contact page is designed to enable users to connect to the admin. Visitors can ask questions or can give feedback to the admin through the contact page.
 
 
+![contact page_screenshot](https://user-images.githubusercontent.com/97182442/198904863-9dc59413-d0fd-4742-8956-5b6c709556be.jpg)
+
+
 - **The Footer**
 
      The footer section includes links to the relevant social media sites for the restaurant. The links will open a new tab to allow easy navigation for the user. The footer is valuable platform both for the establishment and the user as it enables a healthy discussion in the social circle.
+
+
+
+![footer](https://user-images.githubusercontent.com/97182442/198904973-306ad650-5fbf-4195-ba42-bac7eeef666f.jpg)
 
 
 ### Features left to implement
@@ -231,6 +283,13 @@ Following features have been implemented.
 
 Agile methodology has been used to plan and design this website/project. User stories were documented and implemented and mapped them to the project within Agile tool.
 
+![agile_progress_screenshot](https://user-images.githubusercontent.com/97182442/198904988-08748ac5-adb3-405e-bba7-79a7f82124f0.jpg)
+
+
+
+![agile_completed](https://user-images.githubusercontent.com/97182442/198905022-d2f75375-f18d-41b8-921c-56c120cc5d85.jpg)
+
+
 
 ## Testing
 
@@ -243,27 +302,59 @@ Agile methodology has been used to plan and design this website/project. User st
        i. The webpage offers a clean and well defined layout for easy access to information via an intuitive navigation bar.
   
        ii. Users can easily access the menu items and the corresponding prices.
+       
+       
+       ![Screenshot navigation bar](https://user-images.githubusercontent.com/97182442/198905069-a749a30e-73ba-41f8-b9d7-171f5dc14001.jpg)
+
   
       iii. In the menu page, users can see of list of menu items with photos and prices.
+      
+      
+    ![menu page_screenshot](https://user-images.githubusercontent.com/97182442/198905084-2589ff85-5995-4f0b-8f27-2de191a3241d.jpg)
+      
+      
+![menu page_6 per page](https://user-images.githubusercontent.com/97182442/198905550-48d5ab10-a649-492f-99bc-e8f66cbad1ba.jpg)
+
 	  
 - Details such as directions and opening timing of the restaurant should be easy to access at a click of a button.
 
     i. The contact page gives information about the location of the restaurant.
+    
+    
+    ![Screenshot address and location](https://user-images.githubusercontent.com/97182442/198905093-e02e5ca6-9a1c-494e-9715-a60b5cbdd1be.jpg)
+
+    
 
     ii. In reservation page, users can find the opening times of the restaurant. 
+    
+    
+    
+  
+    ![opening times](https://user-images.githubusercontent.com/97182442/198905144-59d28b96-a16d-4f0d-acbf-f6a671ee9b45.jpg)
+
 
 - Finally, I want to make reservations and contact the restaurant, if necessary.
 
     i. The reservation page allows a new user to make booking.
+    
+     ![reservation page](https://user-images.githubusercontent.com/97182442/198905103-97eb5988-9d2e-41fc-9fb7-8bf1d42be0d2.jpg)
 
     ii. User can contact the admin via the contact page.
+    
+    
+    ![contact page_screenshot](https://user-images.githubusercontent.com/97182442/198905158-68dcaf85-08ca-4900-a895-70fce4e6ad49.jpg)
 
-
+ 
 - I can register and create a profile.
 
      i. User can create personalized profile via the “Register” button.
 
+![user registration](https://user-images.githubusercontent.com/97182442/198905171-5231f5b2-bd9e-47ed-bae4-cbb720cdf1bd.jpg)
+
+
      ii. Registered users can make modifications and delete their profile.
+     
+![edit and delete in user profile](https://user-images.githubusercontent.com/97182442/198905249-c20738aa-0bd3-44fa-a918-aeccb19faeee.jpg)
 
 
 **Returning visitor goals**
@@ -272,21 +363,57 @@ Agile methodology has been used to plan and design this website/project. User st
 
    i. A registered user can login to make changes to an existing reservation.
    
+   
+   
+   ![user reservation screenshot](https://user-images.githubusercontent.com/97182442/198905265-e5380661-3586-4b24-b137-7f4a40cb5707.jpg)
+
+   
    ii. Through personal profile, users can view the number of bookings they have made.
    
+   
+   ![user_number of reservations](https://user-images.githubusercontent.com/97182442/198905287-161fe1b5-d735-442f-8390-06d546df6283.jpg)
+
 - I would like to be greeted with interesting blogs.
+
+
+![Blog page_screenshot](https://user-images.githubusercontent.com/97182442/198905300-e0859e5d-a305-4c93-a59e-97c3f150adc7.jpg)
 
  i. Blog pages allow users to scroll through interesting recipes. Each page contains two recipes per page and users can easily pass through pages through pagination links provided below the page.
  
+ 
+ ![blog posts with 2 recipes](https://user-images.githubusercontent.com/97182442/198905404-acfdceaa-af0c-45a8-b10e-655ea99e1f5e.jpg)
+ 
+ 
+ ![blog posts with pagination](https://user-images.githubusercontent.com/97182442/198905410-4b48f794-3a7a-476b-bb5d-e5c8c4b1660e.jpg)
+
+
  ii. Registered users can make comments and like/dislike posts which is displayed beneath each recipe.
+ 
+ ![Screenshot blog posts](https://user-images.githubusercontent.com/97182442/198905496-6842ae28-f64e-4820-81b2-4d174967d4b5.jpg)
+
  
  iii. Comments will be displayed after approval by admin.
  
+ ![comment_blog post](https://user-images.githubusercontent.com/97182442/198905508-075db082-aca4-42eb-8439-20ae67151bb8.jpg)
+ 
+ 
+ 
+
+ ![Comments section](https://user-images.githubusercontent.com/97182442/198905506-9ba40633-0a98-43a6-aec9-c6200d538372.jpg)
+
+ 
+ 
  iv. Registered users can update and delete their comments according to their wish.
+ 
+ ![Delete comment page](https://user-images.githubusercontent.com/97182442/198905525-c193091b-d66c-4575-a318-f6a9e0febc53.jpg)
+
  
 - I want to give feedback and contact the restaurant with suggestions.
  
      i. In the contact page, users can give feedbacks and suggestions.
+     
+     ![contact page_screenshot](https://user-images.githubusercontent.com/97182442/198905532-750847bf-b6e3-4edd-8ca2-973f6a2ce69b.jpg)
+
 
 
 **Frequent Visitor Goals**
