@@ -36,11 +36,11 @@ def reservations(request):
                 'Date and time already booked.'
                 'Please choose another date and time'
                 )
-            return redirect('restaurant:reservations')
+            return redirect('reservations')
         if form.is_valid():
             form.save()
             messages.success(request, 'Reservation created successfully.')
-            return redirect('restaurant:reservations')
+            return redirect('reservations')
         else:
             messages.error(request, f'Some details are missing/wrong.')
     context = {
