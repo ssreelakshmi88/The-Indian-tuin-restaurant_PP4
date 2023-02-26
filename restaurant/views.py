@@ -30,10 +30,17 @@ def reservations(request):
         time = form['time'].value()
         reservation = Reservation.objects. \
             filter(date=date_value, time=time)
+        # Check if the restaurant is closed on Mondays
+        if date_value.weekday() == 0:
+            messages.warning(request,
+                             'Sorry, the restaurant is closed on Mondays.'
+                             )
+
+            return redirect('reservations')
         if reservation:
             messages.warning(
                 request,
-                'Date and time already booked.'
+                'Reservation already exists at this date and time.'
                 'Please choose another date and time'
                 )
             return redirect('reservations')

@@ -47,6 +47,7 @@ def user_profile(request):
         reservations = Reservation.objects. \
                 filter(email=request.user.email).count()
     likes = 0
+    reservations = 0
     comments = 0
     posts = Post.objects.all()
     for post in posts:
