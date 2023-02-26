@@ -44,7 +44,8 @@ def user_profile(request):
     if user.is_staff:
         reservations = Reservation.objects.all().count()
     else:
-        reservations = Reservation.objects.all().count()
+        reservations = Reservation.objects. \
+                filter(email=request.user.email).count()
     likes = 0
     comments = 0
     posts = Post.objects.all()
