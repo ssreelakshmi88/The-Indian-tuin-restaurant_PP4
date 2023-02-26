@@ -79,7 +79,8 @@
                                         </p>
                                         {{ comment.body | linebreaks }}
                                     </div>
-                                    {% if user.is_authenticated %}
+                                    <!-- Checks whether the current logged user or author of comment or a staff member -->
+                                    {% if comment.author|stringformat:'s' == request.user.username|stringformat:'s' or user.is_staff %}
                                     <span> <a href="{% url 'edit_blog_comment' comment.pk %}"
                                             class="btn btn-success comment-button">Edit</a>
                                         <a href="{% url 'delete_blog_comment' comment.pk %}"

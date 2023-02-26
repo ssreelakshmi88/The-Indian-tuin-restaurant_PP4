@@ -26,7 +26,7 @@ def user_register(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
             messages.success(request, f'new user {user.username} was created.')
-            return redirect('register')
+            return redirect('profile')
     else:
         form = UserCreationForm()
     return render(request, 'users/register.html', {'form': form})
