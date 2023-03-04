@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from menu.views import handler404, handler500, handler403
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,3 +27,17 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path("users/", include("users.urls")),
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        path('404/', default_views.page_not_found, kwargs={'exception': Exception('Page not Found')},),
+        path('500/', default_views.server_error),
+        path('403/', default_views.permission_denied, kwargs={'exception': Exception('Access Denied')}),
+
+    ]
+else:
+    urlpatterns += [
+        path('404/', handler404),
+        path('500/', handler500),
+        path('403/', handler403),
+    ]

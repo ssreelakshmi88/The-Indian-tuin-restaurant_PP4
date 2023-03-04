@@ -5,12 +5,25 @@ from .models import Menu, Category
 from .forms import MenuForm
 
 
+def handler404(request, exception):
+    return render(request, 'error/404.html', status=404)
+
+
+def handler500(request):
+    return render(request, 'error/500.html', status=500)
+
+
+def handler403(request, exception):
+    return render(request, 'error/403.html', status=403)
+
+
 def menu(request):
     """
     This view is to render menu items in the page.
     Each page will render 6 items per page.
     """
     menu = Menu.objects.all()
+
     categories = Category.objects.all()
     paginator = Paginator(menu, 6)
     page_number = request.GET.get('page')

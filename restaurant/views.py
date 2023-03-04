@@ -6,6 +6,14 @@ from .models import Photo, Reservation
 from .forms import ReservationForm
 
 
+def handler404(request, exception):
+    return render(request, 'error/404.html', status=404)
+
+
+def handler500(request):
+    return render(request, 'error/500.html', status=500)
+
+
 def home(request):
     """
     This view will render the images of the home page.
@@ -118,3 +126,5 @@ def user_reservations(request):
     context = {'reservations': user_reservations}
     messages.success(request, 'Reservations Found.')
     return render(request, 'restaurant/user_reservations.html', context)
+
+
