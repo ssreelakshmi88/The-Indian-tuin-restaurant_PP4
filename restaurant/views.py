@@ -126,5 +126,3 @@ def user_reservations(request):
     context = {'reservations': user_reservations}
     messages.success(request, 'Reservations Found.')
     return render(request, 'restaurant/user_reservations.html', context)
-
-

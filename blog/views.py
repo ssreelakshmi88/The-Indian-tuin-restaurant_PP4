@@ -89,7 +89,7 @@ def post_like(request, pk):
             request,
             'You have to log in!'
         )
-        return redirect('login')
+        return redirect('account_login')
 
 
 def create_blog_post(request):
