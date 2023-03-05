@@ -9,7 +9,6 @@
         <form class="col-md-12 mx-auto" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data">
 
             {% csrf_token %}
-
             {{ form | crispy }}
 
             <div class="d-flex justify-content-center button-row">

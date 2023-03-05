@@ -1,6 +1,7 @@
 from django import forms
 from django.utils import timezone
 from django.forms import ModelForm
+from django.core.exceptions import ValidationError
 from .models import Reservation
 
 
@@ -33,6 +34,7 @@ class ReservationForm(ModelForm):
         widgets = {
             'date': DateInput(),
         }
+
     # Disable the past dates in date input widget
     date = forms.DateField(widget=forms.DateInput(attrs={
         'type': 'date', 'min': timezone.localdate().strftime('%Y-%m-%d')
