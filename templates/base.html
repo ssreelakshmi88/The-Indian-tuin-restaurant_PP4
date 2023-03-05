@@ -125,11 +125,14 @@
     <script src="{% static 'js/script.js' %}">
     </script>
     <script>
-        setTimeout(function () {
-            let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 2500);
+    setTimeout(function() {
+    let messages = document.getElementById('msg');
+    if (messages !== null) {
+    let alert = new bootstrap.Alert(messages);
+    alert.close();
+  }
+}, 2500);
+
     </script>
 </body>
 

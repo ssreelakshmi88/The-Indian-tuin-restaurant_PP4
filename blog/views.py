@@ -135,6 +135,7 @@ def delete_blog_post(request, pk):
 
     if request.method == "POST":
         post.delete()
+        messages.success(request, f'Post is deleted.')
         return redirect("post_list")
 
     context = {"post": post}

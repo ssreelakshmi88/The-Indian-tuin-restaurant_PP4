@@ -724,6 +724,7 @@ input#id_remember {
     width: 35%;
     margin-top: -464px;
     margin-right: -92px;
+    width: 40%;
 }
 
 .side-image {
@@ -928,6 +929,14 @@ input {
     h1 {
         font-size: 65px;
     }
+
+
+    /* RESERVATIONS PAGE */
+    .time-image {
+        
+        width: 38%;
+    }
+
 }
 
 /* For medium screens size from 990px wide and down */
@@ -989,9 +998,9 @@ input {
     .col-md-2 {
         width: 26%;
     }
-
+ /* RESERVATIONS PAGE */
     .time-image {
-        width: 58%;
+        width: 38%;
     }
 
     /*USER RESERVATIONS PAGE */
@@ -1061,7 +1070,13 @@ input {
     .desc-block {
         height: 40%;
     }
+    
+/* RESERVATIONS PAGE */
+   .time-image {
+    width: 38%;
+}
 
+}
     /*USER RESERVATIONS PAGE */
 
     .reservations-table {
@@ -1109,7 +1124,7 @@ input {
         width: 120%;
     }
 
-}
+
 
 
 /* For small screens size from 500px wide and down */

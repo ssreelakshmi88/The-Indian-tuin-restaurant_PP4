@@ -25,6 +25,12 @@ class ContactForm(forms.ModelForm):
     email_address = forms.EmailField(max_length=150, required=False)
     message = forms.CharField(widget=forms.Textarea, required=True)
 
+    def clean_email(self):
+        email_address = self.cleaned_data.get('email_address')
+        if not email_address.endswith('example.com'):
+            raise forms.ValidationError('Invalid email address')
+        return email_address
+
     class Meta:
         """
         The meta class determines the fields accessible to the user

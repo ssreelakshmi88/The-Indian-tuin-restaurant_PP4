@@ -4,9 +4,9 @@
 <h1 class="reservation-title">Reservations</h1>
 <p class="reserve-p"><i>Please login to edit your reservations</i></p>
 <div class="container">
-    <div class="row justify-content-center mb-5">
+    <div class="row">
 
-        <form class="col-md-8" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data">
+        <form class="col-md-12 mx-auto" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data">
 
             {% csrf_token %}
 
@@ -16,7 +16,7 @@
                 <button type="submit" class="col-sm-6 col-md-2 reserve-button">Book Now</button>
                 {% if user.is_authenticated %}
                 <a href="{% url 'user_reservations' %}" class="col-sm-4 col-md-2 reserve-button"
-                    id="reserve-link">Update
+                    id="reserve-link">Update Booking
                 </a>
                 {% endif %}
 
