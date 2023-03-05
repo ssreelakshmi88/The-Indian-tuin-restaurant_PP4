@@ -3,29 +3,30 @@
 {% block content %}
 <h1 class="reservation-title">Reservations</h1>
 <p class="reserve-p"><i>Please login to edit your reservations</i></p>
-<div class="container">
+<div class="container-fluid">
     <div class="row">
-
+      <div class="col-md-6">
         <form class="col-md-12 mx-auto" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data">
 
             {% csrf_token %}
 
             {{ form | crispy }}
 
-            <div class="button-row">
-                <button type="submit" class="col-sm-6 col-md-2 reserve-button">Book Now</button>
+            <div class="d-flex justify-content-center button-row">
+                <button type="submit" class="reserve-button">Book Now</button>
                 {% if user.is_authenticated %}
-                <a href="{% url 'user_reservations' %}" class="col-sm-4 col-md-2 reserve-button"
+                <a href="{% url 'user_reservations' %}" class="reserve-button"
                     id="reserve-link">Update Booking
                 </a>
                 {% endif %}
 
             </div>
-            <div class="side-image">
-                <img src="{{ time_image.image.url }}" id="open-times-image" class="time-image"
-                    alt="an image displaying the open times for the restaurant">
+            
             </div>
+            <div class="side-image"> <img src="{{ time_image.image.url }}" id="open-times-image" class="time-image"
+                alt="an image displaying the open times for the restaurant"></div>
         </form>
+        
     </div>
 </div>
 

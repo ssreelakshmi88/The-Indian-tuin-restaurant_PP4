@@ -721,14 +721,15 @@ input#id_remember {
 /*  RESERVATION PAGE   */
 .time-image {
     float: right;
-    width: 35%;
-    margin-top: -464px;
-    margin-right: -92px;
-    width: 40%;
+    width: 25%;
+    margin-top: -488px;
+    margin-right: 101px;
+  
+    
 }
-
 .side-image {
     position: relative;
+ 
 }
 
 .reservation-form {
@@ -930,14 +931,10 @@ input {
         font-size: 65px;
     }
 
-
-    /* RESERVATIONS PAGE */
-    .time-image {
-        
-        width: 38%;
-    }
-
 }
+    /* RESERVATIONS PAGE */
+  
+
 
 /* For medium screens size from 990px wide and down */
 @media screen and (max-width: 990px) {
@@ -998,11 +995,12 @@ input {
     .col-md-2 {
         width: 26%;
     }
- /* RESERVATIONS PAGE */
     .time-image {
-        width: 38%;
+        float: right;
+        width: 30%;
+        
+        
     }
-
     /*USER RESERVATIONS PAGE */
 
     .reservations-table {
@@ -1072,6 +1070,7 @@ input {
     }
     
 /* RESERVATIONS PAGE */
+
    .time-image {
     width: 38%;
 }
@@ -1128,7 +1127,7 @@ input {
 
 
 /* For small screens size from 500px wide and down */
-@media (max-width: 500px) {
+@media (max-width: 540px) {
     /* RESERVATION */
 
 
