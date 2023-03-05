@@ -1,6 +1,5 @@
 from django import forms
 from django.utils import timezone
-from django.forms import ModelForm
 from django.core.exceptions import ValidationError
 from .models import Reservation
 
@@ -12,7 +11,7 @@ class DateInput(forms.DateInput):
     input_type = 'date'
 
 
-class ReservationForm(ModelForm):
+class ReservationForm(forms.ModelForm):
     """
     This defines the user form output for the
     Reservation model class
@@ -39,3 +38,21 @@ class ReservationForm(ModelForm):
     date = forms.DateField(widget=forms.DateInput(attrs={
         'type': 'date', 'min': timezone.localdate().strftime('%Y-%m-%d')
         }))
+
+    def clean_email(self):
+        """
+        Validates the email field
+        """
+        email = self.cleaned_data['email']
+        if email.endswith('@example.com'):
+            raise ValidationError('Invalid email address')
+        return email
+
+    def clean_name(self):
+        """
+        Validates the name field
+        """
+        name = self.cleaned_data['name']
+        if not name.isalpha():
+            raise ValidationError('Invalid name')
+        return name
