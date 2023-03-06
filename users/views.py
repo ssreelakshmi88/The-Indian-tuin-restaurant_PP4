@@ -11,6 +11,7 @@ from blog.models import Post, Comment
 from restaurant.models import Reservation
 from .models import UserProfile
 from .forms import UserProfileForm, ContactForm
+from django import forms
 
 
 def user_register(request):
@@ -53,17 +54,21 @@ def user_profile(request):
     for post in posts:
         comments += post.comments.filter(name=request.user).count()
 
-        reservations += Reservation.objects.filter(
+    user_comments = Comment.objects.filter(name=request.user).count()
+
+    reservations += Reservation.objects.filter(
                     email=request.user.email).count()
 
-        context = {
+    context = {
             'profile': profile,
             'users': users,
             'reservations': reservations,
             'comments': comments,
             'likes': likes,
+            'user_comments': user_comments,
+
         }
-        return render(request, 'users/profile.html', context=context)
+    return render(request, 'users/profile.html', context=context)
 
 
 @login_required
@@ -99,7 +104,7 @@ def delete_profile(request):
         user.delete()
         logout(request)
         messages.success(request, 'Profile Deleted.')
-        return redirect('restaurant:home')
+        return redirect('home')
 
     context = {'user': user}
     return render(request, 'users/delete_profile.html')
@@ -120,10 +125,12 @@ def contact(request):
             send_mail(
                 subject="Email Form",
                 message=email_data['message'],
-                from_email='siteowner@example.com',
-                recipient_list=[email_data['email_address']],
+                from_email=email_data['email_address'],
+                recipient_list=['your-email@example.com'],
                 connection=con
             )
+            messages.success(request, 'Message sent')
+            return redirect('contact')
             messages.success(request, 'Message sent')
             return HttpResponseRedirect('/')
     else:
