@@ -79,6 +79,13 @@ def edit_user_reservation(request, pk):
             instance=reservation
             )
         if form.is_valid():
+            date = form.cleaned_data['date']
+            time = form.cleaned_data['time']
+            if date.weekday() == 0:
+                messages.warning(request,
+                                 'Sorry, the restaurant is closed on Mondays.'
+                                 )
+                return redirect('user_reservations')
             form.save()
             messages.success(request, 'Reservation Updated.')
             return redirect('user_reservations')

@@ -244,6 +244,16 @@ p {
 
 }
 
+.comment-input{
+ 
+    
+   margin-right: 50px;
+ 
+}
+textarea.form-control {
+    width: max-content;
+   
+}
 .no-gutters-lg {
     margin: 10%;
     position: relative;
@@ -1163,6 +1173,8 @@ input {
     .meta-wrap p {
         width: auto;
     }
+
+    
 
     /* CONTACT PAGE*/
 
