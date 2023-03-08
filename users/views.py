@@ -49,16 +49,12 @@ def user_profile(request):
         reservations = Reservation.objects. \
                 filter(email=request.user.email).count()
     likes = 0
-    reservations = 0
     comments = 0
     posts = Post.objects.all()
     for post in posts:
         comments += post.comments.filter(name=request.user).count()
 
     user_comments = Comment.objects.filter(name=request.user).count()
-
-    reservations += Reservation.objects.filter(
-                    email=request.user.email).count()
 
     context = {
             'profile': profile,
@@ -69,6 +65,7 @@ def user_profile(request):
             'user_comments': user_comments,
 
         }
+
     return render(request, 'users/profile.html', context=context)
 
 

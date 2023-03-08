@@ -56,6 +56,7 @@ section {
     display: inline-block;
     border-radius: 50px;
     padding: 10px 27px;
+    margin-bottom: 18px;
     border: 1px solid var(--primary-color);
     color: var(--primary-text);
     font-weight: 600;

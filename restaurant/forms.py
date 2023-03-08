@@ -38,15 +38,3 @@ class ReservationForm(forms.ModelForm):
     date = forms.DateField(widget=forms.DateInput(attrs={
         'type': 'date', 'min': timezone.localdate().strftime('%Y-%m-%d')
         }))
-
-    def clean(self):
-        cleaned_data = super().clean()
-        name = cleaned_data.get('name')
-        email = cleaned_data.get('email')
-
-        if not name:
-            self.add_error('name', 'Please enter your name.')
-        if not email:
-            self.add_error('email', 'Please enter your email address.')
-
-        return cleaned_data
