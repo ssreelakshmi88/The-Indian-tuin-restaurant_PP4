@@ -61,7 +61,7 @@ def edit_menu_item(request, slug):
         form = MenuForm(request.POST, request.FILES, instance=menu_item)
         if form.is_valid():
             form.save()
-            messages.success(request, f'{menu_item.title} Updated.')
+            messages.success(request, f'{menu_item.name} Updated.')
             return redirect('menu')
 
     context = {'form': form}
@@ -76,7 +76,7 @@ def delete_menu_item(request, slug):
 
     if request.method == 'POST':
         menu_item.delete()
-        messages.success(request, f'{menu_item.title} Deleted.')
+        messages.success(request, f'{menu_item.name} Deleted.')
         return redirect('menu')
 
     context = {'menu_item': menu_item}

@@ -35,7 +35,7 @@
         </div>
         <div>
             <h3 class="heading-profile">Reservations:</h3>
-            <h5><i class="fa-solid fa-calendar-days"></i>
+            <h5><a href="{% url 'user_reservations' %}"><i class="fa-solid fa-calendar-days"></i>
                 {{ reservations }}</h5>
         </div>
     </div>
@@ -46,8 +46,7 @@
             <h5><i class="fa-solid fa-comment"></i> {{ user_comments }}</h5>
         </div>
         <div>
-            <h3 class="heading-profile">Reservations:</h3>
-            <h5><i class="fa-solid fa-calendar-days"></i></a>
+            <h3><a href="{% url 'user_reservations' %}"><i class="fa-solid fa-calendar-days"></i></a>
                 {{ reservations }}</h5>
         </div>
     </div>

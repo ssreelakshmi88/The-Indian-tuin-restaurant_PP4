@@ -12,6 +12,7 @@ from restaurant.models import Reservation
 from .models import UserProfile
 from .forms import UserProfileForm, ContactForm
 from django import forms
+from django.conf import settings
 
 
 def user_register(request):
