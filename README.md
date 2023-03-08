@@ -94,8 +94,8 @@ ERM diagram demonstrates how the information is stored when data is at rest. As 
 
 
 
-![ERD diagram_new](https://user-images.githubusercontent.com/97182442/198904359-981942e4-1d1c-4ee8-be6e-c8749e9cf97d.png)
 
+![ERD DIAGRAM_NEW](https://user-images.githubusercontent.com/97182442/223586223-33ebf8f3-dec8-4645-bd26-76ff38d3adfa.jpg)
 
 
 ## Design
