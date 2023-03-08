@@ -10,6 +10,7 @@
             {% if user.is_staff %}
             <th>Name</th>
             {% endif %}
+            <th>Name</th>
             <th>Date</th>
             <th>Time</th>
             <th>Update</th>
@@ -23,6 +24,7 @@
             {% if user.is_staff %}
             <td>{{ reservation.name }}</td>
             {% endif %}
+            <td>{{ reservation.name }}</td>
             <td>{{ reservation.date }}</td>
             <td>{{ reservation.get_time_display }}</td>
             <td><a href="{% url 'editReservations' reservation.id %}"><i class="fa-solid fa-pen-to-square"></i></a></td>

@@ -122,14 +122,14 @@ def user_reservations(request):
         user_reservations = reservations.order_by('date')
         if not user_reservations:
             messages.warning(request, 'No Reservations Booked At This Time.')
-            return render(request, 'users/profile_page.html')
+            return render(request, 'users/profile.html')
     else:
         user_reservations = reservations.filter(
             email=request.user.email
             ).order_by('date')
         if not user_reservations:
             messages.warning(request, 'No Reservations Found For This Email.')
-            return render(request, 'users/profile_page.html')
+            return render(request, 'users/profile.html')
     context = {'reservations': user_reservations}
     messages.success(request, 'Reservations Found.')
     return render(request, 'restaurant/user_reservations.html', context)

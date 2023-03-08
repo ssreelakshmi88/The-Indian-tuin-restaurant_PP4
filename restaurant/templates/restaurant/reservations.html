@@ -2,22 +2,19 @@
 {% load crispy_forms_tags %}
 {% block content %}
 <h1 class="reservation-title">Reservations</h1>
-<p class="reserve-p"><i>Please login to edit your reservations</i></p>
 <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
-        <form class="col-md-12 mx-auto" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data">
+        <form class="col-md-12 mx-auto" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data"  onsubmit="return validateForm()">
 
             {% csrf_token %}
             {{ form | crispy }}
 
             <div class="d-flex justify-content-center button-row">
-                <button type="submit" class="reserve-button">Book Now</button>
-                {% if user.is_authenticated %}
+                <button type="submit" class="reserve-button" id="book-now-btn">Book Now</button>
                 <a href="{% url 'user_reservations' %}" class="reserve-button"
                     id="reserve-link">Update Booking
                 </a>
-                {% endif %}
 
             </div>
             
@@ -28,5 +25,4 @@
         
     </div>
 </div>
-
 {% endblock %}

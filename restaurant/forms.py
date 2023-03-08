@@ -39,20 +39,3 @@ class ReservationForm(forms.ModelForm):
         'type': 'date', 'min': timezone.localdate().strftime('%Y-%m-%d')
         }))
 
-    def clean_email(self):
-        """
-        Validates the email field
-        """
-        email = self.cleaned_data['email']
-        if email.endswith('@example.com'):
-            raise ValidationError('Invalid email address')
-        return email
-
-    def clean_name(self):
-        """
-        Validates the name field
-        """
-        name = self.cleaned_data['name']
-        if not name.isalpha():
-            raise ValidationError('Invalid name')
-        return name
