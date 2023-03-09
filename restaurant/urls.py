@@ -15,5 +15,8 @@ urlpatterns = [
     path('reservations/user/<int:pk>/delete',
          views.delete_user_reservation, name='deleteReservations'
          ),
+    path('reservations/success/',
+         views.reservations_success, name='reservations_success'
+         ),
 
 ]

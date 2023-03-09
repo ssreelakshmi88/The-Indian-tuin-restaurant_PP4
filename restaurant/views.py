@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Photo, Reservation
 from .forms import ReservationForm
+from django.contrib.auth import get_user_model
 
 
 def handler404(request, exception):
@@ -24,45 +25,92 @@ def home(request):
     return render(request, 'restaurant/index.html', context)
 
 
+User = get_user_model()
+
+
 def reservations(request):
     """
     This view will render the reservations page
     """
     time_image = Photo.objects.get(title='Times Image')
-    form = ReservationForm()
+    if request.user.is_authenticated:
+        form = ReservationForm()
+        if request.method == 'POST':
+            form = ReservationForm(request.POST)
+            date = form['date'].value()
+            date_value = datetime.strptime(date, "%Y-%m-%d")
+            time = form['time'].value()
+            reservation = Reservation.objects. \
+                filter(date=date_value, time=time)
+            # Check if the restaurant is closed on Mondays
+            if date_value.weekday() == 0:
+                messages.warning(request,
+                                 'Sorry, the restaurant is closed on Mondays.'
+                                 )
+    
+                return redirect('reservations')
+            if reservation:
+                messages.warning(
+                    request,
+                    'Reservation already exists at this date and time.'
+                    'Please choose another date and time'
+                    )
+                return redirect('reservations')
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Reservation created successfully.')
+                return redirect('reservations_success')
+            else:
+                messages.error(request, f'Some details are missing/wrong.')
+        context = {
+            'time_image': time_image,
+            'form': form
+        }
+        return render(request, 'restaurant/reservations.html', context)
+    else:
+        form = ReservationForm()
+        if request.method == 'POST':
+            form = ReservationForm(request.POST)
+            if form.is_valid():
+                date = form['date'].value()
+                date_value = datetime.strptime(date, "%Y-%m-%d")
+                time = form['time'].value()
+                email = form['email'].value()
+                reservation = Reservation.objects. \
+                    filter(date=date_value, time=time)
+                # Check if the restaurant is closed on Mondays
+                if date_value.weekday() == 0:
+                    messages.warning(request,
+                                     'Sorry, the restaurant is closed on Mondays.'
+                                     )
 
-    if request.method == 'POST':
-        form = ReservationForm(request.POST)
-        date = form['date'].value()
-        date_value = datetime.strptime(date, "%Y-%m-%d")
-        time = form['time'].value()
-        reservation = Reservation.objects. \
-            filter(date=date_value, time=time)
-        # Check if the restaurant is closed on Mondays
-        if date_value.weekday() == 0:
-            messages.warning(request,
-                             'Sorry, the restaurant is closed on Mondays.'
-                             )
-
-            return redirect('reservations')
-        if reservation:
-            messages.warning(
-                request,
-                'Reservation already exists at this date and time.'
-                'Please choose another date and time'
+                    return redirect('reservations')
+                if reservation:
+                    messages.warning(
+                        request,
+                        'Reservation already exists at this date and time.'
+                        'Please choose another date and time'
+                        )
+                    return redirect('reservations')
+                reservation = Reservation.objects.create(
+                    date=date_value,
+                    time=time,
+                    email=email
                 )
-            return redirect('reservations')
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Reservation created successfully.')
-            return redirect('reservations')
-        else:
-            messages.error(request, f'Some details are missing/wrong.')
-    context = {
-        'time_image': time_image,
-        'form': form
-    }
-    return render(request, 'restaurant/reservations.html', context)
+                reservation.save()
+                messages.success(request, 'Reservation created successfully.')
+                return redirect('reservations_success')
+            else:
+                messages.error(request, f'Some details are missing/wrong.')
+        context = {'time_image': time_image, 'form': form}
+        return render(request, 'restaurant/reservations.html', context)
+
+
+def reservations_success(request):
+    """
+    This view will render the reservations success page
+    """
+    return render(request, 'restaurant/reservations_success.html')
 
 
 @login_required

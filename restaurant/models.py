@@ -1,6 +1,5 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
-import uuid
 
 
 class Photo(models.Model):
