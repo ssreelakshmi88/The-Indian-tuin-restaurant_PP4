@@ -75,17 +75,29 @@ def edit_user_reservation(request, pk):
 
     if request.method == 'POST':
         form = ReservationForm(
-            request.POST, request.FILES,
-            instance=reservation
+            request.POST, request.FILES, instance=reservation
             )
         if form.is_valid():
             date = form.cleaned_data['date']
             time = form.cleaned_data['time']
-            if date.weekday() == 0:
-                messages.warning(request,
-                                 'Sorry, the restaurant is closed on Mondays.'
-                                 )
+            # Check if there is already a reservation for this date and time
+            if Reservation.objects.filter(date=date, time=time).exists():
+                messages.warning(
+                 request,
+                 'Reservation already exists at this date and time.'
+                 'Please choose another date and time'
+                )
                 return redirect('user_reservations')
+
+            # Check if the restaurant is closed on this date
+            if date.weekday() == 0:
+                messages.warning(
+                    request,
+                    'Sorry, the restaurant is closed on Mondays.'
+                    )
+                return redirect('user_reservations')
+
+            # Save the reservation if everything is valid
             form.save()
             messages.success(request, 'Reservation Updated.')
             return redirect('user_reservations')

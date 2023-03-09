@@ -12,10 +12,11 @@
 
             <div class="d-flex justify-content-center button-row">
                 <button type="submit" class="reserve-button" id="book-now-btn">Book Now</button>
+                {% if user.is_authenticated %}
                 <a href="{% url 'user_reservations' %}" class="reserve-button"
                     id="reserve-link">Update Booking
                 </a>
-
+                {% endif %}
             </div>
             
             </div>
