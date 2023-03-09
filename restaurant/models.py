@@ -19,9 +19,6 @@ class Reservation(models.Model):
     Reservation model class.
     Creates a table in the database which stores each objects data"
     """
-    ref_number = models.UUIDField(max_length=36, editable=False,
-                                  default=uuid.uuid4
-                                  )
     name = models.CharField(max_length=100, null=True, blank=True)
     email = models.EmailField()
     number_of_persons = models.PositiveSmallIntegerField(choices=(
