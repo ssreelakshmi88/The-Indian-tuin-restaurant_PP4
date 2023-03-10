@@ -38,3 +38,48 @@ class ReservationForm(forms.ModelForm):
     date = forms.DateField(widget=forms.DateInput(attrs={
         'type': 'date', 'min': timezone.localdate().strftime('%Y-%m-%d')
         }))
+
+    def clean_name(self):
+        """
+        Validates the name field to ensure it's not empty
+        and contains only letters and spaces.
+        """
+        name = self.cleaned_data['name']
+        if not name:
+            raise forms.ValidationError("Name is required.")
+        elif not name.replace(" ", "").isalpha():
+            raise forms.ValidationError("Name can only contain letters and spaces.")
+        return name
+
+    def clean_email(self):
+        """
+        Validates the email field to ensure it's not empty and contains a valid email address.
+        """
+        email = self.cleaned_data['email']
+        if not email:
+            raise forms.ValidationError("Email is required.")
+        elif "@" not in email:
+            raise forms.ValidationError("Please enter a valid email address.")
+        return email
+
+    def clean(self):
+        """
+        Validates the date and time fields to ensure a user is not allowed to book a reservation for today after the current time.
+        """
+        cleaned_data = super().clean()
+        chosen_date = cleaned_data.get("date")
+        chosen_time = cleaned_data.get("time")
+        if chosen_date == timezone.now().date() and chosen_time:
+            current_hour = timezone.now().hour
+            earliest_hour = {
+                1: 11,
+                2: 12,
+                3: 13,
+                4: 14,
+                5: 16,
+                6: 18,
+                7: 20,
+            }.get(chosen_time)
+            if current_hour >= earliest_hour:
+                raise forms.ValidationError("You cannot book a reservation for today after the current time.")
+        return cleaned_data
