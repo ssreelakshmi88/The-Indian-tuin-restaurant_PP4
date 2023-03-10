@@ -48,12 +48,14 @@ class ReservationForm(forms.ModelForm):
         if not name:
             raise forms.ValidationError("Name is required.")
         elif not name.replace(" ", "").isalpha():
-            raise forms.ValidationError("Name can only contain letters and spaces.")
+            raise forms.ValidationError(
+                                        "Name can only contain letters."
+                                        )
         return name
 
     def clean_email(self):
         """
-        Validates the email field to ensure it's not empty and contains a valid email address.
+        Validates the email field to ensure it's not empty.
         """
         email = self.cleaned_data['email']
         if not email:
@@ -64,7 +66,9 @@ class ReservationForm(forms.ModelForm):
 
     def clean(self):
         """
-        Validates the date and time fields to ensure a user is not allowed to book a reservation for today after the current time.
+        Validates the date and time fields to ensure
+        a user is not allowed to book a reservation
+        for today after the current time.
         """
         cleaned_data = super().clean()
         chosen_date = cleaned_data.get("date")
@@ -81,5 +85,7 @@ class ReservationForm(forms.ModelForm):
                 7: 20,
             }.get(chosen_time)
             if current_hour >= earliest_hour:
-                raise forms.ValidationError("You cannot book a reservation for today after the current time.")
+                raise forms.ValidationError(
+                    "Reservation cannot be booked today after current time."
+                    )
         return cleaned_data
