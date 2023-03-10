@@ -42,10 +42,10 @@
 
                             {% if user.is_staff %}
                             <div class="blog-post-buttons">
-                                <a href="{% url 'edit_blog_post' post.pk %}"><button type="submit"
-                                        class="reserve-button">Edit</button></a>
-                                <a href="{% url 'delete_blog_post' post.pk %}"><button type="submit"
-                                        class="reserve-button">Delete</button></a>
+                                <button type="submit"
+                                class="reserve-button"> <a href="{% url 'edit_blog_post' post.pk %}">Edit</a></button>
+                                <button type="submit"
+                                        class="reserve-button"><a href="{% url 'delete_blog_post' post.pk %}"></a>Delete</button>
                             </div>
                             {% endif %}
                             <div class="main-description">{{  post.content|safe  }}
@@ -106,8 +106,9 @@
                                         {% csrf_token %}
                                     <div class="text-center">
                                         <button type="submit" class="submit-btn mx-auto">Submit Comment</button>
+                                    </div>
                                     </form>
-                                </div>
+                                
 
                                     {% endif %}
 

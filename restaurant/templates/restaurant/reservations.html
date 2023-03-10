@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row">
       <div class="col-md-6">
-        <form class="col-md-12 mx-auto" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data"  onsubmit="return validateForm()">
+        <form class="col-md-12 mx-auto" action="{% url 'reservations' %}" method="post" enctype="multipart/form-data">
 
             {% csrf_token %}
             {{ form | crispy }}
@@ -17,11 +17,12 @@
                     id="reserve-link">Update Booking
                 </a>
                 {% endif %}
-            </div>
+      </div>
             
-            </div>
+        </div>
             <div class="side-image"> <img src="{{ time_image.image.url }}" id="open-times-image" class="time-image"
-                alt="an image displaying the open times for the restaurant"></div>
+                alt="an image displaying the open times for the restaurant">
+            </div>
         </form>
         
     </div>

@@ -47,7 +47,7 @@ def reservations(request):
                 messages.warning(request,
                                  'Sorry, the restaurant is closed on Mondays.'
                                  )
-    
+
                 return redirect('reservations')
             if reservation:
                 messages.warning(
@@ -81,7 +81,7 @@ def reservations(request):
                 # Check if the restaurant is closed on Mondays
                 if date_value.weekday() == 0:
                     messages.warning(request,
-                                     'Sorry, the restaurant is closed on Mondays.'
+                                     'Sorry, the restaurant closed on Mondays.'
                                      )
 
                     return redirect('reservations')
