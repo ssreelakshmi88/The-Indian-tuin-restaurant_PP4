@@ -25,11 +25,30 @@ class ContactForm(forms.ModelForm):
     email_address = forms.EmailField(max_length=150, required=False)
     message = forms.CharField(widget=forms.Textarea, required=True)
 
-    def clean_email(self):
+    def clean_email_address(self):
         email_address = self.cleaned_data.get('email_address')
-        if not email_address.endswith('example.com'):
+        if email_address and not email_address.endswith('example.com'):
             raise forms.ValidationError('Invalid email address')
         return email_address
+
+    def clean_name(self):
+        name = self.cleaned_data.get('name')
+        if not name.isalpha():
+            raise forms.ValidationError('Name should only contain alphabets')
+        return name
+
+    def clean(self):
+        cleaned_data = super().clean()
+        email_address = cleaned_data.get('email_address')
+        if not email_address:
+            raise forms.ValidationError('Email address is required')
+        return cleaned_data
+
+    def clean_message(self):
+        message = self.cleaned_data.get('message')
+        if len(message) > 1000:
+            raise forms.ValidationError('Text should not exceed 1000 words')
+        return message
 
     class Meta:
         """
