@@ -100,6 +100,12 @@ The relationship between the User entity and the Contact entity in the ERD diagr
 
 - Each message submitted through the contact form is associated with one user.
 
+The relationship between the "User" entity and the "Menu Items" entity in the ERD diagram for a restaurant website can be described as a many-to-many relationship because:
+
+- A user can order many menu items from the restaurant.
+
+- Each menu item can be ordered by many users.
+
 
 ![ERD DIAGRAM_NEW](https://user-images.githubusercontent.com/97182442/223586223-33ebf8f3-dec8-4645-bd26-76ff38d3adfa.jpg)
 
@@ -490,7 +496,7 @@ Agile methodology has been used to plan and design this website/project. User st
 
 ### Further testing
 
-The W3C Markup Validator, W3C CSS Validator Services, Pylint validator and Unittests were used to validate every page of the project to ensure there were no syntax errors in the project.
+The W3C Markup Validator, W3C CSS Validator Services, Pylint validator by Code Institute and Unittests were used to validate every page of the project to ensure there were no syntax errors in the project.
 
 The results of these tests are found here:
 
@@ -509,6 +515,8 @@ The results of these tests are found here:
 
 4. Friends were asked to review the site and documentation to point out any bugs and/or user experience issues.
 
+5. I also used Mobile simulator-responsive testing tool to test responsiveness of the website.
+
 
 #### Known Bugs
 
@@ -520,6 +528,7 @@ The website is not responsive in all devices. In some devices, the submit button
 ## Deployment
 
 Deploying the project using Heroku: 
+
 1.  Login to Heroku and Create a New App
 
 ![heroku-login](https://user-images.githubusercontent.com/97182442/224512832-7008acd5-5039-4951-822b-db99ee78f503.jpg)
@@ -696,6 +705,9 @@ https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
 The recipes and menu were taken from various sources,
 
 https://ministryofcurry.com/
+
+
+Restaurant opening times image was created using this website https://www.postermywall.com/index.php/posterbuilder/load/87d111352510859f72879388348bfcbe#.ZAeYPnbMK3A
 
 
 ### Media
