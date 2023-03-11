@@ -552,6 +552,10 @@ https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
 
 ### Code
 
+## Credits
+
+### Code
+
 - Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
 
 - Date picker widget has been taken from stackoverflow.
@@ -564,6 +568,9 @@ https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
 
 - Code institute READMe template was referred to create README template for this project.
 
+- chris-townsend/PP4-Kitchen_Tales(https://github.com/chris-townsend/PP4-Kitchen_Tales.git) Elephant SQL section from README
+
+- Stack Overflow.
 
 ### Content
 
