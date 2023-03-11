@@ -42,10 +42,8 @@
 
                             {% if user.is_staff %}
                             <div class="blog-post-buttons">
-                                <button type="submit"
-                                class="reserve-button"> <a href="{% url 'edit_blog_post' post.pk %}">Edit</a></button>
-                                <button type="submit"
-                                        class="reserve-button"><a href="{% url 'delete_blog_post' post.pk %}"></a>Delete</button>
+                               <a href="{% url 'edit_blog_post' post.pk %}" class="btn primary reserve-button">Edit</a>
+                                <a href="{% url 'delete_blog_post' post.pk %}" class="btn primary reserve-button">Delete</a>
                             </div>
                             {% endif %}
                             <div class="main-description">{{  post.content|safe  }}

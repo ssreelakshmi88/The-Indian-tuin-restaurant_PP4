@@ -12,8 +12,8 @@
 
     {{ form | crispy }}
 </form>
-    
-<a href="{% url 'menu' %}" class="back-link"><button type="button" class="form-button">Go Back</button></a>
+<div class="d-flex justify-content-center">
+<a href="{% url 'menu' %}" class="btn primary form-button">Go Back</a>
 <button type="submit" class="form-button">Submit</button>
-
+</div>
 {% endblock %}

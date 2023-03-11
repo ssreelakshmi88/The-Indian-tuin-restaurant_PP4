@@ -8,8 +8,8 @@
 <form class="create-form" method="POST">
     {% csrf_token %}
 
-    <a href="{% url 'user_reservations' %}" class="back-link"><button type="button" class="form-button">Go
-            Back</button></a>
+    <a href="{% url 'user_reservations' %}" class="btn primary form-button">Go
+            Back</a>
     <button type="submit" class="form-button">Delete</button>
 
 </form>

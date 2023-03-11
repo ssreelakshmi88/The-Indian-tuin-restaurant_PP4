@@ -7,11 +7,10 @@
     <h4>Do you want to delete "{{post.title}}"?</h4>
     <p><strong>Please note:</strong>The applied changes are <b>PERMANENT.</b></p>
 </div>
-<form class="create-form" action="" method="post" enctype="multipart/form-data">
+<form class="create-form" action="#" method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
-    <a href="{% url 'post_detail' post.pk %}" class="back-link"><button type="button" class="form-button">Go
-            Back</button></a>
+    <a href="{% url 'post_detail' post.pk %}" class="btn primary form-button">Go Back</a>
     <button type="submit" class="form-button">Delete</button>
 
 </form>
