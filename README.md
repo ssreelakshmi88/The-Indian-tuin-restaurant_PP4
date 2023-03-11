@@ -214,8 +214,7 @@ Following features have been implemented.
     Reservations can be made by users without registration. However, only registered users can update and/or cancel reservations. User will be notified in case of multiple reservation for a slot.
     
     
-    
-![screenshot_reservation](https://user-images.githubusercontent.com/97182442/198904857-f1385a67-5c94-41bf-91b1-5acac9135957.jpg)
+
 
 Unregistered users receive a separate success page indicating about their booking. Those users have to contact the restaurant in order to cancel
 or update their booking.
@@ -253,6 +252,22 @@ or update their booking.
 - **Expanding the menu page**
 
     Menu page consisting of sub navigation links for categories: Starters, Main and Dessert, Drinks.
+    
+
+- **Separate dashboard for admin or staff members**
+
+     Separate page for admin where they can access everything like
+reservations, details of users.
+
+
+- **Reservation email confirmation**
+
+     When users create booking, they will get a confirmation email.
+     
+
+- **Creation of blog posts from front end**
+
+     Admin and staff can create blog posts from front end.
 
 
 ## Technologies Used
