@@ -1,11 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="success-card">
-  <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
-    <i class="checkmark">✓</i>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+      <div class="col-md-8">
+          <div class="card">
+              <div class="card-header">
+                  <h4>Booking Successful!</h4>
+              </div>
+              <div class="card-body">
+                  <p>Your booking has been confirmed.</p>
+                  <p>Thank you for choosing our service.</p>
+                  <p class="text-danger">Please note: Please login to edit your reservations</p>
+                  <p class="text-primary">Unregistered users have to contact us to update or cancel their booking. </p>
+                  <p>Please contact us at:</p>
+                  <ul class="list-group">
+                    <li class="list-group-item"><b>Address:</b> 18 Angelenhorst, 2171, Sassenheim</li>
+                    <li class="list-group-item"><b>Phone:</b> <span class="badge bg-primary">+31 123 08 4567</span></li>
+                    <li class="list-group-item"><b>Email:</b> <span class="badge bg-primary">indian_ tuin@gmail.com</span></li>
+                  </ul>
+                  <a href="{% url 'home' %}" class="reserve-button">Back to Home</a>
+              </div>
+          </div>
+      </div>
   </div>
-    <h1 class="success-title">Success</h1> 
-    <p>We received your purchase request;<br/> we'll be in touch shortly!</p>
-  </div>
+</div>
 
 {% endblock %}
