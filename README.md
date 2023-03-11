@@ -317,7 +317,7 @@ reservations, details of users.
 
 ### Libraries frameworks and other technologies
 
-1. **Bootstrap**: This is used for responsiveness and styling of the website.
+1.   **Bootstrap**: This is used for responsiveness and styling of the website.
 
 2.	**Google fonts**: Google fonts were used to import the 'Titillium Web'font into the style.css file which is used on all pages throughout the project.
 
@@ -547,7 +547,7 @@ The results of these tests are found here:
 
 The contact page is not responsive in all devices.
 
-The website is not responsive in all devices. In some devices, the submit buttons were pushed to different sides. Also, the position of logo changes in some devices.
+The website is not responsive in all devices. In some devices, the submit buttons were pushed to different sides. Also, the position of logo and footer changes in some devices.
 
 
 ## Deployment
@@ -675,6 +675,9 @@ As the database provided by Django is only accessible within Gitpod and is not s
    . Ensure DEBUG is set to **False** in settings.py file.
    
    
+   ![Set DEBUG to false](https://user-images.githubusercontent.com/97182442/224516537-8a6b3d01-959b-4f56-a6a0-682e6b480717.jpg)
+
+   
 ## Forking the GitHub Repository
 
 By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
@@ -684,7 +687,6 @@ By forking the GitHub Repository we make a copy of the original repository on ou
    2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
    
    3. You should now have a copy of the original repository in your GitHub account.
-   
    
 ####  Making a Local Clone
 
@@ -704,6 +706,8 @@ https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
 
 7. Press Enter. Your local clone will be created.
 
+
+![Set repository](https://user-images.githubusercontent.com/97182442/224516558-2e13d39b-cd53-47a5-8b9d-50b4e1d39260.jpg)
 
 ## Credits
 
@@ -746,6 +750,8 @@ Restaurant opening times image was created using this website https://www.poster
 ### Acknowledgements
 
 - My mentor, Narender Singh for his support and continuous feedback.
+
+- My mentor, Precious Ijege.at the time of resubmission
 
 - Tutor support at Code Institute for their support.
 
