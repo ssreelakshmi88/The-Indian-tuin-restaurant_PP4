@@ -2,6 +2,8 @@ from django import forms
 from django.utils import timezone
 from django.core.exceptions import ValidationError
 from .models import Reservation
+from django.forms import TextInput
+from django.core.validators import EmailValidator
 
 
 class DateInput(forms.DateInput):
@@ -32,7 +34,23 @@ class ReservationForm(forms.ModelForm):
         ]
         widgets = {
             'date': DateInput(),
-        }
+            'name': forms.TextInput(
+                attrs={
+                    'required': True,
+                    "class": "form-control",
+                    "pattern": "[A-Za-z ]+",
+                    "title": "Name can only contain letters",
+                }
+            ),
+            'email': forms.TextInput(
+                attrs={
+                    'required': True,
+                    "class": "form-control",
+                    "pattern": '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$',
+                    "title": "Please enter a valid email address",
+                }
+            ),
+                  }
 
     # Disable the past dates in date input widget
     date = forms.DateField(widget=forms.DateInput(attrs={
