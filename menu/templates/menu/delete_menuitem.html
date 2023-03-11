@@ -12,10 +12,10 @@
 
     <form class="menu-form" method="POST">
         {% csrf_token %}
-
+        <div class="form-button-container">
         <a href="{% url 'menu' %}" class="back-link"><button type="button" class="form-button">Go Back</button></a>
         <button type="submit" class="form-button">Delete</button>
-
+    </div>
     </form>
 </div>
 

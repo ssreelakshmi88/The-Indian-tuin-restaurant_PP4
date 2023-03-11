@@ -6,17 +6,14 @@
 <h1 class="create-form">Menu Form</h1>
 
 
-<form class="create-form" action="" method="post">
+<form class="create-form" action="#" method="post">
     {% csrf_token %}
 
 
     {{ form | crispy }}
-
-    <a href="{% url 'menu' %}" class="back-link">
-        <button type="button" class="form-button">Go Back</button>
-    </a>
-    <button type="submit" class="form-button">Submit</button>
-
 </form>
+    
+<a href="{% url 'menu' %}" class="back-link"><button type="button" class="form-button">Go Back</button></a>
+<button type="submit" class="form-button">Submit</button>
 
 {% endblock %}

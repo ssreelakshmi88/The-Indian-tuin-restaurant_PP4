@@ -790,7 +790,28 @@ input {
     color: red;
     font-size: 3rem;
 }
-
+/* ---------- SUCCESS RESERVATIONS PAGE ---------- */
+.success-booking{
+    text-align: center;
+    color: rgb(255, 115, 0);
+}
+.home-button {
+    color: red;
+    display: inline-table;
+    border-radius: 50px;
+    padding: 10px 27px;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-text);
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, var(--primary-color) 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 0.5s ease-out;
+    margin-top: 30px;
+}
 
 /* ---------- USER RESERVATIONS PAGE ---------- */
 
@@ -956,7 +977,7 @@ input {
     }
 
     h3 {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
     }
 
     /* 2 NAVBAR */
@@ -1134,10 +1155,9 @@ input {
 @media (max-width: 540px) {
     /* RESERVATION */
 
-
     .time-image {
         float: left;
-        width: 80%;
+        width: 100%;
         margin-top: 31px;
     }
 
@@ -1173,7 +1193,7 @@ input {
     }
 
     .meta-wrap p {
-        width: auto;
+        width: 40vh;
     }
 
     
@@ -1212,6 +1232,12 @@ input {
 /* For extra small screens size from 414px wide and down */
 
 @media (max-width: 414px) {
+    /* BLOG*/
+
+   .page-title {
+       font-size: 2.5em;
+       
+    }
 
     .article-card {
         display: inline-grid;
@@ -1221,6 +1247,7 @@ input {
 
         border-block-color: black;
     }
+
 
     /* CONTACT PAGE*/
     .contact-container {
@@ -1239,11 +1266,14 @@ input {
     .form-container textarea {
         width: 120%;
     }
-
+    textarea.form-control {
+        width: 150%;
+       
+    }
     /* PROFILE PAGE*/
     .title-p {
         font-size: 1.3rem;
-        margin-left: -33px;
+        margin-left: -13px;
     }
 
     .profile-title {
