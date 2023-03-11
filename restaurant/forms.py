@@ -79,6 +79,6 @@ class ReservationForm(forms.ModelForm):
             }.get(chosen_time)
             if current_hour >= earliest_hour:
                 raise forms.ValidationError(
-                    "Reservation cannot be booked today after current time."
+                    "Reservation cannot be booked today after current time"
                     )
         return cleaned_data

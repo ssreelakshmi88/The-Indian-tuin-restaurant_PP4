@@ -137,7 +137,7 @@ def edit_user_reservation(request, pk):
                 )
                 return redirect('user_reservations')
 
-            # Check if the restaurant is closed on this date
+            # Check if the restaurant is closed on Mondays
             if date.weekday() == 0:
                 messages.warning(
                     request,
