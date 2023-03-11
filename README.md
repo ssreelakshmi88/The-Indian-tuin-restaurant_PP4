@@ -75,16 +75,16 @@ The webpage of “Indian Tuin” restaurant introduce our clients to the rich an
    
 ### Admin Features
 
-1.	As a Site Admin I can create draft posts so that I can finish writing the content later
-2.	As a Site Admin I can make, edit and remove comments so that I can manage the interactions of the blog community.
-3.	As a Site Admin I can view accounts of members so that I can know how many users are registered.
-4.	As a Site Admin I can view the number of reservations so that I can know how many customers are expected.
-5.	As a Site Admin I can approve comments so that I can filter out any unwanted comments.
-6.	As a Site Admin I can create, edit, view and delete posts so that I can manage my blog content.
-7.	As a Site User/Admin I can view the number of likes so that I can know which topics are in vogue.
-8.	As a Site Admin I can create, edit, view and delete items in the menu so that I can always manage the menu contents.
+1. As a Site Admin I can create draft posts so that I can finish writing the content later
+2. As a Site Admin I can make, edit and remove comments so that I can manage the interactions of the blog community.
+3. As a Site Admin I can view accounts of members so that I can know how many users are registered.
+4. As a Site Admin I can view the number of reservations so that I can know how many customers are expected.
+5. As a Site Admin I can approve comments so that I can filter out any unwanted comments.
+6. As a Site Admin I can create, edit, view and delete posts so that I can manage my blog content.
+7. As a Site User/Admin I can view the number of likes so that I can know which topics are in vogue.
+8. As a Site Admin I can create, edit, view and delete items in the menu so that I can always manage the menu contents.
 
-9.	As a Site Admin I can display key information so that users can know the location and opening timings of the restaurant.
+9. As a Site Admin I can display key information so that users can know the location and opening timings of the restaurant.
 
 ### Structure
 
