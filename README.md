@@ -211,6 +211,9 @@ Following features have been implemented.
     
 ![screenshot_reservation](https://user-images.githubusercontent.com/97182442/198904857-f1385a67-5c94-41bf-91b1-5acac9135957.jpg)
 
+Unregistered users receive a separate success page indicating about their booking. Those users have to contact the restaurant in order to cancel
+or update their booking.
+
 
 - **Contact page**
 
