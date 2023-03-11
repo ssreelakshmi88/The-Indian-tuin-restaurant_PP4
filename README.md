@@ -106,8 +106,10 @@ The relationship between the "User" entity and the "Menu Items" entity in the ER
 
 - Each menu item can be ordered by many users.
 
+<details><summary><b>Entity Relationship Diagram</b></summary>
 
 ![ERD DIAGRAM_NEW](https://user-images.githubusercontent.com/97182442/223586223-33ebf8f3-dec8-4645-bd26-76ff38d3adfa.jpg)
+</details><br />
 
 
 ## Design
@@ -135,6 +137,29 @@ This can be used as a layout of the various pages. The wireframe images can be f
 This website is made for educational purposes and hence there is scope for improvement and further features need to be added.
 
 Following features have been implemented.
+
+
+<details><summary><b>Navigation Bar</b></summary>
+
+![Screenshot navigation bar](https://user-images.githubusercontent.com/97182442/224514085-c0b63d29-98b2-4629-83b1-3acd3097fd86.jpg)
+</details><br />
+
+
+<details><summary><b>Navigation Bar Responsive Image</b></summary>
+
+![Navigation responsive image](https://user-images.githubusercontent.com/97182442/224514239-7fb635cd-5615-44f7-a3b9-a1a5f21a5190.jpg)
+</details><br />
+
+
+<details><summary><b>Navigation Bar Responsive Dropdown Image</b></summary>
+
+![Responsive dropdown image](https://user-images.githubusercontent.com/97182442/224514349-8b8ebdca-8c56-445e-8843-60ba5b09be4d.jpg)
+</details><br />
+
+<details><summary><b>Footer Image</b></summary>
+
+![footer](https://user-images.githubusercontent.com/97182442/224514261-e7ea781d-fe4e-4849-b77d-6217472e5ea1.jpg)
+</details><br />
 
 ### Implemented features
 
