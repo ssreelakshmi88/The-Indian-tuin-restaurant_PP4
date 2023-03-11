@@ -16,6 +16,11 @@ class UserProfileForm(forms.ModelForm):
         model = UserProfile
         fields = ['name', 'username', 'email', 'profile_image', ]
 
+        widgets = {
+            'name': forms.TextInput(attrs={'required': True}),
+            'email': forms.EmailInput(attrs={'required': True}),
+        }
+
 
 class ContactForm(forms.ModelForm):
     """
