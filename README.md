@@ -214,10 +214,14 @@ Following features have been implemented.
     Reservations can be made by users without registration. However, only registered users can update and/or cancel reservations. User will be notified in case of multiple reservation for a slot.
     
     
+![reservation page](https://user-images.githubusercontent.com/97182442/224512102-9c3ada77-20d8-4b22-864b-f5b42504df3e.jpg)
 
 
 Unregistered users receive a separate success page indicating about their booking. Those users have to contact the restaurant in order to cancel
 or update their booking.
+
+![Booking_success page](https://user-images.githubusercontent.com/97182442/224512109-8bc861a6-979b-4872-8960-1bc2906b9b91.jpg)
+
 
 
 - **Contact page**
@@ -225,7 +229,7 @@ or update their booking.
      Contact page is designed to enable users to connect to the admin. Visitors can ask questions or can give feedback to the admin through the contact page.
 
 
-![contact page_screenshot](https://user-images.githubusercontent.com/97182442/198904863-9dc59413-d0fd-4742-8956-5b6c709556be.jpg)
+![contact page_screenshot](https://user-images.githubusercontent.com/97182442/224512124-bc1f3b5d-8756-4079-994e-73758d58a576.jpg)
 
 
 - **The Footer**
@@ -296,7 +300,7 @@ reservations, details of users.
 
 7.	**Fontawesome**: Icons were taken from font awesome icons
 
-8.	**Creately**: Entity relationship was created using Creately.
+8.	**Smartdraw**: Entity relationship was created using Smartdraw.
 
 9.	**Cloudinary**: This is used for storing photos.
 
@@ -305,6 +309,8 @@ reservations, details of users.
 11. **Summernote**: This is a JavaScript library that helps you create WYSIWYG editors online.
 
 12.	**Django-allauth**: This is an integrated set of Django applications dealing with account authentication, registration, management, and third-party (social) account authentication.
+
+13.   **Favicon Generator**: This is used for favicon generation.
 
 
 **Agile methodology**
@@ -355,22 +361,23 @@ Agile methodology has been used to plan and design this website/project. User st
 
     ii. In reservation page, users can find the opening times of the restaurant. 
     
-    
-    
-  
-    ![opening times](https://user-images.githubusercontent.com/97182442/198905144-59d28b96-a16d-4f0d-acbf-f6a671ee9b45.jpg)
+    ![Opening-time image](https://user-images.githubusercontent.com/97182442/224512565-4bf6258b-0e12-43c4-88c1-7cd8ac954276.jpg)
 
+   
 
 - Finally, I want to make reservations and contact the restaurant, if necessary.
 
     i. The reservation page allows a new user to make booking.
     
-     ![reservation page](https://user-images.githubusercontent.com/97182442/198905103-97eb5988-9d2e-41fc-9fb7-8bf1d42be0d2.jpg)
+    
+![reservation page](https://user-images.githubusercontent.com/97182442/224512686-21b187b5-dc75-418a-abc1-6bb829783027.jpg)
+
 
     ii. User can contact the admin via the contact page.
     
     
-    ![contact page_screenshot](https://user-images.githubusercontent.com/97182442/198905158-68dcaf85-08ca-4900-a895-70fce4e6ad49.jpg)
+   
+![contact page_screenshot](https://user-images.githubusercontent.com/97182442/224512702-3645e38a-eca2-4ddc-bf73-91ac550b833c.jpg)
 
  
 - I can register and create a profile.
@@ -382,7 +389,10 @@ Agile methodology has been used to plan and design this website/project. User st
 
      ii. Registered users can make modifications and delete their profile.
      
-![edit and delete in user profile](https://user-images.githubusercontent.com/97182442/198905249-c20738aa-0bd3-44fa-a918-aeccb19faeee.jpg)
+     
+ ![edit and delete in user profile](https://user-images.githubusercontent.com/97182442/224512718-3cef89b9-496f-43c2-991f-cee9469660b5.jpg)
+ 
+
 
 
 **Returning visitor goals**
@@ -399,12 +409,19 @@ Agile methodology has been used to plan and design this website/project. User st
    ii. Through personal profile, users can view the number of bookings they have made.
    
    
-   ![user_number of reservations](https://user-images.githubusercontent.com/97182442/198905287-161fe1b5-d735-442f-8390-06d546df6283.jpg)
+   
+   ![Number of reservations](https://user-images.githubusercontent.com/97182442/224512754-9a6c216b-0519-4162-91e2-d8a4541a4d66.jpg)
+
+
+
+   ![user  with number of reservations](https://user-images.githubusercontent.com/97182442/224512760-8e82417e-4dbd-40a4-94ab-935518bb1d57.jpg)
+
 
 - I would like to be greeted with interesting blogs.
 
 
 ![Blog page_screenshot](https://user-images.githubusercontent.com/97182442/198905300-e0859e5d-a305-4c93-a59e-97c3f150adc7.jpg)
+
 
  i. Blog pages allow users to scroll through interesting recipes. Each page contains two recipes per page and users can easily pass through pages through pagination links provided below the page.
  
@@ -417,10 +434,12 @@ Agile methodology has been used to plan and design this website/project. User st
 
  ii. Registered users can make comments and like/dislike posts which is displayed beneath each recipe.
  
+ 
  ![Screenshot blog posts](https://user-images.githubusercontent.com/97182442/198905496-6842ae28-f64e-4820-81b2-4d174967d4b5.jpg)
 
  
  iii. Comments will be displayed after approval by admin.
+ 
  
  ![comment_blog post](https://user-images.githubusercontent.com/97182442/198905508-075db082-aca4-42eb-8439-20ae67151bb8.jpg)
  
@@ -433,6 +452,7 @@ Agile methodology has been used to plan and design this website/project. User st
  
  iv. Registered users can update and delete their comments according to their wish.
  
+ 
  ![Delete comment page](https://user-images.githubusercontent.com/97182442/198905525-c193091b-d66c-4575-a318-f6a9e0febc53.jpg)
 
  
@@ -440,9 +460,10 @@ Agile methodology has been used to plan and design this website/project. User st
  
      i. In the contact page, users can give feedbacks and suggestions.
      
-     ![contact page_screenshot](https://user-images.githubusercontent.com/97182442/198905532-750847bf-b6e3-4edd-8ca2-973f6a2ce69b.jpg)
+     
+     ![contact page_screenshot](https://user-images.githubusercontent.com/97182442/224512790-36509915-b5e3-48a8-813f-30e4121f274b.jpg)
 
-
+   
 
 **Frequent Visitor Goals**
 
@@ -501,29 +522,67 @@ The website is not responsive in all devices. In some devices, the submit button
 Deploying the project using Heroku: 
 1.  Login to Heroku and Create a New App
 
+![heroku-login](https://user-images.githubusercontent.com/97182442/224512832-7008acd5-5039-4951-822b-db99ee78f503.jpg)
+
+2.  Give the App a name, it must be unique, and select a region
+
 2.  Give the App a name, it must be unique, and select a region.
 3. Click on 'Create App', this will take you to a page where you can deploy your project.
 4. Click on the 'Resources' tab and search for 'Heroku Postgres' as this is the add-on you will use for the deployed database.
 5. Click on the 'Settings' tab at the top of the page. The following step must be completed before deployment.
+
+
+![Settings tab](https://user-images.githubusercontent.com/97182442/224512940-6689b0b1-ca2c-4cb9-9102-7e1cd7093971.jpg)
+
 6. Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py as a root level file. The env.py files is where the projects secret environment variables are stored. This file is then added to a .gitignore file so it isn't stored publicly within the projects repository.
+
+
+![Reveal config vars](https://user-images.githubusercontent.com/97182442/224512948-1a31d9f6-744b-41b7-a854-606e5a16206d.jpg)
+
+
+![env py](https://user-images.githubusercontent.com/97182442/224512987-f4fbd022-2fbe-47d3-9065-57995e9f2ab3.jpg)
+
 7. Below your Config Vars in your app settings, click **Add build pack**.
+
+![Select build pack](https://user-images.githubusercontent.com/97182442/224512993-c9bc3a60-9b7b-4a81-90ad-fc7f1167e3b1.jpg)
+
 8. Select **Python** from the list of build packs. Click **Save Changes**
+
 9. Select **Deploy** from the tabs at the top of the app page.
+
+![Select deploy](https://user-images.githubusercontent.com/97182442/224513010-a37e69d2-30ab-4d60-a661-6ce9339ec044.jpg)
+
 10. Select **Connect to GitHub** from the deployment methods.
+
+![Select repository](https://user-images.githubusercontent.com/97182442/224513019-d246e32b-7cdd-4d95-865a-24d9243708be.jpg)
+
 11. Search for the repository to connect to by name. 
+
 12. Click **Connect**. Your app should now be connected to your GitHub account.
+
 13. Select Enable Automatic Deploys for automatic deployments.
+
 - If you would like to deploy manually, select Deploy Branch. If you manually deploy, you will need to re-deploy each time the repository is updated.
+
+
+![Manual deploy](https://user-images.githubusercontent.com/97182442/224513024-99948287-bc57-4183-84c0-0f996ac6bc61.jpg)
+
+
+![Automatic deploy](https://user-images.githubusercontent.com/97182442/224513031-47c5303f-710d-45d4-b321-7ffdda2f7494.jpg)
+
 14. Click **View** to view the deployed site.
 
+
+
 ### Elephant SQL
-Heroku ended their free tier hosting at the end of November 2022. As I am a student who is currently registered with the GitHub Student Developer Pack, I can apply for the Heroku credits. The Heroku credits allowed me to transfer my projects from free dynos to Eco dynos to ensure that they continue to work. Unfortunately, the student offer does not include the Postgres add-on being used to host my Postgres database. Code Insitute, therefore, have recommended students migrate their databases to a new provider. In this case, it's ElephantSQL, as they are free. The DATABASE_URL value now points to the elephantSQL database in my Heroku Config Vars.
+Heroku ended their free tier hosting at the end of November 2022. Students registered with the GitHub Student Developer Pack can apply for the Heroku credits. The Heroku credits allows transfer the projects from free dynos to Eco dynos to ensure that they continue to work. Unfortunately, the student offer does not include the Postgres add-on being used to host my Postgres database. Code Insitute, therefore, have recommended students migrate their databases to a new provider. In this case, it's ElephantSQL, as they are free. The DATABASE_URL value now points to the elephantSQL database in my Heroku Config Vars.
 
 As the database provided by Django is only accessible within Gitpod and is not suitable for a production environment. The deployed project on Heroku will not be able to access it. So, you need to create a new database that can be accessed by Heroku. The following steps will create a new PostgreSQL database instance for use within the project.
 
 #### Create & attach the Elephant SQL database
 
 1. Log in to ElephantSQL to access your dashboard.
+![login_elephant sql](https://user-images.githubusercontent.com/97182442/224513112-9b3c93a6-7106-4f77-b387-ea1d0a016bd2.jpg)
 
 2. Click **Create New Instance** at the top right of the page.
 
@@ -531,6 +590,8 @@ As the database provided by Django is only accessible within Gitpod and is not s
 - Give your plan a Name (the name of the project)
 - Select the Tiny Turtle (Free) plan
 - You can leave the Tags field blank
+
+![select plan and name](https://user-images.githubusercontent.com/97182442/224513123-b62c9240-6f39-4e0c-b307-55a9f1133993.jpg)
 
 4. Click **Select Region**.
 
@@ -542,7 +603,13 @@ As the database provided by Django is only accessible within Gitpod and is not s
 
 8. Copy the database URL from the URL section.
 
+![cpoy database url](https://user-images.githubusercontent.com/97182442/224513135-be71d401-327a-4534-b8d2-450406e98772.jpg)
+
+
 9. In Heroku app, add DATABASE_URL as the KEY and paste the URL and  ElephantSQL database will be connected to your Heroku app.
+
+![database url copied to heroku](https://user-images.githubusercontent.com/97182442/224513143-311e5287-116f-4189-b370-e721ea6599c5.jpg)
+
 #### In Gitpod workspace
 1. Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on GitPod.
 2. Within the settings.py file you need to import the libraries:
