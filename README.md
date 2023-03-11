@@ -89,10 +89,16 @@ The webpage of “Indian Tuin” restaurant introduce our clients to the rich an
 ### Structure
 
 #### Entity Relationship Diagram
+In this diagram, the Users entity stores information about website users, including their names, email addresses and passwords. The Menu Items entity stores information about the menu items available at the restaurant, including their names, descriptions, and prices.
 
-ERM diagram demonstrates how the information is stored when data is at rest. As seen in the diagram, there are one or may relationships between the user and Post model and Comment Model. PostModel has one or more relatioship with Comment Model as single post can have many comments. The user and relationship also serves a one or more relationship as the user can create one or more reservations. But such relationship cannot established between the user and menu model. User can send many messages and questions through contact page, so there is one or more relationships. Admin or staff members have more relationships with Menu model and blog posts.
+The Reservation entity stores information about reservations made by users, including the reservation date, time, and number of guests. The Contact entity stores information about users who submit messages through the website contact form.
 
+In this diagram, there is a one-to-many relationship between the Users entity and both the Reservation and Blog Post entities, indicating that a user can make multiple reservations and read multiple blog posts. There is also a one-to-many relationship between the Blog Post entity and the Blog Comment entity, indicating that a single blog post can have multiple comments.
 
+The relationship between the User entity and the Contact entity in the ERD diagram for a restaurant website can be described as a one-to-many relationship because:
+- One user can submit many messages through the website's contact form.
+
+- Each message submitted through the contact form is associated with one user.
 
 
 ![ERD DIAGRAM_NEW](https://user-images.githubusercontent.com/97182442/223586223-33ebf8f3-dec8-4645-bd26-76ff38d3adfa.jpg)
