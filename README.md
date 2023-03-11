@@ -496,7 +496,7 @@ Deploying the project using Heroku:
 14. Click **View** to view the deployed site.
 
 ### Elephant SQL
-Heroku announced in September 2022 that they would be ending their free tier hosting at the end of November 2022. As I am a student who is currently registered with the GitHub Student Developer Pack, I can apply for the Heroku credits. The Heroku credits allowed me to transfer my projects from free dynos to Eco dynos to ensure that they continue to work. Unfortunately, the student offer does not include the Postgres add-on being used to host my Postgres database. Code Insitute, therefore, have recommended students migrate their databases to a new provider. In this case, it's ElephantSQL, as they are free. The DATABASE_URL value now points to the elephantSQL database in my Heroku Config Vars.
+Heroku ended their free tier hosting at the end of November 2022. As I am a student who is currently registered with the GitHub Student Developer Pack, I can apply for the Heroku credits. The Heroku credits allowed me to transfer my projects from free dynos to Eco dynos to ensure that they continue to work. Unfortunately, the student offer does not include the Postgres add-on being used to host my Postgres database. Code Insitute, therefore, have recommended students migrate their databases to a new provider. In this case, it's ElephantSQL, as they are free. The DATABASE_URL value now points to the elephantSQL database in my Heroku Config Vars.
 
 As the database provided by Django is only accessible within Gitpod and is not suitable for a production environment. The deployed project on Heroku will not be able to access it. So, you need to create a new database that can be accessed by Heroku. The following steps will create a new PostgreSQL database instance for use within the project.
 
@@ -587,23 +587,19 @@ https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
 
 ### Code
 
-## Credits
-
-### Code
-
 - Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
 
 - Date picker widget has been taken from stackoverflow.
 
 - Most of the code used in this project was taken from [Code Institutes](https://codeinstitute.net/) Django lessons.
 
-- DioCar84/A-Taste-of-Lisbon(https://github.com/DioCar84/A-Taste-of-Lisbon.git)for README, setup code and guidance.
+- [DioCar84/A-Taste-of-Lisbon](https://github.com/DioCar84/A-Taste-of-Lisbon.git) for README, setup code and guidance.
 
-- MikeR94/CI-Project-Portfolio-4(https://github.com/MikeR94/CI-Project-Portfolio-4.git)for setting up README.
+- [MikeR94/CI-Project-Portfolio-4](https://github.com/MikeR94/CI-Project-Portfolio-4.git )for setting up README.
 
 - Code institute READMe template was referred to create README template for this project.
 
-- chris-townsend/PP4-Kitchen_Tales(https://github.com/chris-townsend/PP4-Kitchen_Tales.git) Elephant SQL section from README
+- [chris-townsend/PP4-Kitchen_Tales](https://github.com/chris-townsend/PP4-Kitchen_Tales.git) Elephant SQL section from README
 
 - Stack Overflow.
 
