@@ -474,17 +474,57 @@ The contact page is not responsive in all devices.
 
 The website is not responsive in all devices. In some devices, the submit buttons were pushed to different sides. Also, the position of logo changes in some devices.
 
+
 ## Deployment
 
 Deploying the project using Heroku: 
 1.  Login to Heroku and Create a New App
+
 2.  Give the App a name, it must be unique, and select a region.
 3. Click on 'Create App', this will take you to a page where you can deploy your project.
 4. Click on the 'Resources' tab and search for 'Heroku Postgres' as this is the add-on you will use for the deployed database.
 5. Click on the 'Settings' tab at the top of the page. The following step must be completed before deployment.
 6. Scroll down to 'Config Vars' and click 'Reveal Config Vars'. Here the database URL is stored, it is the connection to the database, so this must be copied and stored within env.py as a root level file. The env.py files is where the projects secret environment variables are stored. This file is then added to a .gitignore file so it isn't stored publicly within the projects repository.
-7. Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on GitPod.
-8. Within the settings.py file you need to import the libraries:
+7. Below your Config Vars in your app settings, click **Add build pack**.
+8. Select **Python** from the list of build packs. Click **Save Changes**
+9. Select **Deploy** from the tabs at the top of the app page.
+10. Select **Connect to GitHub** from the deployment methods.
+11. Search for the repository to connect to by name. 
+12. Click **Connect**. Your app should now be connected to your GitHub account.
+13. Select Enable Automatic Deploys for automatic deployments.
+- If you would like to deploy manually, select Deploy Branch. If you manually deploy, you will need to re-deploy each time the repository is updated.
+14. Click **View** to view the deployed site.
+
+### Elephant SQL
+Heroku ended their free tier hosting at the end of November 2022. As I am a student who is currently registered with the GitHub Student Developer Pack, I can apply for the Heroku credits. The Heroku credits allowed me to transfer my projects from free dynos to Eco dynos to ensure that they continue to work. Unfortunately, the student offer does not include the Postgres add-on being used to host my Postgres database. Code Insitute, therefore, have recommended students migrate their databases to a new provider. In this case, it's ElephantSQL, as they are free. The DATABASE_URL value now points to the elephantSQL database in my Heroku Config Vars.
+
+As the database provided by Django is only accessible within Gitpod and is not suitable for a production environment. The deployed project on Heroku will not be able to access it. So, you need to create a new database that can be accessed by Heroku. The following steps will create a new PostgreSQL database instance for use within the project.
+
+#### Create & attach the Elephant SQL database
+
+1. Log in to ElephantSQL to access your dashboard.
+
+2. Click **Create New Instance** at the top right of the page.
+
+3. Set up your **plan**
+- Give your plan a Name (the name of the project)
+- Select the Tiny Turtle (Free) plan
+- You can leave the Tags field blank
+
+4. Click **Select Region**.
+
+5. Click **Review**.
+
+6. Check your details and then click Create instance.
+
+7. In the **ElephantSQL dashboard**, **database instance name** will be visible
+
+8. Copy the database URL from the URL section.
+
+9. In Heroku app, add DATABASE_URL as the KEY and paste the URL and  ElephantSQL database will be connected to your Heroku app.
+#### In Gitpod workspace
+1. Next, the secret key needs to be created within the projects env.py file on GitPod and then added to the Config Vars on Heroku. Once added, go to the settings.py file on GitPod.
+2. Within the settings.py file you need to import the libraries:
 
            import os
            import dj_database_url
@@ -492,31 +532,26 @@ Deploying the project using Heroku:
            if os.path.isfile('env.py'):
            import env
 
-9. Next we need to tell Django where to store the media and static files. Towards the bottom of settings.py file we can add:
+3. Next we need to tell Django where to store the media and static files. Towards the bottom of settings.py file we can add:
 
                    STATIC_URL = '/static/'
                   STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
                   STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
                   MEDIA_URL = '/media/'
 
-10. At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll down to TEMPLATES and add the templates directory variable to 'DIRS': [].
+4. At the top of settings.py, under BASE_DIR (the base directory), add a templates directory and then scroll down to TEMPLATES and add the templates directory variable to 'DIRS': [].
 
-11. Now we have to add our Heroku Host Name into allowed hosts in settings.py file:
+5. Now we have to add our Heroku Host Name into allowed hosts in settings.py file:
    ALLOWED_HOSTS = ['YOUR-APP-NAME-HERE', 'localhost']
    
-12. Finally, to complete the first deployment set up of the skeleton app, create a Procfile so that Heroku knows how to run the project. Within this file add the following: web: gunicorn APP-NAME.wsgi Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a standard that allows Python services to integrate with web servers.
+6. Finally, to complete the first deployment set up of the skeleton app, create a Procfile so that Heroku knows how to run the project. Within this file add the following: web: gunicorn APP-NAME.wsgi Web tells Heroku to allow web traffic, whilst gunicorn is the server installed earlier, a web services gateway interface server (wsgi). This is a standard that allows Python services to integrate with web servers.
 
-13. Now, go to the 'Deploy' Tab on Heroku. Find the 'Deployment Method' section and choose GitHub. Connect to your GitHub account and find the repo you want to deploy.
-
-14. Scroll down to the Automatic and Manual Deploys sections. Click 'Deploy Branch' in the Manual Deploy section and waited as Heroku installed all dependencies and deployed the code.
-
-15. Once the project is finished deploying, click 'Open App' to see the newly deployed project.
-
-16.Before deploying the final draft of your project you must:
+7.Before deploying the final draft of your project you must:
 
    . Remove “**DISABLE staticcollect=1** from congifvars within Heroku
    
    . Ensure DEBUG is set to **False** in settings.py file.
+   
    
 ## Forking the GitHub Repository
 
@@ -558,12 +593,15 @@ https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
 
 - Most of the code used in this project was taken from [Code Institutes](https://codeinstitute.net/) Django lessons.
 
-- DioCar84/A-Taste-of-Lisbon(https://github.com/DioCar84/A-Taste-of-Lisbon.git)for README, setup code and guidance.
+- [DioCar84/A-Taste-of-Lisbon](https://github.com/DioCar84/A-Taste-of-Lisbon.git) for README, setup code and guidance.
 
-- MikeR94/CI-Project-Portfolio-4(https://github.com/MikeR94/CI-Project-Portfolio-4.git)for setting up README.
+- [MikeR94/CI-Project-Portfolio-4](https://github.com/MikeR94/CI-Project-Portfolio-4.git )for setting up README.
 
 - Code institute READMe template was referred to create README template for this project.
 
+- [chris-townsend/PP4-Kitchen_Tales](https://github.com/chris-townsend/PP4-Kitchen_Tales.git) Elephant SQL section from README
+
+- Stack Overflow.
 
 ### Content
 
