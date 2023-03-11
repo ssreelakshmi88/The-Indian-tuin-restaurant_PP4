@@ -57,31 +57,6 @@ class ReservationForm(forms.ModelForm):
         'type': 'date', 'min': timezone.localdate().strftime('%Y-%m-%d')
         }))
 
-    def clean_name(self):
-        """
-        Validates the name field to ensure it's not empty
-        and contains only letters and spaces.
-        """
-        name = self.cleaned_data['name']
-        if not name:
-            raise forms.ValidationError("Name is required.")
-        elif not name.replace(" ", "").isalpha():
-            raise forms.ValidationError(
-                                        "Name can only contain letters."
-                                        )
-        return name
-
-    def clean_email(self):
-        """
-        Validates the email field to ensure it's not empty.
-        """
-        email = self.cleaned_data['email']
-        if not email:
-            raise forms.ValidationError("Email is required.")
-        elif "@" not in email:
-            raise forms.ValidationError("Please enter a valid email address.")
-        return email
-
     def clean(self):
         """
         Validates the date and time fields to ensure
