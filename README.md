@@ -555,7 +555,12 @@ https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
 
 - Most of the code used in this project was taken from [Code Institutes](https://codeinstitute.net/) Django lessons.
 
+- DioCar84/A-Taste-of-Lisbon(https://github.com/DioCar84/A-Taste-of-Lisbon.git)for README, setup code and guidance.
+
+- MikeR94/CI-Project-Portfolio-4(https://github.com/MikeR94/CI-Project-Portfolio-4.git)for setting up README.
+
 - Code institute READMe template was referred to create README template for this project.
+
 
 ### Content
 
