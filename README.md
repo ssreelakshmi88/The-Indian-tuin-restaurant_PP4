@@ -358,6 +358,9 @@ Agile methodology has been used to plan and design this website/project. User st
 ![agile_completed](https://user-images.githubusercontent.com/97182442/198905022-d2f75375-f18d-41b8-921c-56c120cc5d85.jpg)
 
 
+![Agile-user stories with labels](https://user-images.githubusercontent.com/97182442/224517388-ca62b8d4-99af-4ee2-8ddb-53eec1ae76c8.jpg)
+
+
 
 ## Testing
 
