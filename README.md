@@ -253,6 +253,9 @@ or update their booking.
 
 ![Booking_success page](https://user-images.githubusercontent.com/97182442/224512109-8bc861a6-979b-4872-8960-1bc2906b9b91.jpg)
 
+**Update Booking** button is only visible to registered users.
+
+![reservation_update button](https://user-images.githubusercontent.com/97182442/224516941-ad0e04ef-1eae-4ff9-992e-6b731a3b4dc7.jpg)
 
 
 - **Contact page**
@@ -313,7 +316,7 @@ reservations, details of users.
    
 ### Database
 
-•	PostgreSQL
+•	PostgreSQL, ElephantSQL
 
 ### Libraries frameworks and other technologies
 
@@ -400,12 +403,11 @@ Agile methodology has been used to plan and design this website/project. User st
 
     i. The reservation page allows a new user to make booking.
     
+    ![reservatiion_new user](https://user-images.githubusercontent.com/97182442/224517060-f009c93f-e998-4cc4-a515-34cc1e8c7aa0.jpg)
     
-![reservation page](https://user-images.githubusercontent.com/97182442/224512686-21b187b5-dc75-418a-abc1-6bb829783027.jpg)
-
+    
 
     ii. User can contact the admin via the contact page.
-    
     
    
 ![contact page_screenshot](https://user-images.githubusercontent.com/97182442/224512702-3645e38a-eca2-4ddc-bf73-91ac550b833c.jpg)
@@ -560,7 +562,6 @@ Deploying the project using Heroku:
 
 2.  Give the App a name, it must be unique, and select a region
 
-2.  Give the App a name, it must be unique, and select a region.
 3. Click on 'Create App', this will take you to a page where you can deploy your project.
 4. Click on the 'Resources' tab and search for 'Heroku Postgres' as this is the add-on you will use for the deployed database.
 5. Click on the 'Settings' tab at the top of the page. The following step must be completed before deployment.
@@ -702,7 +703,7 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 
 6. Type git clone, and then paste the URL you copied in Step 3:
 
-https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
+https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4_resubmission.git
 
 7. Press Enter. Your local clone will be created.
 
@@ -719,7 +720,7 @@ https://github.com/ssreelakshmi88/The-Indian-tuin-restaurant_PP4.git
 
 - Most of the code used in this project was taken from [Code Institutes](https://codeinstitute.net/) Django lessons.
 
-- [DioCar84/A-Taste-of-Lisbon](https://github.com/DioCar84/A-Taste-of-Lisbon.git) for README, setup code and guidance.
+- [DioCar84/A-Taste-of-Lisbon](https://github.com/DioCar84/A-Taste-of-Lisbon.git) for README, setup code and reference.
 
 - [MikeR94/CI-Project-Portfolio-4](https://github.com/MikeR94/CI-Project-Portfolio-4.git )for setting up README.
 
@@ -751,7 +752,7 @@ Restaurant opening times image was created using this website https://www.poster
 
 - My mentor, Narender Singh for his support and continuous feedback.
 
-- My mentor, Precious Ijege.at the time of resubmission
+- My mentor, Precious Ijege at the time of resubmission
 
 - Tutor support at Code Institute for their support.
 
